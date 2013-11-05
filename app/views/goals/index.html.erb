@@ -3,7 +3,7 @@
 <ul class="nav nav-tabs">
   <li><a href="goal_instances?user_id=<%= session[:current_user]%>">My Goals</a></li>
   <li class="active"><a href="#">Find Goals</a></li>
-  <li><a href="#">Friend's Goals</a></li>
+  <li><a href="friends/index">Friend's Goals</a></li>
 </ul>
 <div style="float: right;"><%= link_to 'Create Goal', new_goal_path %></div>
 <br />

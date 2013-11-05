@@ -2,7 +2,7 @@
 <table>
 <% @current_user_friends_in_trackr.each do |friend| %>
   <tr>
-  	<td><%= link_to friend.first_name, goal_instance_path(:user_id => friend.id)%></td>
+  	<td><%= link_to friend.first_name, "#"%></td>
   </tr>
 <% end %>
 </table>

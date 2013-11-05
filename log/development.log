@@ -11402,3 +11402,1205 @@ ActionController::RoutingError (No route matches {:action=>"show", :controller=>
 
 
   Rendered /home/kaos/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.4ms)
+
+
+Started GET "/goals" for 127.0.0.1 at 2013-11-04 16:58:00 -0800
+Connecting to database specified by database.yml
+Processing by GoalsController#index as HTML
+  [1m[36mGoal Load (0.1ms)[0m  [1mSELECT `goals`.* FROM `goals` [0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 23 LIMIT 1
+  [1m[36mGoalInstance Load (0.1ms)[0m  [1mSELECT `goal_instances`.* FROM `goal_instances` WHERE `goal_instances`.`goal_id` = 16[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 25 LIMIT 1
+  [1m[36mGoalInstance Load (0.1ms)[0m  [1mSELECT `goal_instances`.* FROM `goal_instances` WHERE `goal_instances`.`goal_id` = 17[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 26 LIMIT 1
+  [1m[36mGoalInstance Load (0.1ms)[0m  [1mSELECT `goal_instances`.* FROM `goal_instances` WHERE `goal_instances`.`goal_id` = 18[0m
+  Rendered goals/index.html.erb within layouts/application (65.8ms)
+Compiled bootstrap.css  (0ms)  (pid 4065)
+Compiled goal_instances.css  (1112ms)  (pid 4065)
+Compiled goals.css  (431ms)  (pid 4065)
+Compiled application.css  (1ms)  (pid 4065)
+Completed 200 OK in 1856ms (Views: 1794.2ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/assets/holder.js" for 127.0.0.1 at 2013-11-04 16:58:02 -0800
+Served asset /holder.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2013-11-04 16:58:02 -0800
+Served asset /bootstrap.css - 200 OK (83ms)
+
+
+Started GET "/assets/goal_instances.css?body=1" for 127.0.0.1 at 2013-11-04 16:58:02 -0800
+Served asset /goal_instances.css - 200 OK (1ms)
+
+
+Started GET "/assets/goals.css?body=1" for 127.0.0.1 at 2013-11-04 16:58:02 -0800
+Served asset /goals.css - 200 OK (1ms)
+
+
+Started GET "/assets/login.css?body=1" for 127.0.0.1 at 2013-11-04 16:58:02 -0800
+Served asset /login.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/friends.css?body=1" for 127.0.0.1 at 2013-11-04 16:58:02 -0800
+Served asset /friends.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-11-04 16:58:02 -0800
+Served asset /scaffolds.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-11-04 16:58:02 -0800
+Served asset /users.css - 304 Not Modified (4ms)
+
+
+Started GET "/goal_instances?user_id=24" for 127.0.0.1 at 2013-11-04 16:58:11 -0800
+Processing by GoalInstancesController#index as HTML
+  Parameters: {"user_id"=>"24"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 24 LIMIT 1
+  [1m[36mGoalInstance Load (2.1ms)[0m  [1mSELECT `goal_instances`.* FROM `goal_instances` WHERE `goal_instances`.`user_id` = 24[0m
+  [1m[35mGoal Load (1.2ms)[0m  SELECT `goals`.* FROM `goals` WHERE `goals`.`id` = 16 LIMIT 1
+  Rendered goal_instances/index.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 14ms (Views: 9.2ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/assets/holder.js" for 127.0.0.1 at 2013-11-04 16:58:11 -0800
+Served asset /holder.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/friends.css?body=1" for 127.0.0.1 at 2013-11-04 16:58:11 -0800
+Served asset /friends.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/login.css?body=1" for 127.0.0.1 at 2013-11-04 16:58:11 -0800
+Served asset /login.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-11-04 16:58:11 -0800
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-11-04 16:58:11 -0800
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/goals" for 127.0.0.1 at 2013-11-04 16:58:19 -0800
+Processing by GoalsController#index as HTML
+  [1m[36mGoal Load (0.2ms)[0m  [1mSELECT `goals`.* FROM `goals` [0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 23 LIMIT 1
+  [1m[36mGoalInstance Load (0.1ms)[0m  [1mSELECT `goal_instances`.* FROM `goal_instances` WHERE `goal_instances`.`goal_id` = 16[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 25 LIMIT 1
+  [1m[36mGoalInstance Load (0.1ms)[0m  [1mSELECT `goal_instances`.* FROM `goal_instances` WHERE `goal_instances`.`goal_id` = 17[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 26 LIMIT 1
+  [1m[36mGoalInstance Load (0.1ms)[0m  [1mSELECT `goal_instances`.* FROM `goal_instances` WHERE `goal_instances`.`goal_id` = 18[0m
+  Rendered goals/index.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 12ms (Views: 11.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/holder.js" for 127.0.0.1 at 2013-11-04 16:58:19 -0800
+Served asset /holder.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/friends.css?body=1" for 127.0.0.1 at 2013-11-04 16:58:19 -0800
+Served asset /friends.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/login.css?body=1" for 127.0.0.1 at 2013-11-04 16:58:19 -0800
+Served asset /login.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-11-04 16:58:19 -0800
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-11-04 16:58:19 -0800
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/goal_instances?user_id=24" for 127.0.0.1 at 2013-11-04 16:58:25 -0800
+Processing by GoalInstancesController#index as HTML
+  Parameters: {"user_id"=>"24"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 24 LIMIT 1
+  [1m[36mGoalInstance Load (3.1ms)[0m  [1mSELECT `goal_instances`.* FROM `goal_instances` WHERE `goal_instances`.`user_id` = 24[0m
+  [1m[35mGoal Load (0.4ms)[0m  SELECT `goals`.* FROM `goals` WHERE `goals`.`id` = 16 LIMIT 1
+  Rendered goal_instances/index.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 11ms (Views: 6.6ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/assets/holder.js" for 127.0.0.1 at 2013-11-04 16:58:25 -0800
+Served asset /holder.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/friends.css?body=1" for 127.0.0.1 at 2013-11-04 16:58:25 -0800
+Served asset /friends.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-11-04 16:58:25 -0800
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-11-04 16:58:25 -0800
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/login.css?body=1" for 127.0.0.1 at 2013-11-04 16:58:25 -0800
+Served asset /login.css - 304 Not Modified (0ms)
+
+
+Started GET "/goals" for 127.0.0.1 at 2013-11-04 16:58:26 -0800
+Processing by GoalsController#index as HTML
+  [1m[36mGoal Load (0.1ms)[0m  [1mSELECT `goals`.* FROM `goals` [0m
+  [1m[35mUser Load (2.8ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 23 LIMIT 1
+  [1m[36mGoalInstance Load (0.1ms)[0m  [1mSELECT `goal_instances`.* FROM `goal_instances` WHERE `goal_instances`.`goal_id` = 16[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 25 LIMIT 1
+  [1m[36mGoalInstance Load (0.1ms)[0m  [1mSELECT `goal_instances`.* FROM `goal_instances` WHERE `goal_instances`.`goal_id` = 17[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 26 LIMIT 1
+  [1m[36mGoalInstance Load (0.1ms)[0m  [1mSELECT `goal_instances`.* FROM `goal_instances` WHERE `goal_instances`.`goal_id` = 18[0m
+  Rendered goals/index.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 14ms (Views: 10.1ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/assets/friends.css?body=1" for 127.0.0.1 at 2013-11-04 16:58:26 -0800
+Served asset /friends.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/login.css?body=1" for 127.0.0.1 at 2013-11-04 16:58:26 -0800
+Served asset /login.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-11-04 16:58:26 -0800
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-11-04 16:58:26 -0800
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/holder.js" for 127.0.0.1 at 2013-11-04 16:58:26 -0800
+Served asset /holder.js - 304 Not Modified (0ms)
+
+
+Started GET "/goal_instances?user_id=24" for 127.0.0.1 at 2013-11-04 16:58:32 -0800
+Processing by GoalInstancesController#index as HTML
+  Parameters: {"user_id"=>"24"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 24 LIMIT 1
+  [1m[36mGoalInstance Load (3.1ms)[0m  [1mSELECT `goal_instances`.* FROM `goal_instances` WHERE `goal_instances`.`user_id` = 24[0m
+  [1m[35mGoal Load (0.6ms)[0m  SELECT `goals`.* FROM `goals` WHERE `goals`.`id` = 16 LIMIT 1
+  Rendered goal_instances/index.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 13ms (Views: 7.4ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/assets/holder.js" for 127.0.0.1 at 2013-11-04 16:58:32 -0800
+Served asset /holder.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/friends.css?body=1" for 127.0.0.1 at 2013-11-04 16:58:32 -0800
+Served asset /friends.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/login.css?body=1" for 127.0.0.1 at 2013-11-04 16:58:32 -0800
+Served asset /login.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-11-04 16:58:32 -0800
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-11-04 16:58:32 -0800
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/goal_instances" for 127.0.0.1 at 2013-11-04 16:58:54 -0800
+Processing by GoalInstancesController#index as HTML
+Completed 404 Not Found in 0ms
+
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  app/controllers/goal_instances_controller.rb:5:in `index'
+
+
+  Rendered /home/kaos/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /home/kaos/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (5.1ms)
+  Rendered /home/kaos/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.1ms)
+
+
+Started GET "/goal_instances?user_id=25" for 127.0.0.1 at 2013-11-04 16:59:05 -0800
+Processing by GoalInstancesController#index as HTML
+  Parameters: {"user_id"=>"25"}
+  [1m[36mUser Load (2.8ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 25 LIMIT 1[0m
+  [1m[35mGoalInstance Load (3.3ms)[0m  SELECT `goal_instances`.* FROM `goal_instances` WHERE `goal_instances`.`user_id` = 25
+  [1m[36mGoal Load (2.5ms)[0m  [1mSELECT `goals`.* FROM `goals` WHERE `goals`.`id` = 16 LIMIT 1[0m
+  Rendered goal_instances/index.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 21ms (Views: 10.9ms | ActiveRecord: 8.6ms)
+
+
+Started GET "/assets/holder.js" for 127.0.0.1 at 2013-11-04 16:59:05 -0800
+Served asset /holder.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/friends.css?body=1" for 127.0.0.1 at 2013-11-04 16:59:05 -0800
+Served asset /friends.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/login.css?body=1" for 127.0.0.1 at 2013-11-04 16:59:05 -0800
+Served asset /login.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-11-04 16:59:05 -0800
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-11-04 16:59:05 -0800
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/goal_instances?user_id=26" for 127.0.0.1 at 2013-11-04 16:59:10 -0800
+Processing by GoalInstancesController#index as HTML
+  Parameters: {"user_id"=>"26"}
+  [1m[35mUser Load (2.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 26 LIMIT 1
+  [1m[36mGoalInstance Load (0.2ms)[0m  [1mSELECT `goal_instances`.* FROM `goal_instances` WHERE `goal_instances`.`user_id` = 26[0m
+  Rendered goal_instances/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 6ms (Views: 3.1ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/assets/holder.js" for 127.0.0.1 at 2013-11-04 16:59:10 -0800
+Served asset /holder.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/friends.css?body=1" for 127.0.0.1 at 2013-11-04 16:59:10 -0800
+Served asset /friends.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/login.css?body=1" for 127.0.0.1 at 2013-11-04 16:59:10 -0800
+Served asset /login.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-11-04 16:59:10 -0800
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-11-04 16:59:10 -0800
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/goal_instances?user_id=24354345" for 127.0.0.1 at 2013-11-04 16:59:15 -0800
+Processing by GoalInstancesController#index as HTML
+  Parameters: {"user_id"=>"24354345"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 24354345 LIMIT 1
+Completed 404 Not Found in 1ms
+
+ActiveRecord::RecordNotFound (Couldn't find User with id=24354345):
+  app/controllers/goal_instances_controller.rb:5:in `index'
+
+
+  Rendered /home/kaos/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  Rendered /home/kaos/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.6ms)
+  Rendered /home/kaos/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (8.4ms)
+
+
+Started GET "/goal_instances?user_id=24" for 127.0.0.1 at 2013-11-04 16:59:24 -0800
+Processing by GoalInstancesController#index as HTML
+  Parameters: {"user_id"=>"24"}
+  [1m[36mUser Load (4.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 24 LIMIT 1[0m
+  [1m[35mGoalInstance Load (3.1ms)[0m  SELECT `goal_instances`.* FROM `goal_instances` WHERE `goal_instances`.`user_id` = 24
+  [1m[36mGoal Load (0.8ms)[0m  [1mSELECT `goals`.* FROM `goals` WHERE `goals`.`id` = 16 LIMIT 1[0m
+  Rendered goal_instances/index.html.erb within layouts/application (10.1ms)
+Completed 200 OK in 19ms (Views: 9.6ms | ActiveRecord: 8.2ms)
+
+
+Started GET "/assets/holder.js" for 127.0.0.1 at 2013-11-04 16:59:24 -0800
+Served asset /holder.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/friends.css?body=1" for 127.0.0.1 at 2013-11-04 16:59:24 -0800
+Served asset /friends.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-11-04 16:59:25 -0800
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-11-04 16:59:25 -0800
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/login.css?body=1" for 127.0.0.1 at 2013-11-04 16:59:25 -0800
+Served asset /login.css - 304 Not Modified (0ms)
+
+
+Started GET "/users.json" for 127.0.0.1 at 2013-11-04 16:59:32 -0800
+Processing by UsersController#index as JSON
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` 
+Completed 200 OK in 11ms (Views: 7.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2013-11-04 16:59:38 -0800
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` [0m
+  Rendered users/index.html.erb within layouts/application (11.9ms)
+Completed 200 OK in 23ms (Views: 21.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/holder.js" for 127.0.0.1 at 2013-11-04 16:59:38 -0800
+Served asset /holder.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/friends.css?body=1" for 127.0.0.1 at 2013-11-04 16:59:38 -0800
+Served asset /friends.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/login.css?body=1" for 127.0.0.1 at 2013-11-04 16:59:38 -0800
+Served asset /login.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-11-04 16:59:38 -0800
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-11-04 16:59:38 -0800
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/login/index" for 127.0.0.1 at 2013-11-04 16:59:58 -0800
+Processing by LoginController#index as HTML
+  Rendered login/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 9ms (Views: 6.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/holder.js" for 127.0.0.1 at 2013-11-04 16:59:58 -0800
+Served asset /holder.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/friends.css?body=1" for 127.0.0.1 at 2013-11-04 16:59:58 -0800
+Served asset /friends.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-11-04 16:59:58 -0800
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-11-04 16:59:58 -0800
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/login.css?body=1" for 127.0.0.1 at 2013-11-04 16:59:58 -0800
+Served asset /login.css - 304 Not Modified (0ms)
+
+
+Started GET "/login/callback?code=AQDftL8sUjMAXen2GPH6GV7_8nUKv2lyXnmQrzzNMdgkYUX6FZ2vnyt0SdklHHm0zKCxKmWuxxGA1l2qMNzCOeE3v55FuJ3mDI_e4_UM0-qphpiqvL6kTMsUwYo3DV2xjeSbXP6G6adP42gtBqoBvGsNnYFwVxNXa93Mb6ZH7TVrGhlqbUHNWtjDAR2sobOYLhTVS7faQZHiCqHbXabjGpdkjUb2oHKGOmAmc_ghw0PrwU_tNy-nNN_6YH_RF9bX4Bk3nMVIquAEKQzEGzbhaJ9yo-aiQ1ytxV72qVuUgJ9F8wElku9ArnUh-K8V-padu_g" for 127.0.0.1 at 2013-11-04 16:59:59 -0800
+Processing by LoginController#callback as HTML
+  Parameters: {"code"=>"AQDftL8sUjMAXen2GPH6GV7_8nUKv2lyXnmQrzzNMdgkYUX6FZ2vnyt0SdklHHm0zKCxKmWuxxGA1l2qMNzCOeE3v55FuJ3mDI_e4_UM0-qphpiqvL6kTMsUwYo3DV2xjeSbXP6G6adP42gtBqoBvGsNnYFwVxNXa93Mb6ZH7TVrGhlqbUHNWtjDAR2sobOYLhTVS7faQZHiCqHbXabjGpdkjUb2oHKGOmAmc_ghw0PrwU_tNy-nNN_6YH_RF9bX4Bk3nMVIquAEKQzEGzbhaJ9yo-aiQ1ytxV72qVuUgJ9F8wElku9ArnUh-K8V-padu_g"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`fb_id` = '100001639762906' LIMIT 1
+Redirected to http://localhost:3000/goals
+Completed 302 Found in 340ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/goals" for 127.0.0.1 at 2013-11-04 17:00:00 -0800
+Processing by GoalsController#index as HTML
+  [1m[36mGoal Load (0.1ms)[0m  [1mSELECT `goals`.* FROM `goals` [0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 23 LIMIT 1
+  [1m[36mGoalInstance Load (0.1ms)[0m  [1mSELECT `goal_instances`.* FROM `goal_instances` WHERE `goal_instances`.`goal_id` = 16[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 25 LIMIT 1
+  [1m[36mGoalInstance Load (0.1ms)[0m  [1mSELECT `goal_instances`.* FROM `goal_instances` WHERE `goal_instances`.`goal_id` = 17[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 26 LIMIT 1
+  [1m[36mGoalInstance Load (0.1ms)[0m  [1mSELECT `goal_instances`.* FROM `goal_instances` WHERE `goal_instances`.`goal_id` = 18[0m
+  Rendered goals/index.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 12ms (Views: 10.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/holder.js" for 127.0.0.1 at 2013-11-04 17:00:00 -0800
+Served asset /holder.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/friends.css?body=1" for 127.0.0.1 at 2013-11-04 17:00:00 -0800
+Served asset /friends.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/login.css?body=1" for 127.0.0.1 at 2013-11-04 17:00:00 -0800
+Served asset /login.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-11-04 17:00:00 -0800
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-11-04 17:00:00 -0800
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-11-04 17:00:07 -0800
+
+ActionController::RoutingError (No route matches [GET] "/"):
+  actionpack (3.2.14) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.14) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.14) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.14) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.14) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.14) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.14) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.14) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.14) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.14) lib/rails/engine.rb:484:in `call'
+  railties (3.2.14) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.14) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /home/kaos/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /home/kaos/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /home/kaos/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/kaos/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (4.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-11-04 17:04:26 -0800
+Connecting to database specified by database.yml
+Processing by LoginController#index as HTML
+  Rendered login/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 19ms (Views: 17.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/holder.js" for 127.0.0.1 at 2013-11-04 17:04:26 -0800
+Served asset /holder.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2013-11-04 17:04:26 -0800
+Served asset /bootstrap.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-11-04 17:04:26 -0800
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-11-04 17:04:26 -0800
+Served asset /scaffolds.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/login.css?body=1" for 127.0.0.1 at 2013-11-04 17:04:26 -0800
+Served asset /login.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/friends.css?body=1" for 127.0.0.1 at 2013-11-04 17:04:26 -0800
+Served asset /friends.css - 304 Not Modified (1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-11-04 17:20:23 -0800
+Connecting to database specified by database.yml
+Processing by LoginController#index as HTML
+  Rendered login/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 53ms (Views: 52.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/holder.js" for 127.0.0.1 at 2013-11-04 17:20:23 -0800
+Served asset /holder.js - 304 Not Modified (19ms)
+
+
+Started GET "/assets/friends.css?body=1" for 127.0.0.1 at 2013-11-04 17:20:23 -0800
+Served asset /friends.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/goal_instances.css?body=1" for 127.0.0.1 at 2013-11-04 17:20:23 -0800
+Served asset /goal_instances.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2013-11-04 17:20:23 -0800
+Served asset /bootstrap.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-11-04 17:20:23 -0800
+Served asset /scaffolds.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/goals.css?body=1" for 127.0.0.1 at 2013-11-04 17:20:23 -0800
+Served asset /goals.css - 304 Not Modified (59ms)
+
+
+Started GET "/assets/login.css?body=1" for 127.0.0.1 at 2013-11-04 17:20:23 -0800
+Served asset /login.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-11-04 17:20:23 -0800
+Served asset /users.css - 304 Not Modified (1ms)
+
+
+Started GET "/login/callback?code=AQABT5KWd3J2nTvY2shJadcRLcPqtR_ExISirC2cpPMBJQd32DzhiMJ5yHfQpwEWhgOy3z7okfFsV9rfvRt33GS6C_yQeaoJjKrx2NwzPtbc7YR6OSe2h7kBbCxj9YO8N-Mz1pMcV0U8H2rPa_T76OdLEp41kZNnCndF7bYm9v5d-IHAy4O5R2LwnJNpN66B2ifHh_gsf0o08wh6S0493oh--MhCSYS9_v_DfGaYEe7nzLcqzgEWuccQJ_vpMh6ycOznNS9avv_ji5-F2J7suqK1QMuVRdvErM_bp-xx45XHRzvDen4pVshEHZWkSi6Pzck" for 127.0.0.1 at 2013-11-04 17:20:25 -0800
+Processing by LoginController#callback as HTML
+  Parameters: {"code"=>"AQABT5KWd3J2nTvY2shJadcRLcPqtR_ExISirC2cpPMBJQd32DzhiMJ5yHfQpwEWhgOy3z7okfFsV9rfvRt33GS6C_yQeaoJjKrx2NwzPtbc7YR6OSe2h7kBbCxj9YO8N-Mz1pMcV0U8H2rPa_T76OdLEp41kZNnCndF7bYm9v5d-IHAy4O5R2LwnJNpN66B2ifHh_gsf0o08wh6S0493oh--MhCSYS9_v_DfGaYEe7nzLcqzgEWuccQJ_vpMh6ycOznNS9avv_ji5-F2J7suqK1QMuVRdvErM_bp-xx45XHRzvDen4pVshEHZWkSi6Pzck"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`fb_id` = '100001639762906' LIMIT 1[0m
+Redirected to http://localhost:3000/goals
+Completed 302 Found in 351ms (ActiveRecord: 1.2ms)
+
+
+Started GET "/goals" for 127.0.0.1 at 2013-11-04 17:20:25 -0800
+Processing by GoalsController#index as HTML
+  [1m[35mGoal Load (0.2ms)[0m  SELECT `goals`.* FROM `goals` 
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 23 LIMIT 1[0m
+  [1m[35mGoalInstance Load (0.3ms)[0m  SELECT `goal_instances`.* FROM `goal_instances` WHERE `goal_instances`.`goal_id` = 16
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 25 LIMIT 1[0m
+  [1m[35mGoalInstance Load (0.3ms)[0m  SELECT `goal_instances`.* FROM `goal_instances` WHERE `goal_instances`.`goal_id` = 17
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 26 LIMIT 1[0m
+  [1m[35mGoalInstance Load (0.1ms)[0m  SELECT `goal_instances`.* FROM `goal_instances` WHERE `goal_instances`.`goal_id` = 18
+  Rendered goals/index.html.erb within layouts/application (77.5ms)
+Completed 200 OK in 100ms (Views: 80.5ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/assets/holder.js" for 127.0.0.1 at 2013-11-04 17:20:25 -0800
+Served asset /holder.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2013-11-04 17:20:25 -0800
+Served asset /bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/friends.css?body=1" for 127.0.0.1 at 2013-11-04 17:20:25 -0800
+Served asset /friends.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/goal_instances.css?body=1" for 127.0.0.1 at 2013-11-04 17:20:25 -0800
+Served asset /goal_instances.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/goals.css?body=1" for 127.0.0.1 at 2013-11-04 17:20:25 -0800
+Served asset /goals.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/login.css?body=1" for 127.0.0.1 at 2013-11-04 17:20:25 -0800
+Served asset /login.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-11-04 17:20:25 -0800
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-11-04 17:20:25 -0800
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/goal_instances?user_id=24" for 127.0.0.1 at 2013-11-04 17:20:32 -0800
+Processing by GoalInstancesController#index as HTML
+  Parameters: {"user_id"=>"24"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 24 LIMIT 1[0m
+  [1m[35mGoalInstance Load (0.4ms)[0m  SELECT `goal_instances`.* FROM `goal_instances` WHERE `goal_instances`.`user_id` = 24
+  [1m[36mGoal Load (0.3ms)[0m  [1mSELECT `goals`.* FROM `goals` WHERE `goals`.`id` = 16 LIMIT 1[0m
+  Rendered goal_instances/index.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 12ms (Views: 9.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/holder.js" for 127.0.0.1 at 2013-11-04 17:20:32 -0800
+Served asset /holder.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2013-11-04 17:20:32 -0800
+Served asset /bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/friends.css?body=1" for 127.0.0.1 at 2013-11-04 17:20:32 -0800
+Served asset /friends.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/goal_instances.css?body=1" for 127.0.0.1 at 2013-11-04 17:20:32 -0800
+Served asset /goal_instances.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/goals.css?body=1" for 127.0.0.1 at 2013-11-04 17:20:32 -0800
+Served asset /goals.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/login.css?body=1" for 127.0.0.1 at 2013-11-04 17:20:32 -0800
+Served asset /login.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-11-04 17:20:32 -0800
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-11-04 17:20:32 -0800
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/goals" for 127.0.0.1 at 2013-11-04 17:20:40 -0800
+Processing by GoalsController#index as HTML
+  [1m[35mGoal Load (0.0ms)[0m  SELECT `goals`.* FROM `goals` 
+  [1m[36mUser Load (2.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 23 LIMIT 1[0m
+  [1m[35mGoalInstance Load (0.1ms)[0m  SELECT `goal_instances`.* FROM `goal_instances` WHERE `goal_instances`.`goal_id` = 16
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 25 LIMIT 1[0m
+  [1m[35mGoalInstance Load (0.1ms)[0m  SELECT `goal_instances`.* FROM `goal_instances` WHERE `goal_instances`.`goal_id` = 17
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 26 LIMIT 1[0m
+  [1m[35mGoalInstance Load (0.1ms)[0m  SELECT `goal_instances`.* FROM `goal_instances` WHERE `goal_instances`.`goal_id` = 18
+  Rendered goals/index.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 12ms (Views: 7.9ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/assets/holder.js" for 127.0.0.1 at 2013-11-04 17:20:40 -0800
+Served asset /holder.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2013-11-04 17:20:40 -0800
+Served asset /bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/friends.css?body=1" for 127.0.0.1 at 2013-11-04 17:20:40 -0800
+Served asset /friends.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/goal_instances.css?body=1" for 127.0.0.1 at 2013-11-04 17:20:40 -0800
+Served asset /goal_instances.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/goals.css?body=1" for 127.0.0.1 at 2013-11-04 17:20:40 -0800
+Served asset /goals.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/login.css?body=1" for 127.0.0.1 at 2013-11-04 17:20:40 -0800
+Served asset /login.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-11-04 17:20:40 -0800
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-11-04 17:20:40 -0800
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/goal_instances?user_id=24" for 127.0.0.1 at 2013-11-04 17:20:41 -0800
+Processing by GoalInstancesController#index as HTML
+  Parameters: {"user_id"=>"24"}
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 24 LIMIT 1[0m
+  [1m[35mGoalInstance Load (0.1ms)[0m  SELECT `goal_instances`.* FROM `goal_instances` WHERE `goal_instances`.`user_id` = 24
+  [1m[36mGoal Load (0.1ms)[0m  [1mSELECT `goals`.* FROM `goals` WHERE `goals`.`id` = 16 LIMIT 1[0m
+  Rendered goal_instances/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 6ms (Views: 4.4ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/holder.js" for 127.0.0.1 at 2013-11-04 17:20:41 -0800
+Served asset /holder.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2013-11-04 17:20:41 -0800
+Served asset /bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/friends.css?body=1" for 127.0.0.1 at 2013-11-04 17:20:41 -0800
+Served asset /friends.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/goal_instances.css?body=1" for 127.0.0.1 at 2013-11-04 17:20:41 -0800
+Served asset /goal_instances.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/goals.css?body=1" for 127.0.0.1 at 2013-11-04 17:20:41 -0800
+Served asset /goals.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/login.css?body=1" for 127.0.0.1 at 2013-11-04 17:20:41 -0800
+Served asset /login.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-11-04 17:20:41 -0800
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-11-04 17:20:41 -0800
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/goals" for 127.0.0.1 at 2013-11-04 17:20:41 -0800
+Processing by GoalsController#index as HTML
+  [1m[35mGoal Load (0.1ms)[0m  SELECT `goals`.* FROM `goals` 
+  [1m[36mUser Load (2.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 23 LIMIT 1[0m
+  [1m[35mGoalInstance Load (0.1ms)[0m  SELECT `goal_instances`.* FROM `goal_instances` WHERE `goal_instances`.`goal_id` = 16
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 25 LIMIT 1[0m
+  [1m[35mGoalInstance Load (0.1ms)[0m  SELECT `goal_instances`.* FROM `goal_instances` WHERE `goal_instances`.`goal_id` = 17
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 26 LIMIT 1[0m
+  [1m[35mGoalInstance Load (0.1ms)[0m  SELECT `goal_instances`.* FROM `goal_instances` WHERE `goal_instances`.`goal_id` = 18
+  Rendered goals/index.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 11ms (Views: 7.4ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/assets/holder.js" for 127.0.0.1 at 2013-11-04 17:20:41 -0800
+Served asset /holder.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2013-11-04 17:20:41 -0800
+Served asset /bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/friends.css?body=1" for 127.0.0.1 at 2013-11-04 17:20:41 -0800
+Served asset /friends.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/goal_instances.css?body=1" for 127.0.0.1 at 2013-11-04 17:20:41 -0800
+Served asset /goal_instances.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/goals.css?body=1" for 127.0.0.1 at 2013-11-04 17:20:41 -0800
+Served asset /goals.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/login.css?body=1" for 127.0.0.1 at 2013-11-04 17:20:41 -0800
+Served asset /login.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-11-04 17:20:41 -0800
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-11-04 17:20:41 -0800
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/goals" for 127.0.0.1 at 2013-11-04 17:20:45 -0800
+Processing by GoalsController#index as HTML
+  [1m[36mGoal Load (0.0ms)[0m  [1mSELECT `goals`.* FROM `goals` [0m
+  [1m[35mUser Load (2.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 23 LIMIT 1
+  [1m[36mGoalInstance Load (1.5ms)[0m  [1mSELECT `goal_instances`.* FROM `goal_instances` WHERE `goal_instances`.`goal_id` = 16[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 25 LIMIT 1
+  [1m[36mGoalInstance Load (1.2ms)[0m  [1mSELECT `goal_instances`.* FROM `goal_instances` WHERE `goal_instances`.`goal_id` = 17[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 26 LIMIT 1
+  [1m[36mGoalInstance Load (2.8ms)[0m  [1mSELECT `goal_instances`.* FROM `goal_instances` WHERE `goal_instances`.`goal_id` = 18[0m
+  Rendered goals/index.html.erb within layouts/application (15.5ms)
+Completed 200 OK in 18ms (Views: 9.6ms | ActiveRecord: 8.4ms)
+
+
+Started GET "/assets/holder.js" for 127.0.0.1 at 2013-11-04 17:20:45 -0800
+Served asset /holder.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2013-11-04 17:20:45 -0800
+Served asset /bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/friends.css?body=1" for 127.0.0.1 at 2013-11-04 17:20:45 -0800
+Served asset /friends.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/goals.css?body=1" for 127.0.0.1 at 2013-11-04 17:20:45 -0800
+Served asset /goals.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/goal_instances.css?body=1" for 127.0.0.1 at 2013-11-04 17:20:45 -0800
+Served asset /goal_instances.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/login.css?body=1" for 127.0.0.1 at 2013-11-04 17:20:45 -0800
+Served asset /login.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-11-04 17:20:45 -0800
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-11-04 17:20:45 -0800
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/goals" for 127.0.0.1 at 2013-11-04 17:23:20 -0800
+Processing by GoalsController#index as HTML
+  [1m[35mGoal Load (1.1ms)[0m  SELECT `goals`.* FROM `goals` 
+  [1m[36mUser Load (6.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 23 LIMIT 1[0m
+  [1m[35mGoalInstance Load (2.7ms)[0m  SELECT `goal_instances`.* FROM `goal_instances` WHERE `goal_instances`.`goal_id` = 16
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 25 LIMIT 1[0m
+  [1m[35mGoalInstance Load (0.1ms)[0m  SELECT `goal_instances`.* FROM `goal_instances` WHERE `goal_instances`.`goal_id` = 17
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 26 LIMIT 1[0m
+  [1m[35mGoalInstance Load (0.1ms)[0m  SELECT `goal_instances`.* FROM `goal_instances` WHERE `goal_instances`.`goal_id` = 18
+  Rendered goals/index.html.erb within layouts/application (15.3ms)
+Completed 200 OK in 20ms (Views: 8.7ms | ActiveRecord: 10.6ms)
+
+
+Started GET "/assets/holder.js" for 127.0.0.1 at 2013-11-04 17:23:20 -0800
+Served asset /holder.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/friends.css?body=1" for 127.0.0.1 at 2013-11-04 17:23:20 -0800
+Served asset /friends.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/goals.css?body=1" for 127.0.0.1 at 2013-11-04 17:23:20 -0800
+Served asset /goals.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/goal_instances.css?body=1" for 127.0.0.1 at 2013-11-04 17:23:20 -0800
+Served asset /goal_instances.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/login.css?body=1" for 127.0.0.1 at 2013-11-04 17:23:20 -0800
+Served asset /login.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2013-11-04 17:23:20 -0800
+Served asset /bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-11-04 17:23:20 -0800
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-11-04 17:23:20 -0800
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/friends" for 127.0.0.1 at 2013-11-04 17:23:22 -0800
+
+ActionController::RoutingError (No route matches [GET] "/friends"):
+  actionpack (3.2.14) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.14) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.14) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.14) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.14) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.14) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.14) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.14) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.14) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.14) lib/rails/engine.rb:484:in `call'
+  railties (3.2.14) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.14) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /home/kaos/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /home/kaos/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /home/kaos/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/kaos/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/friends/index" for 127.0.0.1 at 2013-11-04 17:23:28 -0800
+Processing by FriendsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 24 LIMIT 1[0m
+  [1m[35mUser Load (1.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`fb_id` IN ('502961332', '517245226', '522157150', '529110613', '530115125', '530999255', '539928383', '540809766', '546415103', '556936879', '557912137', '558683751', '558938804', '567705996', '569348097', '570990094', '585824401', '589510711', '591880706', '593875507', '600244772', '601629221', '601750750', '602395906', '602605119', '602786717', '603156256', '603196042', '603441281', '604120644', '604150080', '604657823', '609029796', '611621298', '612265820', '619996818', '628195128', '632566198', '632681993', '639811236', '642057690', '642862076', '643031645', '643092720', '645421692', '649832469', '657850580', '662637732', '674633124', '682148625', '689496812', '691663939', '692765570', '694457516', '699475084', '703771010', '705208871', '705631539', '706060859', '712226583', '713688575', '715682786', '723275806', '731119375', '733695164', '755215887', '758552073', '760618754', '774035444', '778354416', '790935136', '795045797', '832648591', '838745252', '857194309', '1002128465', '1019907657', '1022048596', '1029849367', '1039677561', '1044675910', '1055485297', '1056036222', '1058025845', '1059387745', '1059465945', '1061736238', '1067182429', '1070883759', '1082353244', '1086613129', '1087201401', '1092108760', '1099382259', '1107894622', '1114113449', '1120728102', '1124945169', '1131500297', '1132543066', '1134788028', '1147050177', '1157250853', '1160280275', '1165892829', '1169423896', '1175181159', '1184478328', '1189972058', '1192291172', '1194835716', '1196142201', '1196384448', '1209360054', '1209935673', '1221585922', '1227408442', '1244522312', '1256900093', '1267895930', '1274712112', '1290649319', '1293055891', '1307365962', '1314108533', '1314172177', '1319332880', '1322602811', '1334257942', '1347390059', '1353004516', '1363357732', '1368333432', '1377578282', '1385958697', '1387279556', '1391596394', '1404280994', '1406672466', '1410087883', '1445713219', '1449351465', '1450895552', '1465603165', '1473985991', '1474311885', '1493990883', '1497181185', '1501455586', '1508793686', '1515888728', '1520975196', '1525092319', '1533387866', '1539036983', '1543682777', '1545654603', '1563065508', '1601893891', '1620334969', '1623548979', '1638844216', '1658138620', '1658747008', '1662411362', '1681563999', '1693184458', '1712604963', '1715209197', '1723047105', '1732947356', '1755709278', '1756711435', '1761523395', '1762030204', '1768412212', '1772870526', '1781079089', '1793591026', '1816736912', '1819429805', '1825273670', '1845233630', '100000015750269', '100000028056701', '100000029201936', '100000044743440', '100000051988539', '100000060795381', '100000064111848', '100000100367711', '100000103894591', '100000112428087', '100000113011803', '100000145921730', '100000157538686', '100000159951141', '100000163611036', '100000172515411', '100000190978696', '100000202659839', '100000218275693', '100000224942235', '100000227004498', '100000239242037', '100000251153175', '100000254775672', '100000270712599', '100000274853365', '100000283516076', '100000289788863', '100000311767021', '100000328352792', '100000333262410', '100000336841417', '100000358926910', '100000360704162', '100000371752693', '100000385298380', '100000391975643', '100000393835831', '100000417300086', '100000418376885', '100000427964321', '100000436904593', '100000439403035', '100000450762029', '100000470202135', '100000471533253', '100000491866263', '100000499549671', '100000508892219', '100000521226608', '100000530900873', '100000537347760', '100000549991660', '100000555131766', '100000556249586', '100000575217400', '100000582549269', '100000589503146', '100000608621298', '100000611075158', '100000613102625', '100000615065453', '100000625346297', '100000627003230', '100000627407291', '100000655677956', '100000661140508', '100000677904229', '100000685657032', '100000688517725', '100000736439118', '100000762021649', '100000793455543', '100000796435978', '100000799482035', '100000804698705', '100000836599446', '100000843123725', '100000847624181', '100000863426236', '100000868390380', '100000873783161', '100000875361391', '100000881874808', '100000927623220', '100000929414274', '100000957788898', '100000960439072', '100000966135064', '100000970482716', '100000972424423', '100000975007022', '100001006598400', '100001007360864', '100001013289719', '100001014142882', '100001030715270', '100001051459841', '100001057677645', '100001061025780', '100001062230444', '100001062844446', '100001080374746', '100001086860070', '100001093825652', '100001108572718', '100001109555955', '100001114814569', '100001137158434', '100001149775043', '100001156937298', '100001165328072', '100001185663241', '100001208734674', '100001226291949', '100001240326320', '100001242198002', '100001242237906', '100001242404950', '100001244392822', '100001244992725', '100001245921812', '100001249041774', '100001249318112', '100001267843984', '100001386822334', '100001397190702', '100001417630994', '100001443006942', '100001451708515', '100001462894247', '100001484741201', '100001486107154', '100001497409561', '100001501978804', '100001517382707', '100001519133533', '100001524738786', '100001627031343', '100001636865408', '100001637838442', '100001645720877', '100001657312658', '100001697366361', '100001714460528', '100001744228905', '100001750952053', '100001763237687', '100001777506621', '100001842250816', '100001861150840', '100001861522531', '100001889222000', '100001942454619', '100001961354460', '100002003335529', '100002006237291', '100002053698569', '100002076557008', '100002098477057', '100002129874368', '100002182394045', '100002191654669', '100002276015333', '100002338165006', '100002345279003', '100002393140799', '100002437913110', '100002476256813', '100002551267702', '100002594061121', '100002789797521', '100002926871451', '100002962985585', '100003021457357', '100003139796439', '100003268678488', '100003341844588', '100003396153778', '100003571687978', '100003618289023', '100003740595927', '100003786651920', '100003985840145', '100004045076273', '100004094085383', '100004737093862', '100004902635349', '100004939173763', '100005279941976', '100005517301669', '100006369372646', '100006435409426', '100006533042059')
+  Rendered friends/index.html.erb within layouts/application (4.0ms)
+Completed 500 Internal Server Error in 350ms
+
+ActionController::RoutingError (No route matches {:action=>"show", :controller=>"goal_instances", :user_id=>23}):
+  app/views/friends/index.html.erb:5:in `block in _app_views_friends_index_html_erb___204078821_82620730'
+  app/views/friends/index.html.erb:3:in `each'
+  app/views/friends/index.html.erb:3:in `_app_views_friends_index_html_erb___204078821_82620730'
+  app/controllers/friends_controller.rb:21:in `index'
+
+
+  Rendered /home/kaos/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.5ms)
+
+
+Started GET "/friends/index" for 127.0.0.1 at 2013-11-04 17:24:24 -0800
+Processing by FriendsController#index as HTML
+  [1m[36mUser Load (2.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 24 LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`fb_id` IN ('502961332', '517245226', '522157150', '529110613', '530115125', '530999255', '539928383', '540809766', '546415103', '556936879', '557912137', '558683751', '558938804', '567705996', '569348097', '570990094', '585824401', '589510711', '591880706', '593875507', '600244772', '601629221', '601750750', '602395906', '602605119', '602786717', '603156256', '603196042', '603441281', '604120644', '604150080', '604657823', '609029796', '611621298', '612265820', '619996818', '628195128', '632566198', '632681993', '639811236', '642057690', '642862076', '643031645', '643092720', '645421692', '649832469', '657850580', '662637732', '674633124', '682148625', '689496812', '691663939', '692765570', '694457516', '699475084', '703771010', '705208871', '705631539', '706060859', '712226583', '713688575', '715682786', '723275806', '731119375', '733695164', '755215887', '758552073', '760618754', '774035444', '778354416', '790935136', '795045797', '832648591', '838745252', '857194309', '1002128465', '1019907657', '1022048596', '1029849367', '1039677561', '1044675910', '1055485297', '1056036222', '1058025845', '1059387745', '1059465945', '1061736238', '1067182429', '1070883759', '1082353244', '1086613129', '1087201401', '1092108760', '1099382259', '1107894622', '1114113449', '1120728102', '1124945169', '1131500297', '1132543066', '1134788028', '1147050177', '1157250853', '1160280275', '1165892829', '1169423896', '1175181159', '1184478328', '1189972058', '1192291172', '1194835716', '1196142201', '1196384448', '1209360054', '1209935673', '1221585922', '1227408442', '1244522312', '1256900093', '1267895930', '1274712112', '1290649319', '1293055891', '1307365962', '1314108533', '1314172177', '1319332880', '1322602811', '1334257942', '1347390059', '1353004516', '1363357732', '1368333432', '1377578282', '1385958697', '1387279556', '1391596394', '1404280994', '1406672466', '1410087883', '1445713219', '1449351465', '1450895552', '1465603165', '1473985991', '1474311885', '1493990883', '1497181185', '1501455586', '1508793686', '1515888728', '1520975196', '1525092319', '1533387866', '1539036983', '1543682777', '1545654603', '1563065508', '1601893891', '1620334969', '1623548979', '1638844216', '1658138620', '1658747008', '1662411362', '1681563999', '1693184458', '1712604963', '1715209197', '1723047105', '1732947356', '1755709278', '1756711435', '1761523395', '1762030204', '1768412212', '1772870526', '1781079089', '1793591026', '1816736912', '1819429805', '1825273670', '1845233630', '100000015750269', '100000028056701', '100000029201936', '100000044743440', '100000051988539', '100000060795381', '100000064111848', '100000100367711', '100000103894591', '100000112428087', '100000113011803', '100000145921730', '100000157538686', '100000159951141', '100000163611036', '100000172515411', '100000190978696', '100000202659839', '100000218275693', '100000224942235', '100000227004498', '100000239242037', '100000251153175', '100000254775672', '100000270712599', '100000274853365', '100000283516076', '100000289788863', '100000311767021', '100000328352792', '100000333262410', '100000336841417', '100000358926910', '100000360704162', '100000371752693', '100000385298380', '100000391975643', '100000393835831', '100000417300086', '100000418376885', '100000427964321', '100000436904593', '100000439403035', '100000450762029', '100000470202135', '100000471533253', '100000491866263', '100000499549671', '100000508892219', '100000521226608', '100000530900873', '100000537347760', '100000549991660', '100000555131766', '100000556249586', '100000575217400', '100000582549269', '100000589503146', '100000608621298', '100000611075158', '100000613102625', '100000615065453', '100000625346297', '100000627003230', '100000627407291', '100000655677956', '100000661140508', '100000677904229', '100000685657032', '100000688517725', '100000736439118', '100000762021649', '100000793455543', '100000796435978', '100000799482035', '100000804698705', '100000836599446', '100000843123725', '100000847624181', '100000863426236', '100000868390380', '100000873783161', '100000875361391', '100000881874808', '100000927623220', '100000929414274', '100000957788898', '100000960439072', '100000966135064', '100000970482716', '100000972424423', '100000975007022', '100001006598400', '100001007360864', '100001013289719', '100001014142882', '100001030715270', '100001051459841', '100001057677645', '100001061025780', '100001062230444', '100001062844446', '100001080374746', '100001086860070', '100001093825652', '100001108572718', '100001109555955', '100001114814569', '100001137158434', '100001149775043', '100001156937298', '100001165328072', '100001185663241', '100001208734674', '100001226291949', '100001240326320', '100001242198002', '100001242237906', '100001242404950', '100001244392822', '100001244992725', '100001245921812', '100001249041774', '100001249318112', '100001267843984', '100001386822334', '100001397190702', '100001417630994', '100001443006942', '100001451708515', '100001462894247', '100001484741201', '100001486107154', '100001497409561', '100001501978804', '100001517382707', '100001519133533', '100001524738786', '100001627031343', '100001636865408', '100001637838442', '100001645720877', '100001657312658', '100001697366361', '100001714460528', '100001744228905', '100001750952053', '100001763237687', '100001777506621', '100001842250816', '100001861150840', '100001861522531', '100001889222000', '100001942454619', '100001961354460', '100002003335529', '100002006237291', '100002053698569', '100002076557008', '100002098477057', '100002129874368', '100002182394045', '100002191654669', '100002276015333', '100002338165006', '100002345279003', '100002393140799', '100002437913110', '100002476256813', '100002551267702', '100002594061121', '100002789797521', '100002926871451', '100002962985585', '100003021457357', '100003139796439', '100003268678488', '100003341844588', '100003396153778', '100003571687978', '100003618289023', '100003740595927', '100003786651920', '100003985840145', '100004045076273', '100004094085383', '100004737093862', '100004902635349', '100004939173763', '100005279941976', '100005517301669', '100006369372646', '100006435409426', '100006533042059')
+  Rendered friends/index.html.erb within layouts/application (1.2ms)
+Completed 500 Internal Server Error in 409ms
+
+ActionController::RoutingError (No route matches {:action=>"show", :controller=>"goal_instances", :user_id=>23}):
+  app/views/friends/index.html.erb:5:in `block in _app_views_friends_index_html_erb___204078821_82620730'
+  app/views/friends/index.html.erb:3:in `each'
+  app/views/friends/index.html.erb:3:in `_app_views_friends_index_html_erb___204078821_82620730'
+  app/controllers/friends_controller.rb:21:in `index'
+
+
+  Rendered /home/kaos/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.5ms)
+
+
+Started GET "/friends/index" for 127.0.0.1 at 2013-11-04 17:24:27 -0800
+Processing by FriendsController#index as HTML
+  [1m[36mUser Load (1.7ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 24 LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`fb_id` IN ('502961332', '517245226', '522157150', '529110613', '530115125', '530999255', '539928383', '540809766', '546415103', '556936879', '557912137', '558683751', '558938804', '567705996', '569348097', '570990094', '585824401', '589510711', '591880706', '593875507', '600244772', '601629221', '601750750', '602395906', '602605119', '602786717', '603156256', '603196042', '603441281', '604120644', '604150080', '604657823', '609029796', '611621298', '612265820', '619996818', '628195128', '632566198', '632681993', '639811236', '642057690', '642862076', '643031645', '643092720', '645421692', '649832469', '657850580', '662637732', '674633124', '682148625', '689496812', '691663939', '692765570', '694457516', '699475084', '703771010', '705208871', '705631539', '706060859', '712226583', '713688575', '715682786', '723275806', '731119375', '733695164', '755215887', '758552073', '760618754', '774035444', '778354416', '790935136', '795045797', '832648591', '838745252', '857194309', '1002128465', '1019907657', '1022048596', '1029849367', '1039677561', '1044675910', '1055485297', '1056036222', '1058025845', '1059387745', '1059465945', '1061736238', '1067182429', '1070883759', '1082353244', '1086613129', '1087201401', '1092108760', '1099382259', '1107894622', '1114113449', '1120728102', '1124945169', '1131500297', '1132543066', '1134788028', '1147050177', '1157250853', '1160280275', '1165892829', '1169423896', '1175181159', '1184478328', '1189972058', '1192291172', '1194835716', '1196142201', '1196384448', '1209360054', '1209935673', '1221585922', '1227408442', '1244522312', '1256900093', '1267895930', '1274712112', '1290649319', '1293055891', '1307365962', '1314108533', '1314172177', '1319332880', '1322602811', '1334257942', '1347390059', '1353004516', '1363357732', '1368333432', '1377578282', '1385958697', '1387279556', '1391596394', '1404280994', '1406672466', '1410087883', '1445713219', '1449351465', '1450895552', '1465603165', '1473985991', '1474311885', '1493990883', '1497181185', '1501455586', '1508793686', '1515888728', '1520975196', '1525092319', '1533387866', '1539036983', '1543682777', '1545654603', '1563065508', '1601893891', '1620334969', '1623548979', '1638844216', '1658138620', '1658747008', '1662411362', '1681563999', '1693184458', '1712604963', '1715209197', '1723047105', '1732947356', '1755709278', '1756711435', '1761523395', '1762030204', '1768412212', '1772870526', '1781079089', '1793591026', '1816736912', '1819429805', '1825273670', '1845233630', '100000015750269', '100000028056701', '100000029201936', '100000044743440', '100000051988539', '100000060795381', '100000064111848', '100000100367711', '100000103894591', '100000112428087', '100000113011803', '100000145921730', '100000157538686', '100000159951141', '100000163611036', '100000172515411', '100000190978696', '100000202659839', '100000218275693', '100000224942235', '100000227004498', '100000239242037', '100000251153175', '100000254775672', '100000270712599', '100000274853365', '100000283516076', '100000289788863', '100000311767021', '100000328352792', '100000333262410', '100000336841417', '100000358926910', '100000360704162', '100000371752693', '100000385298380', '100000391975643', '100000393835831', '100000417300086', '100000418376885', '100000427964321', '100000436904593', '100000439403035', '100000450762029', '100000470202135', '100000471533253', '100000491866263', '100000499549671', '100000508892219', '100000521226608', '100000530900873', '100000537347760', '100000549991660', '100000555131766', '100000556249586', '100000575217400', '100000582549269', '100000589503146', '100000608621298', '100000611075158', '100000613102625', '100000615065453', '100000625346297', '100000627003230', '100000627407291', '100000655677956', '100000661140508', '100000677904229', '100000685657032', '100000688517725', '100000736439118', '100000762021649', '100000793455543', '100000796435978', '100000799482035', '100000804698705', '100000836599446', '100000843123725', '100000847624181', '100000863426236', '100000868390380', '100000873783161', '100000875361391', '100000881874808', '100000927623220', '100000929414274', '100000957788898', '100000960439072', '100000966135064', '100000970482716', '100000972424423', '100000975007022', '100001006598400', '100001007360864', '100001013289719', '100001014142882', '100001030715270', '100001051459841', '100001057677645', '100001061025780', '100001062230444', '100001062844446', '100001080374746', '100001086860070', '100001093825652', '100001108572718', '100001109555955', '100001114814569', '100001137158434', '100001149775043', '100001156937298', '100001165328072', '100001185663241', '100001208734674', '100001226291949', '100001240326320', '100001242198002', '100001242237906', '100001242404950', '100001244392822', '100001244992725', '100001245921812', '100001249041774', '100001249318112', '100001267843984', '100001386822334', '100001397190702', '100001417630994', '100001443006942', '100001451708515', '100001462894247', '100001484741201', '100001486107154', '100001497409561', '100001501978804', '100001517382707', '100001519133533', '100001524738786', '100001627031343', '100001636865408', '100001637838442', '100001645720877', '100001657312658', '100001697366361', '100001714460528', '100001744228905', '100001750952053', '100001763237687', '100001777506621', '100001842250816', '100001861150840', '100001861522531', '100001889222000', '100001942454619', '100001961354460', '100002003335529', '100002006237291', '100002053698569', '100002076557008', '100002098477057', '100002129874368', '100002182394045', '100002191654669', '100002276015333', '100002338165006', '100002345279003', '100002393140799', '100002437913110', '100002476256813', '100002551267702', '100002594061121', '100002789797521', '100002926871451', '100002962985585', '100003021457357', '100003139796439', '100003268678488', '100003341844588', '100003396153778', '100003571687978', '100003618289023', '100003740595927', '100003786651920', '100003985840145', '100004045076273', '100004094085383', '100004737093862', '100004902635349', '100004939173763', '100005279941976', '100005517301669', '100006369372646', '100006435409426', '100006533042059')
+  Rendered friends/index.html.erb within layouts/application (0.8ms)
+Completed 500 Internal Server Error in 326ms
+
+ActionController::RoutingError (No route matches {:action=>"show", :controller=>"goal_instances", :user_id=>23}):
+  app/views/friends/index.html.erb:5:in `block in _app_views_friends_index_html_erb___204078821_82620730'
+  app/views/friends/index.html.erb:3:in `each'
+  app/views/friends/index.html.erb:3:in `_app_views_friends_index_html_erb___204078821_82620730'
+  app/controllers/friends_controller.rb:21:in `index'
+
+
+  Rendered /home/kaos/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.5ms)
+
+
+Started GET "/friends/index" for 127.0.0.1 at 2013-11-04 17:24:33 -0800
+Processing by FriendsController#index as HTML
+  [1m[36mUser Load (3.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 24 LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`fb_id` IN ('502961332', '517245226', '522157150', '529110613', '530115125', '530999255', '539928383', '540809766', '546415103', '556936879', '557912137', '558683751', '558938804', '567705996', '569348097', '570990094', '585824401', '589510711', '591880706', '593875507', '600244772', '601629221', '601750750', '602395906', '602605119', '602786717', '603156256', '603196042', '603441281', '604120644', '604150080', '604657823', '609029796', '611621298', '612265820', '619996818', '628195128', '632566198', '632681993', '639811236', '642057690', '642862076', '643031645', '643092720', '645421692', '649832469', '657850580', '662637732', '674633124', '682148625', '689496812', '691663939', '692765570', '694457516', '699475084', '703771010', '705208871', '705631539', '706060859', '712226583', '713688575', '715682786', '723275806', '731119375', '733695164', '755215887', '758552073', '760618754', '774035444', '778354416', '790935136', '795045797', '832648591', '838745252', '857194309', '1002128465', '1019907657', '1022048596', '1029849367', '1039677561', '1044675910', '1055485297', '1056036222', '1058025845', '1059387745', '1059465945', '1061736238', '1067182429', '1070883759', '1082353244', '1086613129', '1087201401', '1092108760', '1099382259', '1107894622', '1114113449', '1120728102', '1124945169', '1131500297', '1132543066', '1134788028', '1147050177', '1157250853', '1160280275', '1165892829', '1169423896', '1175181159', '1184478328', '1189972058', '1192291172', '1194835716', '1196142201', '1196384448', '1209360054', '1209935673', '1221585922', '1227408442', '1244522312', '1256900093', '1267895930', '1274712112', '1290649319', '1293055891', '1307365962', '1314108533', '1314172177', '1319332880', '1322602811', '1334257942', '1347390059', '1353004516', '1363357732', '1368333432', '1377578282', '1385958697', '1387279556', '1391596394', '1404280994', '1406672466', '1410087883', '1445713219', '1449351465', '1450895552', '1465603165', '1473985991', '1474311885', '1493990883', '1497181185', '1501455586', '1508793686', '1515888728', '1520975196', '1525092319', '1533387866', '1539036983', '1543682777', '1545654603', '1563065508', '1601893891', '1620334969', '1623548979', '1638844216', '1658138620', '1658747008', '1662411362', '1681563999', '1693184458', '1712604963', '1715209197', '1723047105', '1732947356', '1755709278', '1756711435', '1761523395', '1762030204', '1768412212', '1772870526', '1781079089', '1793591026', '1816736912', '1819429805', '1825273670', '1845233630', '100000015750269', '100000028056701', '100000029201936', '100000044743440', '100000051988539', '100000060795381', '100000064111848', '100000100367711', '100000103894591', '100000112428087', '100000113011803', '100000145921730', '100000157538686', '100000159951141', '100000163611036', '100000172515411', '100000190978696', '100000202659839', '100000218275693', '100000224942235', '100000227004498', '100000239242037', '100000251153175', '100000254775672', '100000270712599', '100000274853365', '100000283516076', '100000289788863', '100000311767021', '100000328352792', '100000333262410', '100000336841417', '100000358926910', '100000360704162', '100000371752693', '100000385298380', '100000391975643', '100000393835831', '100000417300086', '100000418376885', '100000427964321', '100000436904593', '100000439403035', '100000450762029', '100000470202135', '100000471533253', '100000491866263', '100000499549671', '100000508892219', '100000521226608', '100000530900873', '100000537347760', '100000549991660', '100000555131766', '100000556249586', '100000575217400', '100000582549269', '100000589503146', '100000608621298', '100000611075158', '100000613102625', '100000615065453', '100000625346297', '100000627003230', '100000627407291', '100000655677956', '100000661140508', '100000677904229', '100000685657032', '100000688517725', '100000736439118', '100000762021649', '100000793455543', '100000796435978', '100000799482035', '100000804698705', '100000836599446', '100000843123725', '100000847624181', '100000863426236', '100000868390380', '100000873783161', '100000875361391', '100000881874808', '100000927623220', '100000929414274', '100000957788898', '100000960439072', '100000966135064', '100000970482716', '100000972424423', '100000975007022', '100001006598400', '100001007360864', '100001013289719', '100001014142882', '100001030715270', '100001051459841', '100001057677645', '100001061025780', '100001062230444', '100001062844446', '100001080374746', '100001086860070', '100001093825652', '100001108572718', '100001109555955', '100001114814569', '100001137158434', '100001149775043', '100001156937298', '100001165328072', '100001185663241', '100001208734674', '100001226291949', '100001240326320', '100001242198002', '100001242237906', '100001242404950', '100001244392822', '100001244992725', '100001245921812', '100001249041774', '100001249318112', '100001267843984', '100001386822334', '100001397190702', '100001417630994', '100001443006942', '100001451708515', '100001462894247', '100001484741201', '100001486107154', '100001497409561', '100001501978804', '100001517382707', '100001519133533', '100001524738786', '100001627031343', '100001636865408', '100001637838442', '100001645720877', '100001657312658', '100001697366361', '100001714460528', '100001744228905', '100001750952053', '100001763237687', '100001777506621', '100001842250816', '100001861150840', '100001861522531', '100001889222000', '100001942454619', '100001961354460', '100002003335529', '100002006237291', '100002053698569', '100002076557008', '100002098477057', '100002129874368', '100002182394045', '100002191654669', '100002276015333', '100002338165006', '100002345279003', '100002393140799', '100002437913110', '100002476256813', '100002551267702', '100002594061121', '100002789797521', '100002926871451', '100002962985585', '100003021457357', '100003139796439', '100003268678488', '100003341844588', '100003396153778', '100003571687978', '100003618289023', '100003740595927', '100003786651920', '100003985840145', '100004045076273', '100004094085383', '100004737093862', '100004902635349', '100004939173763', '100005279941976', '100005517301669', '100006369372646', '100006435409426', '100006533042059')
+  Rendered friends/index.html.erb within layouts/application (0.6ms)
+Completed 500 Internal Server Error in 330ms
+
+ActionController::RoutingError (No route matches {:action=>"show", :controller=>"goal_instances", :user_id=>23}):
+  app/views/friends/index.html.erb:5:in `block in _app_views_friends_index_html_erb___204078821_82620730'
+  app/views/friends/index.html.erb:3:in `each'
+  app/views/friends/index.html.erb:3:in `_app_views_friends_index_html_erb___204078821_82620730'
+  app/controllers/friends_controller.rb:21:in `index'
+
+
+  Rendered /home/kaos/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-11-04 17:24:38 -0800
+Processing by LoginController#index as HTML
+  Rendered login/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 15ms (Views: 12.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/holder.js" for 127.0.0.1 at 2013-11-04 17:24:38 -0800
+Served asset /holder.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2013-11-04 17:24:38 -0800
+Served asset /bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/friends.css?body=1" for 127.0.0.1 at 2013-11-04 17:24:38 -0800
+Served asset /friends.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/goal_instances.css?body=1" for 127.0.0.1 at 2013-11-04 17:24:38 -0800
+Served asset /goal_instances.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/goals.css?body=1" for 127.0.0.1 at 2013-11-04 17:24:38 -0800
+Served asset /goals.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/login.css?body=1" for 127.0.0.1 at 2013-11-04 17:24:38 -0800
+Served asset /login.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-11-04 17:24:38 -0800
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-11-04 17:24:38 -0800
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/login/callback?code=AQAiV2gr_AY9rRkPMYERmoTxOqe6FerrSbyjz31rqvdp2lHO9q2uPxB_z780xPwLLg-Q2s_Pbap7dqgSxGb-zbwZJJAnfPA_hsxdGclJMFfu1K9AlGaV68NQhC-jWhfpkNfI-sl8HSmA-4WTjN4sDaOiJZq1NqLhNU0vQ3tP3lKEf-v2dAqCmzZoPuqWdT5r1tLZNqlbWncTOvjmmqxghZA00aManh6kOOsuPbPN4-s7cpnnUgeqVLxlt7eyOd8g37wcsqF9zkvk0NOsNFRMZPhUpYwmQlxuesK6Y2byMMjxLIsDKvrwkTW9_IRlrfOIyUI" for 127.0.0.1 at 2013-11-04 17:24:39 -0800
+Processing by LoginController#callback as HTML
+  Parameters: {"code"=>"AQAiV2gr_AY9rRkPMYERmoTxOqe6FerrSbyjz31rqvdp2lHO9q2uPxB_z780xPwLLg-Q2s_Pbap7dqgSxGb-zbwZJJAnfPA_hsxdGclJMFfu1K9AlGaV68NQhC-jWhfpkNfI-sl8HSmA-4WTjN4sDaOiJZq1NqLhNU0vQ3tP3lKEf-v2dAqCmzZoPuqWdT5r1tLZNqlbWncTOvjmmqxghZA00aManh6kOOsuPbPN4-s7cpnnUgeqVLxlt7eyOd8g37wcsqF9zkvk0NOsNFRMZPhUpYwmQlxuesK6Y2byMMjxLIsDKvrwkTW9_IRlrfOIyUI"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`fb_id` = '100001639762906' LIMIT 1[0m
+Redirected to http://localhost:3000/goals
+Completed 302 Found in 299ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/goals" for 127.0.0.1 at 2013-11-04 17:24:39 -0800
+Processing by GoalsController#index as HTML
+  [1m[35mGoal Load (0.1ms)[0m  SELECT `goals`.* FROM `goals` 
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 23 LIMIT 1[0m
+  [1m[35mGoalInstance Load (0.2ms)[0m  SELECT `goal_instances`.* FROM `goal_instances` WHERE `goal_instances`.`goal_id` = 16
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 25 LIMIT 1[0m
+  [1m[35mGoalInstance Load (0.1ms)[0m  SELECT `goal_instances`.* FROM `goal_instances` WHERE `goal_instances`.`goal_id` = 17
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 26 LIMIT 1[0m
+  [1m[35mGoalInstance Load (0.1ms)[0m  SELECT `goal_instances`.* FROM `goal_instances` WHERE `goal_instances`.`goal_id` = 18
+  Rendered goals/index.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 14ms (Views: 12.5ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assets/holder.js" for 127.0.0.1 at 2013-11-04 17:24:39 -0800
+Served asset /holder.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/friends.css?body=1" for 127.0.0.1 at 2013-11-04 17:24:39 -0800
+Served asset /friends.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/goal_instances.css?body=1" for 127.0.0.1 at 2013-11-04 17:24:39 -0800
+Served asset /goal_instances.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-11-04 17:24:39 -0800
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2013-11-04 17:24:39 -0800
+Served asset /bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-11-04 17:24:39 -0800
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/login.css?body=1" for 127.0.0.1 at 2013-11-04 17:24:39 -0800
+Served asset /login.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/goals.css?body=1" for 127.0.0.1 at 2013-11-04 17:24:39 -0800
+Served asset /goals.css - 304 Not Modified (0ms)
+
+
+Started GET "/friends/index" for 127.0.0.1 at 2013-11-04 17:24:41 -0800
+Processing by FriendsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 24 LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`fb_id` IN ('502961332', '517245226', '522157150', '529110613', '530115125', '530999255', '539928383', '540809766', '546415103', '556936879', '557912137', '558683751', '558938804', '567705996', '569348097', '570990094', '585824401', '589510711', '591880706', '593875507', '600244772', '601629221', '601750750', '602395906', '602605119', '602786717', '603156256', '603196042', '603441281', '604120644', '604150080', '604657823', '609029796', '611621298', '612265820', '619996818', '628195128', '632566198', '632681993', '639811236', '642057690', '642862076', '643031645', '643092720', '645421692', '649832469', '657850580', '662637732', '674633124', '682148625', '689496812', '691663939', '692765570', '694457516', '699475084', '703771010', '705208871', '705631539', '706060859', '712226583', '713688575', '715682786', '723275806', '731119375', '733695164', '755215887', '758552073', '760618754', '774035444', '778354416', '790935136', '795045797', '832648591', '838745252', '857194309', '1002128465', '1019907657', '1022048596', '1029849367', '1039677561', '1044675910', '1055485297', '1056036222', '1058025845', '1059387745', '1059465945', '1061736238', '1067182429', '1070883759', '1082353244', '1086613129', '1087201401', '1092108760', '1099382259', '1107894622', '1114113449', '1120728102', '1124945169', '1131500297', '1132543066', '1134788028', '1147050177', '1157250853', '1160280275', '1165892829', '1169423896', '1175181159', '1184478328', '1189972058', '1192291172', '1194835716', '1196142201', '1196384448', '1209360054', '1209935673', '1221585922', '1227408442', '1244522312', '1256900093', '1267895930', '1274712112', '1290649319', '1293055891', '1307365962', '1314108533', '1314172177', '1319332880', '1322602811', '1334257942', '1347390059', '1353004516', '1363357732', '1368333432', '1377578282', '1385958697', '1387279556', '1391596394', '1404280994', '1406672466', '1410087883', '1445713219', '1449351465', '1450895552', '1465603165', '1473985991', '1474311885', '1493990883', '1497181185', '1501455586', '1508793686', '1515888728', '1520975196', '1525092319', '1533387866', '1539036983', '1543682777', '1545654603', '1563065508', '1601893891', '1620334969', '1623548979', '1638844216', '1658138620', '1658747008', '1662411362', '1681563999', '1693184458', '1712604963', '1715209197', '1723047105', '1732947356', '1755709278', '1756711435', '1761523395', '1762030204', '1768412212', '1772870526', '1781079089', '1793591026', '1816736912', '1819429805', '1825273670', '1845233630', '100000015750269', '100000028056701', '100000029201936', '100000044743440', '100000051988539', '100000060795381', '100000064111848', '100000100367711', '100000103894591', '100000112428087', '100000113011803', '100000145921730', '100000157538686', '100000159951141', '100000163611036', '100000172515411', '100000190978696', '100000202659839', '100000218275693', '100000224942235', '100000227004498', '100000239242037', '100000251153175', '100000254775672', '100000270712599', '100000274853365', '100000283516076', '100000289788863', '100000311767021', '100000328352792', '100000333262410', '100000336841417', '100000358926910', '100000360704162', '100000371752693', '100000385298380', '100000391975643', '100000393835831', '100000417300086', '100000418376885', '100000427964321', '100000436904593', '100000439403035', '100000450762029', '100000470202135', '100000471533253', '100000491866263', '100000499549671', '100000508892219', '100000521226608', '100000530900873', '100000537347760', '100000549991660', '100000555131766', '100000556249586', '100000575217400', '100000582549269', '100000589503146', '100000608621298', '100000611075158', '100000613102625', '100000615065453', '100000625346297', '100000627003230', '100000627407291', '100000655677956', '100000661140508', '100000677904229', '100000685657032', '100000688517725', '100000736439118', '100000762021649', '100000793455543', '100000796435978', '100000799482035', '100000804698705', '100000836599446', '100000843123725', '100000847624181', '100000863426236', '100000868390380', '100000873783161', '100000875361391', '100000881874808', '100000927623220', '100000929414274', '100000957788898', '100000960439072', '100000966135064', '100000970482716', '100000972424423', '100000975007022', '100001006598400', '100001007360864', '100001013289719', '100001014142882', '100001030715270', '100001051459841', '100001057677645', '100001061025780', '100001062230444', '100001062844446', '100001080374746', '100001086860070', '100001093825652', '100001108572718', '100001109555955', '100001114814569', '100001137158434', '100001149775043', '100001156937298', '100001165328072', '100001185663241', '100001208734674', '100001226291949', '100001240326320', '100001242198002', '100001242237906', '100001242404950', '100001244392822', '100001244992725', '100001245921812', '100001249041774', '100001249318112', '100001267843984', '100001386822334', '100001397190702', '100001417630994', '100001443006942', '100001451708515', '100001462894247', '100001484741201', '100001486107154', '100001497409561', '100001501978804', '100001517382707', '100001519133533', '100001524738786', '100001627031343', '100001636865408', '100001637838442', '100001645720877', '100001657312658', '100001697366361', '100001714460528', '100001744228905', '100001750952053', '100001763237687', '100001777506621', '100001842250816', '100001861150840', '100001861522531', '100001889222000', '100001942454619', '100001961354460', '100002003335529', '100002006237291', '100002053698569', '100002076557008', '100002098477057', '100002129874368', '100002182394045', '100002191654669', '100002276015333', '100002338165006', '100002345279003', '100002393140799', '100002437913110', '100002476256813', '100002551267702', '100002594061121', '100002789797521', '100002926871451', '100002962985585', '100003021457357', '100003139796439', '100003268678488', '100003341844588', '100003396153778', '100003571687978', '100003618289023', '100003740595927', '100003786651920', '100003985840145', '100004045076273', '100004094085383', '100004737093862', '100004902635349', '100004939173763', '100005279941976', '100005517301669', '100006369372646', '100006435409426', '100006533042059')
+  Rendered friends/index.html.erb within layouts/application (0.7ms)
+Completed 500 Internal Server Error in 374ms
+
+ActionController::RoutingError (No route matches {:action=>"show", :controller=>"goal_instances", :user_id=>23}):
+  app/views/friends/index.html.erb:5:in `block in _app_views_friends_index_html_erb___204078821_82620730'
+  app/views/friends/index.html.erb:3:in `each'
+  app/views/friends/index.html.erb:3:in `_app_views_friends_index_html_erb___204078821_82620730'
+  app/controllers/friends_controller.rb:21:in `index'
+
+
+  Rendered /home/kaos/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.2ms)
+
+
+Started GET "/goals" for 127.0.0.1 at 2013-11-04 17:25:20 -0800
+Connecting to database specified by database.yml
+Processing by GoalsController#index as HTML
+  [1m[36mGoal Load (0.1ms)[0m  [1mSELECT `goals`.* FROM `goals` [0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 23 LIMIT 1
+  [1m[36mGoalInstance Load (0.1ms)[0m  [1mSELECT `goal_instances`.* FROM `goal_instances` WHERE `goal_instances`.`goal_id` = 16[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 25 LIMIT 1
+  [1m[36mGoalInstance Load (0.1ms)[0m  [1mSELECT `goal_instances`.* FROM `goal_instances` WHERE `goal_instances`.`goal_id` = 17[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 26 LIMIT 1
+  [1m[36mGoalInstance Load (0.1ms)[0m  [1mSELECT `goal_instances`.* FROM `goal_instances` WHERE `goal_instances`.`goal_id` = 18[0m
+  Rendered goals/index.html.erb within layouts/application (81.9ms)
+Completed 200 OK in 116ms (Views: 94.5ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/assets/holder.js" for 127.0.0.1 at 2013-11-04 17:25:21 -0800
+Served asset /holder.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/friends.css?body=1" for 127.0.0.1 at 2013-11-04 17:25:21 -0800
+Served asset /friends.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2013-11-04 17:25:21 -0800
+Served asset /bootstrap.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/goal_instances.css?body=1" for 127.0.0.1 at 2013-11-04 17:25:21 -0800
+Served asset /goal_instances.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/goals.css?body=1" for 127.0.0.1 at 2013-11-04 17:25:21 -0800
+Served asset /goals.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-11-04 17:25:21 -0800
+Served asset /scaffolds.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/login.css?body=1" for 127.0.0.1 at 2013-11-04 17:25:21 -0800
+Served asset /login.css - 304 Not Modified (8ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-11-04 17:25:21 -0800
+Served asset /users.css - 304 Not Modified (1ms)
+
+
+Started GET "/friends/index" for 127.0.0.1 at 2013-11-04 17:25:25 -0800
+Processing by FriendsController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 24 LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`fb_id` IN ('502961332', '517245226', '522157150', '529110613', '530115125', '530999255', '539928383', '540809766', '546415103', '556936879', '557912137', '558683751', '558938804', '567705996', '569348097', '570990094', '585824401', '589510711', '591880706', '593875507', '600244772', '601629221', '601750750', '602395906', '602605119', '602786717', '603156256', '603196042', '603441281', '604120644', '604150080', '604657823', '609029796', '611621298', '612265820', '619996818', '628195128', '632566198', '632681993', '639811236', '642057690', '642862076', '643031645', '643092720', '645421692', '649832469', '657850580', '662637732', '674633124', '682148625', '689496812', '691663939', '692765570', '694457516', '699475084', '703771010', '705208871', '705631539', '706060859', '712226583', '713688575', '715682786', '723275806', '731119375', '733695164', '755215887', '758552073', '760618754', '774035444', '778354416', '790935136', '795045797', '832648591', '838745252', '857194309', '1002128465', '1019907657', '1022048596', '1029849367', '1039677561', '1044675910', '1055485297', '1056036222', '1058025845', '1059387745', '1059465945', '1061736238', '1067182429', '1070883759', '1082353244', '1086613129', '1087201401', '1092108760', '1099382259', '1107894622', '1114113449', '1120728102', '1124945169', '1131500297', '1132543066', '1134788028', '1147050177', '1157250853', '1160280275', '1165892829', '1169423896', '1175181159', '1184478328', '1189972058', '1192291172', '1194835716', '1196142201', '1196384448', '1209360054', '1209935673', '1221585922', '1227408442', '1244522312', '1256900093', '1267895930', '1274712112', '1290649319', '1293055891', '1307365962', '1314108533', '1314172177', '1319332880', '1322602811', '1334257942', '1347390059', '1353004516', '1363357732', '1368333432', '1377578282', '1385958697', '1387279556', '1391596394', '1404280994', '1406672466', '1410087883', '1445713219', '1449351465', '1450895552', '1465603165', '1473985991', '1474311885', '1493990883', '1497181185', '1501455586', '1508793686', '1515888728', '1520975196', '1525092319', '1533387866', '1539036983', '1543682777', '1545654603', '1563065508', '1601893891', '1620334969', '1623548979', '1638844216', '1658138620', '1658747008', '1662411362', '1681563999', '1693184458', '1712604963', '1715209197', '1723047105', '1732947356', '1755709278', '1756711435', '1761523395', '1762030204', '1768412212', '1772870526', '1781079089', '1793591026', '1816736912', '1819429805', '1825273670', '1845233630', '100000015750269', '100000028056701', '100000029201936', '100000044743440', '100000051988539', '100000060795381', '100000064111848', '100000100367711', '100000103894591', '100000112428087', '100000113011803', '100000145921730', '100000157538686', '100000159951141', '100000163611036', '100000172515411', '100000190978696', '100000202659839', '100000218275693', '100000224942235', '100000227004498', '100000239242037', '100000251153175', '100000254775672', '100000270712599', '100000274853365', '100000283516076', '100000289788863', '100000311767021', '100000328352792', '100000333262410', '100000336841417', '100000358926910', '100000360704162', '100000371752693', '100000385298380', '100000391975643', '100000393835831', '100000417300086', '100000418376885', '100000427964321', '100000436904593', '100000439403035', '100000450762029', '100000470202135', '100000471533253', '100000491866263', '100000499549671', '100000508892219', '100000521226608', '100000530900873', '100000537347760', '100000549991660', '100000555131766', '100000556249586', '100000575217400', '100000582549269', '100000589503146', '100000608621298', '100000611075158', '100000613102625', '100000615065453', '100000625346297', '100000627003230', '100000627407291', '100000655677956', '100000661140508', '100000677904229', '100000685657032', '100000688517725', '100000736439118', '100000762021649', '100000793455543', '100000796435978', '100000799482035', '100000804698705', '100000836599446', '100000843123725', '100000847624181', '100000863426236', '100000868390380', '100000873783161', '100000875361391', '100000881874808', '100000927623220', '100000929414274', '100000957788898', '100000960439072', '100000966135064', '100000970482716', '100000972424423', '100000975007022', '100001006598400', '100001007360864', '100001013289719', '100001014142882', '100001030715270', '100001051459841', '100001057677645', '100001061025780', '100001062230444', '100001062844446', '100001080374746', '100001086860070', '100001093825652', '100001108572718', '100001109555955', '100001114814569', '100001137158434', '100001149775043', '100001156937298', '100001165328072', '100001185663241', '100001208734674', '100001226291949', '100001240326320', '100001242198002', '100001242237906', '100001242404950', '100001244392822', '100001244992725', '100001245921812', '100001249041774', '100001249318112', '100001267843984', '100001386822334', '100001397190702', '100001417630994', '100001443006942', '100001451708515', '100001462894247', '100001484741201', '100001486107154', '100001497409561', '100001501978804', '100001517382707', '100001519133533', '100001524738786', '100001627031343', '100001636865408', '100001637838442', '100001645720877', '100001657312658', '100001697366361', '100001714460528', '100001744228905', '100001750952053', '100001763237687', '100001777506621', '100001842250816', '100001861150840', '100001861522531', '100001889222000', '100001942454619', '100001961354460', '100002003335529', '100002006237291', '100002053698569', '100002076557008', '100002098477057', '100002129874368', '100002182394045', '100002191654669', '100002276015333', '100002338165006', '100002345279003', '100002393140799', '100002437913110', '100002476256813', '100002551267702', '100002594061121', '100002789797521', '100002926871451', '100002962985585', '100003021457357', '100003139796439', '100003268678488', '100003341844588', '100003396153778', '100003571687978', '100003618289023', '100003740595927', '100003786651920', '100003985840145', '100004045076273', '100004094085383', '100004737093862', '100004902635349', '100004939173763', '100005279941976', '100005517301669', '100006369372646', '100006435409426', '100006533042059')[0m
+  Rendered friends/index.html.erb within layouts/application (2.3ms)
+Completed 500 Internal Server Error in 392ms
+
+ActionController::RoutingError (No route matches {:action=>"show", :controller=>"goal_instances", :user_id=>23}):
+  app/views/friends/index.html.erb:5:in `block in _app_views_friends_index_html_erb__419770177_76704750'
+  app/views/friends/index.html.erb:3:in `each'
+  app/views/friends/index.html.erb:3:in `_app_views_friends_index_html_erb__419770177_76704750'
+  app/controllers/friends_controller.rb:21:in `index'
+
+
+  Rendered /home/kaos/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.1ms)
+
+
+Started GET "/friends/index" for 127.0.0.1 at 2013-11-04 17:26:30 -0800
+Processing by FriendsController#index as HTML
+  [1m[35mUser Load (4.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 24 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`fb_id` IN ('502961332', '517245226', '522157150', '529110613', '530115125', '530999255', '539928383', '540809766', '546415103', '556936879', '557912137', '558683751', '558938804', '567705996', '569348097', '570990094', '585824401', '589510711', '591880706', '593875507', '600244772', '601629221', '601750750', '602395906', '602605119', '602786717', '603156256', '603196042', '603441281', '604120644', '604150080', '604657823', '609029796', '611621298', '612265820', '619996818', '628195128', '632566198', '632681993', '639811236', '642057690', '642862076', '643031645', '643092720', '645421692', '649832469', '657850580', '662637732', '674633124', '682148625', '689496812', '691663939', '692765570', '694457516', '699475084', '703771010', '705208871', '705631539', '706060859', '712226583', '713688575', '715682786', '723275806', '731119375', '733695164', '755215887', '758552073', '760618754', '774035444', '778354416', '790935136', '795045797', '832648591', '838745252', '857194309', '1002128465', '1019907657', '1022048596', '1029849367', '1039677561', '1044675910', '1055485297', '1056036222', '1058025845', '1059387745', '1059465945', '1061736238', '1067182429', '1070883759', '1082353244', '1086613129', '1087201401', '1092108760', '1099382259', '1107894622', '1114113449', '1120728102', '1124945169', '1131500297', '1132543066', '1134788028', '1147050177', '1157250853', '1160280275', '1165892829', '1169423896', '1175181159', '1184478328', '1189972058', '1192291172', '1194835716', '1196142201', '1196384448', '1209360054', '1209935673', '1221585922', '1227408442', '1244522312', '1256900093', '1267895930', '1274712112', '1290649319', '1293055891', '1307365962', '1314108533', '1314172177', '1319332880', '1322602811', '1334257942', '1347390059', '1353004516', '1363357732', '1368333432', '1377578282', '1385958697', '1387279556', '1391596394', '1404280994', '1406672466', '1410087883', '1445713219', '1449351465', '1450895552', '1465603165', '1473985991', '1474311885', '1493990883', '1497181185', '1501455586', '1508793686', '1515888728', '1520975196', '1525092319', '1533387866', '1539036983', '1543682777', '1545654603', '1563065508', '1601893891', '1620334969', '1623548979', '1638844216', '1658138620', '1658747008', '1662411362', '1681563999', '1693184458', '1712604963', '1715209197', '1723047105', '1732947356', '1755709278', '1756711435', '1761523395', '1762030204', '1768412212', '1772870526', '1781079089', '1793591026', '1816736912', '1819429805', '1825273670', '1845233630', '100000015750269', '100000028056701', '100000029201936', '100000044743440', '100000051988539', '100000060795381', '100000064111848', '100000100367711', '100000103894591', '100000112428087', '100000113011803', '100000145921730', '100000157538686', '100000159951141', '100000163611036', '100000172515411', '100000190978696', '100000202659839', '100000218275693', '100000224942235', '100000227004498', '100000239242037', '100000251153175', '100000254775672', '100000270712599', '100000274853365', '100000283516076', '100000289788863', '100000311767021', '100000328352792', '100000333262410', '100000336841417', '100000358926910', '100000360704162', '100000371752693', '100000385298380', '100000391975643', '100000393835831', '100000417300086', '100000418376885', '100000427964321', '100000436904593', '100000439403035', '100000450762029', '100000470202135', '100000471533253', '100000491866263', '100000499549671', '100000508892219', '100000521226608', '100000530900873', '100000537347760', '100000549991660', '100000555131766', '100000556249586', '100000575217400', '100000582549269', '100000589503146', '100000608621298', '100000611075158', '100000613102625', '100000615065453', '100000625346297', '100000627003230', '100000627407291', '100000655677956', '100000661140508', '100000677904229', '100000685657032', '100000688517725', '100000736439118', '100000762021649', '100000793455543', '100000796435978', '100000799482035', '100000804698705', '100000836599446', '100000843123725', '100000847624181', '100000863426236', '100000868390380', '100000873783161', '100000875361391', '100000881874808', '100000927623220', '100000929414274', '100000957788898', '100000960439072', '100000966135064', '100000970482716', '100000972424423', '100000975007022', '100001006598400', '100001007360864', '100001013289719', '100001014142882', '100001030715270', '100001051459841', '100001057677645', '100001061025780', '100001062230444', '100001062844446', '100001080374746', '100001086860070', '100001093825652', '100001108572718', '100001109555955', '100001114814569', '100001137158434', '100001149775043', '100001156937298', '100001165328072', '100001185663241', '100001208734674', '100001226291949', '100001240326320', '100001242198002', '100001242237906', '100001242404950', '100001244392822', '100001244992725', '100001245921812', '100001249041774', '100001249318112', '100001267843984', '100001386822334', '100001397190702', '100001417630994', '100001443006942', '100001451708515', '100001462894247', '100001484741201', '100001486107154', '100001497409561', '100001501978804', '100001517382707', '100001519133533', '100001524738786', '100001627031343', '100001636865408', '100001637838442', '100001645720877', '100001657312658', '100001697366361', '100001714460528', '100001744228905', '100001750952053', '100001763237687', '100001777506621', '100001842250816', '100001861150840', '100001861522531', '100001889222000', '100001942454619', '100001961354460', '100002003335529', '100002006237291', '100002053698569', '100002076557008', '100002098477057', '100002129874368', '100002182394045', '100002191654669', '100002276015333', '100002338165006', '100002345279003', '100002393140799', '100002437913110', '100002476256813', '100002551267702', '100002594061121', '100002789797521', '100002926871451', '100002962985585', '100003021457357', '100003139796439', '100003268678488', '100003341844588', '100003396153778', '100003571687978', '100003618289023', '100003740595927', '100003786651920', '100003985840145', '100004045076273', '100004094085383', '100004737093862', '100004902635349', '100004939173763', '100005279941976', '100005517301669', '100006369372646', '100006435409426', '100006533042059')[0m
+  Rendered friends/index.html.erb within layouts/application (3.1ms)
+Completed 500 Internal Server Error in 498ms
+
+ActionController::RoutingError (No route matches {:action=>"show", :controller=>"goal_instances", :user_id=>23}):
+  app/views/friends/index.html.erb:5:in `block in _app_views_friends_index_html_erb__419770177_76704750'
+  app/views/friends/index.html.erb:3:in `each'
+  app/views/friends/index.html.erb:3:in `_app_views_friends_index_html_erb__419770177_76704750'
+  app/controllers/friends_controller.rb:21:in `index'
+
+
+  Rendered /home/kaos/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.5ms)
+
+
+Started GET "/friends/index" for 127.0.0.1 at 2013-11-04 17:26:59 -0800
+Processing by FriendsController#index as HTML
+  [1m[35mUser Load (1.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 24 LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`fb_id` IN ('502961332', '517245226', '522157150', '529110613', '530115125', '530999255', '539928383', '540809766', '546415103', '556936879', '557912137', '558683751', '558938804', '567705996', '569348097', '570990094', '585824401', '589510711', '591880706', '593875507', '600244772', '601629221', '601750750', '602395906', '602605119', '602786717', '603156256', '603196042', '603441281', '604120644', '604150080', '604657823', '609029796', '611621298', '612265820', '619996818', '628195128', '632566198', '632681993', '639811236', '642057690', '642862076', '643031645', '643092720', '645421692', '649832469', '657850580', '662637732', '674633124', '682148625', '689496812', '691663939', '692765570', '694457516', '699475084', '703771010', '705208871', '705631539', '706060859', '712226583', '713688575', '715682786', '723275806', '731119375', '733695164', '755215887', '758552073', '760618754', '774035444', '778354416', '790935136', '795045797', '832648591', '838745252', '857194309', '1002128465', '1019907657', '1022048596', '1029849367', '1039677561', '1044675910', '1055485297', '1056036222', '1058025845', '1059387745', '1059465945', '1061736238', '1067182429', '1070883759', '1082353244', '1086613129', '1087201401', '1092108760', '1099382259', '1107894622', '1114113449', '1120728102', '1124945169', '1131500297', '1132543066', '1134788028', '1147050177', '1157250853', '1160280275', '1165892829', '1169423896', '1175181159', '1184478328', '1189972058', '1192291172', '1194835716', '1196142201', '1196384448', '1209360054', '1209935673', '1221585922', '1227408442', '1244522312', '1256900093', '1267895930', '1274712112', '1290649319', '1293055891', '1307365962', '1314108533', '1314172177', '1319332880', '1322602811', '1334257942', '1347390059', '1353004516', '1363357732', '1368333432', '1377578282', '1385958697', '1387279556', '1391596394', '1404280994', '1406672466', '1410087883', '1445713219', '1449351465', '1450895552', '1465603165', '1473985991', '1474311885', '1493990883', '1497181185', '1501455586', '1508793686', '1515888728', '1520975196', '1525092319', '1533387866', '1539036983', '1543682777', '1545654603', '1563065508', '1601893891', '1620334969', '1623548979', '1638844216', '1658138620', '1658747008', '1662411362', '1681563999', '1693184458', '1712604963', '1715209197', '1723047105', '1732947356', '1755709278', '1756711435', '1761523395', '1762030204', '1768412212', '1772870526', '1781079089', '1793591026', '1816736912', '1819429805', '1825273670', '1845233630', '100000015750269', '100000028056701', '100000029201936', '100000044743440', '100000051988539', '100000060795381', '100000064111848', '100000100367711', '100000103894591', '100000112428087', '100000113011803', '100000145921730', '100000157538686', '100000159951141', '100000163611036', '100000172515411', '100000190978696', '100000202659839', '100000218275693', '100000224942235', '100000227004498', '100000239242037', '100000251153175', '100000254775672', '100000270712599', '100000274853365', '100000283516076', '100000289788863', '100000311767021', '100000328352792', '100000333262410', '100000336841417', '100000358926910', '100000360704162', '100000371752693', '100000385298380', '100000391975643', '100000393835831', '100000417300086', '100000418376885', '100000427964321', '100000436904593', '100000439403035', '100000450762029', '100000470202135', '100000471533253', '100000491866263', '100000499549671', '100000508892219', '100000521226608', '100000530900873', '100000537347760', '100000549991660', '100000555131766', '100000556249586', '100000575217400', '100000582549269', '100000589503146', '100000608621298', '100000611075158', '100000613102625', '100000615065453', '100000625346297', '100000627003230', '100000627407291', '100000655677956', '100000661140508', '100000677904229', '100000685657032', '100000688517725', '100000736439118', '100000762021649', '100000793455543', '100000796435978', '100000799482035', '100000804698705', '100000836599446', '100000843123725', '100000847624181', '100000863426236', '100000868390380', '100000873783161', '100000875361391', '100000881874808', '100000927623220', '100000929414274', '100000957788898', '100000960439072', '100000966135064', '100000970482716', '100000972424423', '100000975007022', '100001006598400', '100001007360864', '100001013289719', '100001014142882', '100001030715270', '100001051459841', '100001057677645', '100001061025780', '100001062230444', '100001062844446', '100001080374746', '100001086860070', '100001093825652', '100001108572718', '100001109555955', '100001114814569', '100001137158434', '100001149775043', '100001156937298', '100001165328072', '100001185663241', '100001208734674', '100001226291949', '100001240326320', '100001242198002', '100001242237906', '100001242404950', '100001244392822', '100001244992725', '100001245921812', '100001249041774', '100001249318112', '100001267843984', '100001386822334', '100001397190702', '100001417630994', '100001443006942', '100001451708515', '100001462894247', '100001484741201', '100001486107154', '100001497409561', '100001501978804', '100001517382707', '100001519133533', '100001524738786', '100001627031343', '100001636865408', '100001637838442', '100001645720877', '100001657312658', '100001697366361', '100001714460528', '100001744228905', '100001750952053', '100001763237687', '100001777506621', '100001842250816', '100001861150840', '100001861522531', '100001889222000', '100001942454619', '100001961354460', '100002003335529', '100002006237291', '100002053698569', '100002076557008', '100002098477057', '100002129874368', '100002182394045', '100002191654669', '100002276015333', '100002338165006', '100002345279003', '100002393140799', '100002437913110', '100002476256813', '100002551267702', '100002594061121', '100002789797521', '100002926871451', '100002962985585', '100003021457357', '100003139796439', '100003268678488', '100003341844588', '100003396153778', '100003571687978', '100003618289023', '100003740595927', '100003786651920', '100003985840145', '100004045076273', '100004094085383', '100004737093862', '100004902635349', '100004939173763', '100005279941976', '100005517301669', '100006369372646', '100006435409426', '100006533042059')[0m
+  Rendered friends/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 329ms (Views: 3.4ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/assets/holder.js" for 127.0.0.1 at 2013-11-04 17:27:00 -0800
+Served asset /holder.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2013-11-04 17:27:00 -0800
+Served asset /bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/friends.css?body=1" for 127.0.0.1 at 2013-11-04 17:27:00 -0800
+Served asset /friends.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/goals.css?body=1" for 127.0.0.1 at 2013-11-04 17:27:00 -0800
+Served asset /goals.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/goal_instances.css?body=1" for 127.0.0.1 at 2013-11-04 17:27:00 -0800
+Served asset /goal_instances.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/login.css?body=1" for 127.0.0.1 at 2013-11-04 17:27:00 -0800
+Served asset /login.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-11-04 17:27:00 -0800
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-11-04 17:27:00 -0800
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/friends/index" for 127.0.0.1 at 2013-11-04 17:27:21 -0800
+Processing by FriendsController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 24 LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`fb_id` IN ('502961332', '517245226', '522157150', '529110613', '530115125', '530999255', '539928383', '540809766', '546415103', '556936879', '557912137', '558683751', '558938804', '567705996', '569348097', '570990094', '585824401', '589510711', '591880706', '593875507', '600244772', '601629221', '601750750', '602395906', '602605119', '602786717', '603156256', '603196042', '603441281', '604120644', '604150080', '604657823', '609029796', '611621298', '612265820', '619996818', '628195128', '632566198', '632681993', '639811236', '642057690', '642862076', '643031645', '643092720', '645421692', '649832469', '657850580', '662637732', '674633124', '682148625', '689496812', '691663939', '692765570', '694457516', '699475084', '703771010', '705208871', '705631539', '706060859', '712226583', '713688575', '715682786', '723275806', '731119375', '733695164', '755215887', '758552073', '760618754', '774035444', '778354416', '790935136', '795045797', '832648591', '838745252', '857194309', '1002128465', '1019907657', '1022048596', '1029849367', '1039677561', '1044675910', '1055485297', '1056036222', '1058025845', '1059387745', '1059465945', '1061736238', '1067182429', '1070883759', '1082353244', '1086613129', '1087201401', '1092108760', '1099382259', '1107894622', '1114113449', '1120728102', '1124945169', '1131500297', '1132543066', '1134788028', '1147050177', '1157250853', '1160280275', '1165892829', '1169423896', '1175181159', '1184478328', '1189972058', '1192291172', '1194835716', '1196142201', '1196384448', '1209360054', '1209935673', '1221585922', '1227408442', '1244522312', '1256900093', '1267895930', '1274712112', '1290649319', '1293055891', '1307365962', '1314108533', '1314172177', '1319332880', '1322602811', '1334257942', '1347390059', '1353004516', '1363357732', '1368333432', '1377578282', '1385958697', '1387279556', '1391596394', '1404280994', '1406672466', '1410087883', '1445713219', '1449351465', '1450895552', '1465603165', '1473985991', '1474311885', '1493990883', '1497181185', '1501455586', '1508793686', '1515888728', '1520975196', '1525092319', '1533387866', '1539036983', '1543682777', '1545654603', '1563065508', '1601893891', '1620334969', '1623548979', '1638844216', '1658138620', '1658747008', '1662411362', '1681563999', '1693184458', '1712604963', '1715209197', '1723047105', '1732947356', '1755709278', '1756711435', '1761523395', '1762030204', '1768412212', '1772870526', '1781079089', '1793591026', '1816736912', '1819429805', '1825273670', '1845233630', '100000015750269', '100000028056701', '100000029201936', '100000044743440', '100000051988539', '100000060795381', '100000064111848', '100000100367711', '100000103894591', '100000112428087', '100000113011803', '100000145921730', '100000157538686', '100000159951141', '100000163611036', '100000172515411', '100000190978696', '100000202659839', '100000218275693', '100000224942235', '100000227004498', '100000239242037', '100000251153175', '100000254775672', '100000270712599', '100000274853365', '100000283516076', '100000289788863', '100000311767021', '100000328352792', '100000333262410', '100000336841417', '100000358926910', '100000360704162', '100000371752693', '100000385298380', '100000391975643', '100000393835831', '100000417300086', '100000418376885', '100000427964321', '100000436904593', '100000439403035', '100000450762029', '100000470202135', '100000471533253', '100000491866263', '100000499549671', '100000508892219', '100000521226608', '100000530900873', '100000537347760', '100000549991660', '100000555131766', '100000556249586', '100000575217400', '100000582549269', '100000589503146', '100000608621298', '100000611075158', '100000613102625', '100000615065453', '100000625346297', '100000627003230', '100000627407291', '100000655677956', '100000661140508', '100000677904229', '100000685657032', '100000688517725', '100000736439118', '100000762021649', '100000793455543', '100000796435978', '100000799482035', '100000804698705', '100000836599446', '100000843123725', '100000847624181', '100000863426236', '100000868390380', '100000873783161', '100000875361391', '100000881874808', '100000927623220', '100000929414274', '100000957788898', '100000960439072', '100000966135064', '100000970482716', '100000972424423', '100000975007022', '100001006598400', '100001007360864', '100001013289719', '100001014142882', '100001030715270', '100001051459841', '100001057677645', '100001061025780', '100001062230444', '100001062844446', '100001080374746', '100001086860070', '100001093825652', '100001108572718', '100001109555955', '100001114814569', '100001137158434', '100001149775043', '100001156937298', '100001165328072', '100001185663241', '100001208734674', '100001226291949', '100001240326320', '100001242198002', '100001242237906', '100001242404950', '100001244392822', '100001244992725', '100001245921812', '100001249041774', '100001249318112', '100001267843984', '100001386822334', '100001397190702', '100001417630994', '100001443006942', '100001451708515', '100001462894247', '100001484741201', '100001486107154', '100001497409561', '100001501978804', '100001517382707', '100001519133533', '100001524738786', '100001627031343', '100001636865408', '100001637838442', '100001645720877', '100001657312658', '100001697366361', '100001714460528', '100001744228905', '100001750952053', '100001763237687', '100001777506621', '100001842250816', '100001861150840', '100001861522531', '100001889222000', '100001942454619', '100001961354460', '100002003335529', '100002006237291', '100002053698569', '100002076557008', '100002098477057', '100002129874368', '100002182394045', '100002191654669', '100002276015333', '100002338165006', '100002345279003', '100002393140799', '100002437913110', '100002476256813', '100002551267702', '100002594061121', '100002789797521', '100002926871451', '100002962985585', '100003021457357', '100003139796439', '100003268678488', '100003341844588', '100003396153778', '100003571687978', '100003618289023', '100003740595927', '100003786651920', '100003985840145', '100004045076273', '100004094085383', '100004737093862', '100004902635349', '100004939173763', '100005279941976', '100005517301669', '100006369372646', '100006435409426', '100006533042059')[0m
+  Rendered friends/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 301ms (Views: 8.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/holder.js" for 127.0.0.1 at 2013-11-04 17:27:22 -0800
+Served asset /holder.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2013-11-04 17:27:22 -0800
+Served asset /bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/friends.css?body=1" for 127.0.0.1 at 2013-11-04 17:27:22 -0800
+Served asset /friends.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/goal_instances.css?body=1" for 127.0.0.1 at 2013-11-04 17:27:22 -0800
+Served asset /goal_instances.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/goals.css?body=1" for 127.0.0.1 at 2013-11-04 17:27:22 -0800
+Served asset /goals.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/login.css?body=1" for 127.0.0.1 at 2013-11-04 17:27:22 -0800
+Served asset /login.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-11-04 17:27:22 -0800
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-11-04 17:27:22 -0800
+Served asset /users.css - 304 Not Modified (0ms)
