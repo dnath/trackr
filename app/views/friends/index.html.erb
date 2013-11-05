@@ -2,7 +2,7 @@
 <table>
 <% @current_user_friends_in_trackr.each do |friend| %>
   <tr>
-  	<td><%= link_to friend.first_name, "#"%></td>
+  	<td><%= link_to friend.first_name, :controller => "goal_instances", :user_id => friend['id']%></td>
   </tr>
 <% end %>
 </table>
