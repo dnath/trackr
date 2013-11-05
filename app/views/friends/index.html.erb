@@ -1,0 +1,8 @@
+<h1>My Friends</h1>
+<table>
+<% @current_user_friends_in_trackr.each do |friend| %>
+  <tr>
+  	<td><%= link_to friend.first_name, goal_instance_path(:user_id => friend.id)%></td>
+  </tr>
+<% end %>
+</table>

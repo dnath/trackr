@@ -1,0 +1,51 @@
+<%= form_for(@goal) do |f| %>
+  <% if @goal.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@goal.errors.count, "error") %> prohibited this goal from being saved:</h2>
+
+      <ul>
+      <% @goal.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="media">
+		<a class="pull-left" href="#">
+			<%= image_tag @goal.picture.url, :class => "media-object", :width => "350px", :height => "350px" %>
+		</a>
+		<div class="media-body">
+		  <div class="field">
+		    <span class="label label-primary"><%= f.label :title %></b></span><br />
+		    <%= f.text_area :title, rows:2 %>
+		  </div>
+		  <div class="field">
+		    <span class="label label-primary"><%= f.label :description %></span><br />
+		    <%= f.text_area :description, rows: 6 %>
+		  </div>
+		  <div class="actions">
+		    <%= f.submit %>
+		  </div>
+		</div>
+	</div>
+	<!-- modal window start-->
+	<div id="modal_window" class="modal fade in">
+	<div class="modal-header">
+		<a class="close" data-dismiss="modal">×</a>
+		<h3>Select file</h3>
+	</div>
+	<div class="modal-body">
+		<div class="field">
+		  <%= f.label :picture %><br />
+		  <%= f.file_field :picture %>
+		</div>
+	</div>
+	<div class="modal-footer">
+		<a href="#" class="btn" data-dismiss="modal">Close</a>
+	</div>
+	</div>
+	<p><a data-toggle="modal" href="#modal_window" class="btn btn-default navbar-btn">Change Image</a></p>
+	<!-- modal window end -->
+  </div>
+<% end %>

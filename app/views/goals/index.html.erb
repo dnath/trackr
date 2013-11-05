@@ -1,0 +1,45 @@
+<%= image_tag("logo.gif",:align => 'left',:width => '100px',:height => '100px') %>
+
+<ul class="nav nav-tabs">
+  <li><a href="goal_instances?user_id=<%= session[:current_user]%>">My Goals</a></li>
+  <li class="active"><a href="#">Find Goals</a></li>
+  <li><a href="#">Friend's Goals</a></li>
+</ul>
+<div style="float: right;"><%= link_to 'Create Goal', new_goal_path %></div>
+<br />
+<table>
+<tr></tr>
+  <tr class="list_bar">
+  	<td class="list_description">
+  	<dl>
+  		<dt>Owner</dt>
+  	</dl></td>
+    <td class="list_description">
+    <dl>
+    	<dt>Title</dt>
+    </dl></td>
+    <td class="list_description">
+    <dl>
+    	<dt>Description</dt>
+    </dl></td>
+    <td class="list_description">
+    <dl>
+    	<dt># members</dt>
+    </dl></td>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @goals.each do |goal| %>
+  <tr>
+  	<td><%= goal.user.first_name+" "+ goal.user.last_name%> </td>
+    <td><%= link_to goal.title , goal%></td>
+    <td><%= truncate(strip_tags(goal.description),
+               length: 80) %></td>
+    <td><%= goal.goal_instances.length%></td>
+  </tr>
+<% end %>
+</table>
+<br />
+
+

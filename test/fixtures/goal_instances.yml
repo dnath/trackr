@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  start_date: 2013-10-29
+  end_date: 2013-10-29
+  is_complete: false
+  cheer_ons: 1
+
+two:
+  start_date: 2013-10-29
+  end_date: 2013-10-29
+  is_complete: false
+  cheer_ons: 1

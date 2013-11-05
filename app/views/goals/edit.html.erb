@@ -1,0 +1,9 @@
+<%= image_tag("logo.gif",:align => 'left',:width => '100px',:height => '100px') %>
+
+<ul class="nav nav-tabs">
+  <li><a href="#">My Goals</a></li>
+  <li class="active"><a href="#">Find Goals</a></li>
+  <li><a href="#">Friend's Goals</a></li>
+</ul>
+<%= render 'form_edit' %>
+<%= link_to 'Cancel', goals_path%>

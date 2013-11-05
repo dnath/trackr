@@ -1,0 +1,27 @@
+<div class="media">
+	<a class="pull-left" href="#">
+		<%current_goal=Goal.find(params[:goal_id])%>
+		<%= image_tag current_goal.picture.url, :class => "media-object", :width => "200px", :height => "200px" %>
+	</a>
+	<div class="media-body">
+		<div class="page-header">
+			<h1>
+				<%= current_goal.title %>
+				<small><%= current_goal.description %></small>
+			</h1>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4"> <b> Created By</b> </div>
+				<div class="col-md-4"> <%= current_goal.user.first_name + " "+ current_goal.user.last_name%> </div>
+			</div>
+		</div>
+	</div>	
+</div>
+<br />
+<br />
+<br />
+<br />
+<%= render 'form' %>
+
+<%= link_to 'Back', goal_instances_path %>

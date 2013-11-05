@@ -1,0 +1,2 @@
+module GoalInstancesHelper
+end

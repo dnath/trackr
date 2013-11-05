@@ -1,0 +1,67 @@
+<br/>
+<br/>
+<br/>
+<br/>
+<p id="notice"><%= notice %></p>
+
+<div class="media">
+	<a class="pull-left" href="#">
+		<%= image_tag @goal.picture.url, :class => "media-object", :width => "200px", :height => "200px" %>
+	</a>
+	<div class="media-body">
+		<div class="page-header">
+			<h1>
+				<%= link_to 'Join', new_goal_instance_path(:goal_id => @goal.id), class: "btn btn-large btn-primary"%>
+				<%= @goal.title %>
+				<small><%= @goal.description %></small>
+			</h1>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4"> <b> Created By</b> </div>
+				<div class="col-md-4"> <%= @goal.user.first_name + " "+ @goal.user.last_name%> </div>
+			</div>
+		</div>
+	</div>	
+</div>
+<!-- carousel -->
+<br/>
+<br/>
+<% number_loops = @current_followers.length / 6
+   if ( @current_followers.length % 6 != 0 )
+   		number_loops= number_loops+ 1
+   end
+%>
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+  	<% for i in 0..number_loops-1%>
+    	<li data-target="#myCarousel" data-slide-to="<%=i%>"></li>
+    <% end %>
+  </ol>
+  <div class="carousel-inner">
+  	<% for i in 0..number_loops-1%>
+    <div class="item  <%if i == 0 then%>active <%end%>">
+      	<img width="100%" src="/assets/blue1.jpg"></img>
+      	<div class="container">
+	        <div class="carousel-caption">
+	          <h1>Currently Pursuing <small>(<%=@current_followers.length%>)</small></h1>
+			  <div class="row">
+			  	<%for j in 0..5%>
+			  		<% index = i*7 + j %>
+			  		<% if @current_followers[index] then %>
+			  			<div class="col-md-2"> <%= @current_followers[index]["first_name"] + " "+ @current_followers[index]["last_name"] %> <br/><img width="50%" height="50%" src=<%=@current_followers[index]["picture"]["data"]["url"]%> /> </div>
+			  		<%end%>
+			  	<%end%>
+			  </div>
+		    </div>
+	    </div>
+    </div>
+    <% end %>
+  </div>
+  <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+  <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+</div>
+<!-- end of carousel-->
+	
+<%= link_to 'Edit', edit_goal_path(@goal) %> |
+<%= link_to 'Back', goals_path %>

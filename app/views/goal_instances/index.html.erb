@@ -1,0 +1,51 @@
+<%= image_tag("logo.gif",:align => 'left',:width => '100px',:height => '100px') %>
+
+<ul class="nav nav-tabs">
+  <li class="active"><a href="#">My Goals</a></li>
+  <li><a href="/goals">Find Goals</a></li>
+  <li><a href="#">Friend's Goals</a></li>
+</ul>
+
+<table>
+  <tr></tr>
+  <tr class="list_bar">
+    <td class="list_description">
+    <dl>
+      <dt>Title</dt>
+    </dl></td>
+     <td class="list_description">
+    <dl>
+      <dt>Description</dt>
+    </dl></td>
+    <td class="list_description">
+    <dl>
+      <dt>Start Date</dt>
+    </dl></td>
+     <td class="list_description">
+    <dl>
+      <dt>End Date</dt>
+    </dl></td>
+     <td class="list_description">
+    <dl>
+      <dt>Cheer Ons</dt>
+    </dl></td>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @goal_instances.each do |goal_instance| %>
+  <tr>
+    <td><%= unless goal_instance.goal.nil? 
+         link_to goal_instance.goal.title, goal_instance
+      end%> </td>
+    <td> <%= unless goal_instance.goal.nil?
+          goal_instance.goal.description 
+        end %></td> 
+    <td><%= goal_instance.start_date %></td>
+    <td><%= goal_instance.end_date %></td>
+    <td><%= goal_instance.cheer_ons %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
