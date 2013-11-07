@@ -6,6 +6,11 @@ gem 'rails_bootstrap_navbar'
 gem 'paperclip'
 gem 'aws-sdk'
 
+# Deploy with Capistrano
+gem 'capistrano', '~> 3.0.0'
+gem 'capistrano-bundler'
+gem 'capistrano-rails'
+gem 'capistrano-rvm', '~> 0.0.3'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
