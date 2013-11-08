@@ -1,3 +1,11 @@
+<%= image_tag("logo.gif",:align => 'left',:width => '100px',:height => '100px') %>
+
+<ul class="nav nav-tabs">
+  <li><a href="#">My Goals</a></li>
+  <li><a href="/goals">Find Goals</a></li>
+  <li class="active"><a href="#">Friend's Goals</a></li>
+</ul>
+
 <h1>My Friends</h1>
 <table>
 <% @current_user_friends_in_trackr.each do |friend| %>

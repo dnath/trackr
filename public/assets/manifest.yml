@@ -7,8 +7,6 @@ green.jpg: green.jpg
 green/index.jpg: green.jpg
 logo.jpg: logo.jpg
 logo/index.jpg: logo.jpg
-pictures_missing.gif: pictures_missing.gif
-pictures_missing/index.gif: pictures_missing.gif
 pictures_missing.jpg: pictures_missing.jpg
 pictures_missing/index.jpg: pictures_missing.jpg
 application.js: application.js

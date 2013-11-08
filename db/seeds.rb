@@ -17,9 +17,9 @@ goal_instances=GoalInstance.create([
 ])
 
 goals=Goal.create([
-	{title: 'Surf', description: 'Learn to surf 3 differnt styles', 
+	{title: 'Surfing', description: 'Learn to surf 3 different styles', 
 			goal_instances: [goal_instances[0],goal_instances[1],goal_instances[2]]},
-	{title: 'Cook', description: 'Learn to cook pasta',goal_instances: []},
+	{title: 'Cooking Pasta', description: 'Learn to cook pasta.',goal_instances: []},
 	{title: 'Run Faster', description: 'Practise for 5km marathon',goal_instances: []}
 ])
 
