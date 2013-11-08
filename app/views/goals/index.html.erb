@@ -32,7 +32,7 @@
 
 <% @goals.each do |goal| %>
   <tr>
-  	<td><%= goal.user.first_name+" "+ goal.user.last_name%> </td>
+  	<td><%if goal.user then%><%= goal.user.first_name+" "+ goal.user.last_name%> <%end%></td>
     <td><%= link_to goal.title , goal%></td>
     <td><%= truncate(strip_tags(goal.description),
                length: 80) %></td>

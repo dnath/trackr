@@ -15,6 +15,7 @@ class GoalsController < ApplicationController
   # GET /goals/1
   # GET /goals/1.json
   def show
+    @current_user_id = params[:current_user]
     @goal = Goal.find(params[:id])
     @api = Koala::Facebook::API.new(session[:access_token])
     # sample data
@@ -80,6 +81,7 @@ class GoalsController < ApplicationController
   # DELETE /goals/1
   # DELETE /goals/1.json
   def destroy
+    puts "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
     @goal = Goal.find(params[:id])
     @goal.destroy
 

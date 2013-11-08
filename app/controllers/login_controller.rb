@@ -20,6 +20,7 @@ class LoginController < ApplicationController
     end
     if params[:code]
       session[:access_token] = session[:oauth].get_access_token(params[:code])
+      puts session[:access_token]
       @api = Koala::Facebook::API.new(session[:access_token])
       begin
         user_data = @api.get_object("/me/", "fields"=>["first_name","last_name","username", "id"])

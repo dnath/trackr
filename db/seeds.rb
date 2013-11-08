@@ -16,12 +16,50 @@ goal_instances=GoalInstance.create([
 	{start_date: Date.yesterday, end_date: Date.tomorrow, cheer_ons:7, is_complete:false}
 ])
 
-goals=Goal.create([
-	{title: 'Surfing', description: 'Learn to surf 3 different styles', 
-			goal_instances: [goal_instances[0],goal_instances[1],goal_instances[2]]},
-	{title: 'Cooking Pasta', description: 'Learn to cook pasta.',goal_instances: []},
-	{title: 'Run Faster', description: 'Practise for 5km marathon',goal_instances: []}
-])
+@api = Koala::Facebook::API.new("CAACEdEose0cBALddOZColPgZCHATwUizklh4oEAeEXdY2JjYB0VI9pLhmGWhvPi3fwKRCZA4LXZAvlEpx6dCa05OO0cLSxUC5wJBZBdpl8vFvcwfX13NQQCoZC6b7rEya78DPumPeyEhuNuD5GTCIb2aUdbpcNjcIwhSaPR3v4Ben1Vpy6JagmpEUh0vo84ZCIwT15NsWH6ZAgZDZD")
+goal_data = @api.get_object("/350133225119092/")
+goal_data = @api.get_connections(goal_data["id"],"posts")
+goals = []
+
+begin
+goal_data.each {|goal| 
+   goal = Goal.create({title:goal["message"],description: "Description: "+goal["message"], picture:goal["picture"],goal_instances:[goal_instances[0]]})
+   goals.push(goal)
+}
+goal_data=goal_data.next_page
+end while goal_data
+
+goal_data = @api.get_object("/1000thingsincroatia/")
+goal_data = @api.get_connections(goal_data["id"],"posts")
+begin
+goal_data.each {|goal| 
+   if (goal["message"] and goal["picture"])
+     goal = Goal.create({title:goal["message"].sub!(/^#[0-9]*\s/,""),description: "Description: "+goal["message"], picture:goal["picture"],goal_instances:[goal_instances[0]]})
+     goals.push(goal)
+   end
+}
+goal_data=goal_data.next_page
+end while goal_data
+
+
+goal_data = @api.get_object("/100ThingsToDoInLife/")
+goal_data = @api.get_connections(goal_data["id"],"milestones")
+begin
+goal_data.each {|goal| 
+   if (goal["title"] and !(goal["title"].include?"father" or goal["title"].include?"naked" or goal["title"].include?"love") and goal["description"])
+     goal = Goal.create({title:goal["title"].sub(/\([A-Z]*\)/,""),description: goal["description"], goal_instances:[goal_instances[0]]})
+     goals.push(goal)
+   end
+}
+goal_data=goal_data.next_page
+end while goal_data
+# goals=Goal.create([
+	# {title: 'Surf', description: 'Learn to surf 3 differnt styles', 
+			# goal_instances: [goal_instances[0],goal_instances[1],goal_instances[2]]},
+	# {title: 'Cook', description: 'Learn to cook pasta',goal_instances: []},
+	# {title: 'Run Faster', description: 'Practise for 5km marathon',goal_instances: [], picture:"http://www.running4thereason.com/wp-content/uploads/2013/09/cropped-IMG_4620.jpg"}
+# ])
+
 
 users = User.create([
 	{fb_id: '657850580', first_name: 'Nazli', last_name: 'Dereli', 
