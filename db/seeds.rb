@@ -46,7 +46,7 @@ goal_data = @api.get_object("/100ThingsToDoInLife/")
 goal_data = @api.get_connections(goal_data["id"],"milestones")
 begin
 goal_data.each {|goal| 
-   if (goal["title"] and !(goal["title"].include?"father" or goal["title"].include?"naked" or goal["title"].include?"love") and goal["description"])
+   if (goal["title"] and !(goal["title"].include? "father" or goal["title"].include? "naked" or goal["title"].include? "love") and goal["description"])
      goal = Goal.create({title:goal["title"].sub(/\([A-Z]*\)/,""),description: goal["description"], goal_instances:[goal_instances[0]]})
      goals.push(goal)
    end
