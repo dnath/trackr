@@ -16,15 +16,17 @@ goal_instances=GoalInstance.create([
 	{start_date: Date.yesterday, end_date: Date.tomorrow, cheer_ons:7, is_complete:false}
 ])
 
-@api = Koala::Facebook::API.new("CAACEdEose0cBAEIHphM6sDOxLmZAenSIv2Tk3HKRK59eziKHHoUYrA7bRkV1cE5aem760AtIK0jGbS8zgzZAezRgm1I36WdC3chsCOHOLENpdXSGDIbgJVj9tanZCgHW5eZAk7xNJZAXk617KjcGEwt3AaLpV6PnDKTIheMr8jwtOXZBlXQ9eIoGOMuaAfZC54yqaVj910yHwZDZD")
+@api = Koala::Facebook::API.new("CAACEdEose0cBACbZALJersGpfEdBGwKvZCqvlnBtjDApJFyRohAKEmk16RLGxvRkKNZAZASwCnn7C6hsP5cQnZAmIOeYazfZB5QMwdu25dOmEaJmuEynSmcvHPnVhcm6fVNwZCyiavwjUvfFgmpgKGKzc1BKYcjCKlQOYqJuPLidodlam1dtPJhExfWcBzf4EfUGoXtsYLXGAZDZD")
 goal_data = @api.get_object("/350133225119092/")
 goal_data = @api.get_connections(goal_data["id"],"posts")
 goals = []
 
 begin
 goal_data.each {|goal| 
-   goal = Goal.create({title:goal["message"],description: "Description: "+goal["message"], picture:goal["picture"],goal_instances:[goal_instances[0]]})
-   goals.push(goal)
+   if (goal["message"] and !(goal["message"].include? "beach!" or goal["message"].include? "Beer!" or goal["message"].include? "500"))
+     goal = Goal.create({title:goal["message"],description: "Description: "+goal["message"], picture:goal["picture"],goal_instances:[goal_instances[0]]})
+     goals.push(goal)
+   end
 }
 goal_data=goal_data.next_page
 end while goal_data
@@ -33,7 +35,7 @@ goal_data = @api.get_object("/1000thingsincroatia/")
 goal_data = @api.get_connections(goal_data["id"],"posts")
 begin
 goal_data.each {|goal| 
-   if (goal["message"] and goal["picture"])
+   if (goal["message"] and goal["picture"] and !(goal["message"].include? "beach!" or goal["message"].include? "Beer!"))
      goal = Goal.create({title:goal["message"].sub!(/^#[0-9]*\s/,""),description: "Description: "+goal["message"], picture:goal["picture"],goal_instances:[goal_instances[0]]})
      goals.push(goal)
    end
@@ -46,7 +48,7 @@ goal_data = @api.get_object("/100ThingsToDoInLife/")
 goal_data = @api.get_connections(goal_data["id"],"milestones")
 begin
 goal_data.each {|goal| 
-   if (goal["title"] and !(goal["title"].include? "father" or goal["title"].include? "naked" or goal["title"].include? "love") and goal["description"])
+   if (goal["title"] and !(goal["title"].include? "father" or goal["title"].include? "Naked" or goal["title"].include? "love" or goal["title"].include? "beach!" or goal["title"].include? "Beer!") and goal["description"])
      goal = Goal.create({title:goal["title"].sub(/\([A-Z]*\)/,""),description: goal["description"], goal_instances:[goal_instances[0]]})
      goals.push(goal)
    end

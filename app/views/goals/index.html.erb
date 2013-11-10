@@ -6,6 +6,7 @@
   <li><a href="friends/index">Friend's Goals</a></li>
 </ul>
 <div style="float: right;"><%= link_to 'Create Goal', new_goal_path %></div>
+<%= will_paginate @goals,renderer: BootstrapPagination::Rails%>
 <br />
 
 	<% @goals.each_with_index do |goal,index| %>
@@ -16,7 +17,7 @@
 		<div class="thumbnail">
 		  	<%= image_tag goal.picture.url, :width => "130px", :height => "130px" %>
 		  	<div class="caption" style="text-align: center">
-		  		<h4><%= link_to goal.title , goal%><span class="badge"><%= goal.goal_instances.length%></span></h4>
+		  		<em><h4><%= link_to goal.title , goal%><span class="badge"><%= goal.goal_instances.length%></span></h4></em>
 		  	</div>
 	   </div>
 	</div>
@@ -25,32 +26,7 @@
 	<%end%>
 	<% end %>
 	
-<!--<table>
-<tr></tr>
-  <tr class="list_bar">
-  	<td class="list_description">
-  	<dl>
-  		<dt>Owner</dt>
-  	</dl></td>
-    <td class="list_description">
-    <dl>
-    	<dt>Title</dt>
-    </dl></td>
-    <td class="list_description">
-    <dl>
-    	<dt># members</dt>
-    </dl></td>
-</tr>
 
-<% @goals.each do |goal| %>
-  <tr>
-  	<td><%if goal.user then%><%= goal.user.first_name+" "+ goal.user.last_name%> <%end%></td>
-    <td><%= link_to goal.title , goal%></td>
-    <td><%= goal.goal_instances.length%></td>
-  </tr>
-<% end %>
-</table> -->
-<%= will_paginate @goals %>
 <br />
 
 
