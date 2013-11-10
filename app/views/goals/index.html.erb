@@ -7,7 +7,25 @@
 </ul>
 <div style="float: right;"><%= link_to 'Create Goal', new_goal_path %></div>
 <br />
-<table>
+
+	<% @goals.each_with_index do |goal,index| %>
+	<% if (index+1)%6 == 0%>
+		<div class="row">
+	<%end%>
+	<div class="col-sm-12 col-md-2">
+		<div class="thumbnail">
+		  	<%= image_tag goal.picture.url, :width => "130px", :height => "130px" %>
+		  	<div class="caption" style="text-align: center">
+		  		<h4><%= link_to goal.title , goal%><span class="badge"><%= goal.goal_instances.length%></span></h4>
+		  	</div>
+	   </div>
+	</div>
+	<% if (index+1)%6 == 0%>
+		</div>
+	<%end%>
+	<% end %>
+	
+<!--<table>
 <tr></tr>
   <tr class="list_bar">
   	<td class="list_description">
@@ -20,26 +38,19 @@
     </dl></td>
     <td class="list_description">
     <dl>
-    	<dt>Description</dt>
-    </dl></td>
-    <td class="list_description">
-    <dl>
     	<dt># members</dt>
     </dl></td>
-    <th></th>
-    <th></th>
-  </tr>
+</tr>
 
 <% @goals.each do |goal| %>
   <tr>
   	<td><%if goal.user then%><%= goal.user.first_name+" "+ goal.user.last_name%> <%end%></td>
     <td><%= link_to goal.title , goal%></td>
-    <td><%= truncate(strip_tags(goal.description),
-               length: 80) %></td>
     <td><%= goal.goal_instances.length%></td>
   </tr>
 <% end %>
-</table>
+</table> -->
+<%= will_paginate @goals %>
 <br />
 
 

@@ -4,8 +4,8 @@ class GoalsController < ApplicationController
   # GET /goals
   # GET /goals.json
   def index
-    @goals = Goal.all
-    
+    #@goals = Goal.all
+    @goals = Goal.paginate(:page => params[:page], :per_page => 12)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @goals }

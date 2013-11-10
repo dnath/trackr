@@ -5,7 +5,7 @@ gem 'bootstrap-sass', '2.3.2.2'
 gem 'rails_bootstrap_navbar'
 gem 'paperclip'
 gem 'aws-sdk'
-
+gem 'will_paginate', '~> 3.0.5'
 # Deploy with Capistrano
 gem 'capistrano', '~> 3.0.0'
 gem 'capistrano-bundler'

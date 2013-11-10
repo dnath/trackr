@@ -16,7 +16,7 @@ goal_instances=GoalInstance.create([
 	{start_date: Date.yesterday, end_date: Date.tomorrow, cheer_ons:7, is_complete:false}
 ])
 
-@api = Koala::Facebook::API.new("CAACEdEose0cBALddOZColPgZCHATwUizklh4oEAeEXdY2JjYB0VI9pLhmGWhvPi3fwKRCZA4LXZAvlEpx6dCa05OO0cLSxUC5wJBZBdpl8vFvcwfX13NQQCoZC6b7rEya78DPumPeyEhuNuD5GTCIb2aUdbpcNjcIwhSaPR3v4Ben1Vpy6JagmpEUh0vo84ZCIwT15NsWH6ZAgZDZD")
+@api = Koala::Facebook::API.new("CAACEdEose0cBAEIHphM6sDOxLmZAenSIv2Tk3HKRK59eziKHHoUYrA7bRkV1cE5aem760AtIK0jGbS8zgzZAezRgm1I36WdC3chsCOHOLENpdXSGDIbgJVj9tanZCgHW5eZAk7xNJZAXk617KjcGEwt3AaLpV6PnDKTIheMr8jwtOXZBlXQ9eIoGOMuaAfZC54yqaVj910yHwZDZD")
 goal_data = @api.get_object("/350133225119092/")
 goal_data = @api.get_connections(goal_data["id"],"posts")
 goals = []
