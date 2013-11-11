@@ -17,7 +17,7 @@ goal_instances=GoalInstance.create([
 ])
 
 
-@api = Koala::Facebook::API.new("CAACEdEose0cBAM7RVwCpLR28pgt4ZA3S93y6yPNZBlp2Ji9IWLdrSTHkuHaQnfnCtAl9K12l4YL2QDiSwiI8N1SuIKcUcOa63she90WgrfwUmZBd1MU9ex3YD73sQ6TYt5iEEOXPSQvQ5xuNVz6KH9BnqtUE1lbmyZC2IGxxBsCZAcze9FwbTNWMtijwSjoS3SbpSqJL07QZDZD")
+@api = Koala::Facebook::API.new("CAACEdEose0cBAHaqe4y0yefZBFYGshm1tK3G1uXIRiejzXbYZA05ZBmoWm3ss3pHj95odu3HQAgZCF4CmjYmJzWmWIae6kfNatR5YgbtCslNHf2sppMGoNn7JeYEp6H3RV1KqUD4OrymyzCzYb6vp73oz2vEzYZAL9BldZAQvd4hp8vYJfwlVdr2GZA1R5AGbrwu2BFVSErGAZDZD")
 
 goal_data = @api.get_object("/350133225119092/")
 goal_data = @api.get_connections(goal_data["id"],"posts")
@@ -71,7 +71,7 @@ end while goal_data
 
 users = User.create([
 	{fb_id: '657850580', first_name: 'Nazli', last_name: 'Dereli', 
-				goals: [goals[0]], goal_instances: [goal_instances[0],goal_instances[1]]},
+				goals: goals, goal_instances: [goal_instances[0],goal_instances[1]]},
 	{fb_id: '100001639762906', first_name: 'Dibyendu', last_name: 'Nath', 
 				goals: [], goal_instances: [goal_instances[1],goal_instances[2]]}, 
 	{fb_id: '1307365962', first_name: 'Arvind', last_name: 'C R', 

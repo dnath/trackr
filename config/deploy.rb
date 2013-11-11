@@ -27,14 +27,40 @@ set :keep_releases, 5
 
 set :normalize_asset_timestamps, %{public/images public/javascripts public/stylesheets}
 
+
+
 namespace :deploy do
 
   desc 'Provision env before assets:precompile'
   task :fix_bug_env do
     set :rails_env, (fetch(:rails_env) || fetch(:stage))
   end
-
   before "deploy:assets:precompile", "deploy:fix_bug_env"
+  
+  desc 'Install libxml2 for nokogiri'
+  task :setup do
+    namespace :db do
+      desc 'Create database'
+      task :create do
+        on roles(:db) do
+          within fetch(:latest_release_directory) do
+            execute :rake, "db:create"
+          end
+        end
+      end        
+      before :create, 'rvm:hook'
+      before :create, 'bundler:install'
+    end
+    on roles(:app), in: :sequence, wait: 5 do
+      execute "sudo apt-get -y install libxslt-dev libxml2-dev"
+      execute "sudo /etc/init.d/mysql stop"
+      execute "sudo mysqld --skip-grant-tables &"
+      execute "mysql -u root mysql"
+      execute "UPDATE user SET Password=PASSWORD('root') WHERE User='root'; FLUSH PRIVILEGES; exit;"
+    end
+  end
+  
+ 
   
   desc 'Restart application'
   task :restart do

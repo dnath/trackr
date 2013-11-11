@@ -2,7 +2,7 @@ set :stage, :production
 set :rvm_type, :user #Tell rvm to look in ~/.rvm
 set :rvm_ruby_version, '2.0.0-p247'
 
-set :server_name, %w{ec2-54-234-218-147.compute-1.amazonaws.com}
+set :server_name, %w{ec2-54-227-7-255.compute-1.amazonaws.com}
 
 role :web, fetch(:server_name) # Needed for precompiling assets
 role :app, fetch(:server_name) # Needed for preparing something I forgot what
