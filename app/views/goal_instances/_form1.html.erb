@@ -1,0 +1,26 @@
+<%= form_for(@goal_instance) do |f| %>
+  <% if @goal_instance.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@goal_instance.errors.count, "error") %> prohibited this goal_instance from being saved:</h2>
+
+      <ul>
+      <% @goal_instance.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :start_date %><br />
+    <%= f.date_select :start_date %>
+  </div>
+  <div class="field">
+    <%= f.label :end_date %><br />
+    <%= f.date_select :end_date %>
+  </div>
+  <div class="actions">
+    <%= f.hidden_field :is_complete, :value => false %>
+    <%= f.submit %>
+  </div>
+<% end %>

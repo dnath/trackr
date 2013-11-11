@@ -44,7 +44,7 @@ class LoginController < ApplicationController
     respond_to do |format|
         format.html {
             if not @error_message 
-                   redirect_to goals_url
+                   redirect_to goal_instances_url(:user_id => User.find(session[:current_user]).id)
             end 
          }   
         format.json { }                   

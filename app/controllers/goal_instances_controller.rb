@@ -44,7 +44,9 @@ class GoalInstancesController < ApplicationController
     @goal_instance = GoalInstance.new(params[:goal_instance])
     current_user = User.find(session[:current_user])
     current_user.goal_instances.push(@goal_instance)
-    current_goal = Goal.find(params[:goal_id]) 
+    puts "Nazli"
+    puts params[:goal_instance][:goal_id]
+    current_goal = Goal.find(params[:goal_instance][:goal_id]) 
     current_goal.goal_instances.push(@goal_instance)
     respond_to do |format|
       if @goal_instance.save
@@ -80,7 +82,7 @@ class GoalInstancesController < ApplicationController
     @goal_instance.destroy
 
     respond_to do |format|
-      format.html { redirect_to goal_instances_url }
+      format.html { redirect_to goal_instances_url(:user_id => User.find(session[:current_user]).id) }
       format.json { head :no_content }
     end
   end

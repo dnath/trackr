@@ -16,7 +16,7 @@ goal_instances=GoalInstance.create([
 	{start_date: Date.yesterday, end_date: Date.tomorrow, cheer_ons:7, is_complete:false}
 ])
 
-@api = Koala::Facebook::API.new("CAACEdEose0cBACbZALJersGpfEdBGwKvZCqvlnBtjDApJFyRohAKEmk16RLGxvRkKNZAZASwCnn7C6hsP5cQnZAmIOeYazfZB5QMwdu25dOmEaJmuEynSmcvHPnVhcm6fVNwZCyiavwjUvfFgmpgKGKzc1BKYcjCKlQOYqJuPLidodlam1dtPJhExfWcBzf4EfUGoXtsYLXGAZDZD")
+@api = Koala::Facebook::API.new("CAACEdEose0cBAM7RVwCpLR28pgt4ZA3S93y6yPNZBlp2Ji9IWLdrSTHkuHaQnfnCtAl9K12l4YL2QDiSwiI8N1SuIKcUcOa63she90WgrfwUmZBd1MU9ex3YD73sQ6TYt5iEEOXPSQvQ5xuNVz6KH9BnqtUE1lbmyZC2IGxxBsCZAcze9FwbTNWMtijwSjoS3SbpSqJL07QZDZD")
 goal_data = @api.get_object("/350133225119092/")
 goal_data = @api.get_connections(goal_data["id"],"posts")
 goals = []
@@ -53,6 +53,10 @@ goal_data.each {|goal|
      goals.push(goal)
    end
 }
+goals[0].goal_instances.push(goal_instances[0])
+goals[1].goal_instances.push(goal_instances[1])
+goals[2].goal_instances.push(goal_instances[2])
+
 goal_data=goal_data.next_page
 end while goal_data
 # goals=Goal.create([
@@ -65,12 +69,11 @@ end while goal_data
 
 users = User.create([
 	{fb_id: '657850580', first_name: 'Nazli', last_name: 'Dereli', 
-				goals: [goals[0]], goal_instances: [goal_instances[0]]},
+				goals: [goals[0]], goal_instances: [goal_instances[0],goal_instances[1]]},
 	{fb_id: '100001639762906', first_name: 'Dibyendu', last_name: 'Nath', 
-				goals: [], goal_instances: [goal_instances[1]]}, 
+				goals: [], goal_instances: [goal_instances[1],goal_instances[2]]}, 
 	{fb_id: '1307365962', first_name: 'Arvind', last_name: 'C R', 
 				goals: [goals[1]], goal_instances: [goal_instances[2]]},
 	{fb_id: '530115125', first_name: 'Divya', last_name: 'Sambasivan', 
 				goals: [goals[2]]}
 ])
-

@@ -17,10 +17,6 @@
 		</div>
 		<div class="container">
 			<div class="row">
-				<div class="col-md-4"> <b> Created By</b> </div>
-				<div class="col-md-4"> <%= @goal_instance.user.first_name + " "+ @goal_instance.user.last_name%> </div>
-			</div>
-			<div class="row">
 				<div class="col-md-4"> <b> Started At</b></div>
 				<div class="col-md-4"> <%= @goal_instance.start_date%></div>
 			</div>
@@ -32,7 +28,7 @@
 		<br \>
 		<div class="row">
 			<div class="col-md-4"> <b>
-				<% if session[:current_user] == @goal_instance.user then %>
+				<% if User.find(session[:current_user]) == @goal_instance.user then %>
 					You have <%=@goal_instance.cheer_ons%> cheer ons for this goal.
 					<% else %> <%=@goal_instance.user.first_name %> has <%=@goal_instance.cheer_ons%> cheer ons for this goal.
 					<% end%>
@@ -43,6 +39,7 @@
 
 <%if User.find(session[:current_user]) == @goal_instance.user %>
 		<%=link_to 'Edit', edit_goal_instance_path(@goal_instance)%> |
-		<%=link_to 'Delete', @goal_instance, method: :delete, data: { confirm: 'Are you sure?' } %> |
+		<%=button_to 'Delete', @goal_instance, method: :delete,html_options: {confirm: 'Are you sure?'} %>|
+		<!--<%= link_to 'Delete', @goal_instance, method: :delete, data: { confirm: 'Are you sure?' } %> |-->
 	<%end%> 
-<%= link_to 'Back', goal_instances_path %>
+<%= link_to 'Back', goal_instances_path(:user_id => @goal_instance.user.id) %>

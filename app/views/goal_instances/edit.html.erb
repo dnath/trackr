@@ -1,6 +1,27 @@
-<h1>Editing goal_instance</h1>
+<div class="media">
+	<a class="pull-left" href="#">
+		<%current_goal=@goal_instance.goal%>
+		<%= image_tag current_goal.picture.url, :class => "media-object", :width => "200px", :height => "200px" %>
+	</a>
+	<div class="media-body">
+		<div class="page-header">
+			<h1>
+				<%= current_goal.title %>
+				<small><%= current_goal.description %></small>
+			</h1>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4"> <b> Created By</b> </div>
+				<div class="col-md-4"> <%= current_goal.user.first_name + " "+ current_goal.user.last_name%> </div>
+			</div>
+		</div>
+	</div>	
+</div>
+<br />
+<br />
+<br />
+<br />
+<%= render 'form1' %>
 
-<%= render 'form' %>
-
-<%= link_to 'Show', @goal_instance %> |
 <%= link_to 'Back', goal_instances_path %>

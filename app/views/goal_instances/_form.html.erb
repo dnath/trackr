@@ -20,10 +20,9 @@
     <%= f.date_select :end_date %>
   </div>
   <div class="actions">
-    <%= f.hidden_field :is_complete %>
-    <%= f.hidden_field :cheer_ons %>
-    <%= hidden_field_tag ':is_complete' 'false' %>
-    <%= hidden_field_tag ':cheer_ons' '0' %>
+    <%= f.hidden_field :is_complete, :value => "false" %>
+    <%= f.hidden_field :cheer_ons, :value => "0" %>
+    <%= f.hidden_field :goal_id, :value => params[:goal_id] %>
     <%= f.submit %>
   </div>
 <% end %>
