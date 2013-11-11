@@ -1,28 +1,23 @@
 set :application, 'trackr'
 set :repo_url, 'git@github.com:dnath/trackr.git'
 
+# ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
 
 set :deploy_to, '/home/ubuntu'
 set :user, %{ubuntu}
 set :use_sudo, false
 set :latest_release_directory, File.join(fetch(:deploy_to), 'current')
 
-set :log_level, :debug
-# ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
-
-# set :deploy_to, '/var/www/my_app'
 # set :scm, :git
 
 # set :format, :pretty
-# set :log_level, :debug
+set :log_level, :debug
 # set :pty, true
 
 # set :linked_files, %w{config/database.yml}
 # set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
-# set :keep_releases, 5
-
 set :keep_releases, 5
 
 set :normalize_asset_timestamps, %{public/images public/javascripts public/stylesheets}
@@ -31,7 +26,7 @@ set :normalize_asset_timestamps, %{public/images public/javascripts public/style
 
 namespace :deploy do
 
-  desc 'Provision env before assets:precompile'
+   desc 'Provision env before assets:precompile'
   task :fix_bug_env do
     set :rails_env, (fetch(:rails_env) || fetch(:stage))
   end

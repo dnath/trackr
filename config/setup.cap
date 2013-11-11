@@ -1,0 +1,15 @@
+namespace :setup do
+  namespace :                                                                                                                                            
+  do
+    desc 'Create database'
+    task :create do
+      on roles(:db) do
+        within fetch(:latest_release_directory) do
+	  execute :rake, "db:create"
+        end
+      end
+    end	
+    before :create, 'rvm:hook'
+    before :create, 'bundler:install'
+  end
+end

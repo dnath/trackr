@@ -1,26 +1,28 @@
 set :stage, :production
+
 set :rvm_type, :user #Tell rvm to look in ~/.rvm
 set :rvm_ruby_version, '2.0.0-p247'
 
 set :server_name, %w{ec2-54-227-7-255.compute-1.amazonaws.com}
 
-role :web, fetch(:server_name) # Needed for precompiling assets
-role :app, fetch(:server_name) # Needed for preparing something I forgot what
-role :db, fetch(:server_name) # Needed for migration
-role :all, fetch(:server_name) # This doesn't work completely yet, hence the above 3 specifications
 # Simple Role Syntax
 # ==================
 # Supports bulk-adding hosts to roles, the primary
 # server in each group is considered to be the first
 # unless any hosts have the primary property set.
+role :web, fetch(:server_name) # Needed for precompiling assets
+role :app, fetch(:server_name) # Needed for preparing something I forgot what
+role :db, fetch(:server_name) # Needed for migration
+role :all, fetch(:server_name) # This doesn't work completely yet, hence the above 3 specifications
 
 set :ssh_options, {
     user: %{ubuntu},                # The user we want to log in as
-    keys: %w{/home/divya/.ssh/Tracker.pem
+    keys: %w{/Users/nazl/Downloads/Tracker.pem
       }, # Your .pem file
     forward_agent: true,          # In order for our EC2 instance to be able to access Github via ssh we need to forward our local ssh agent (since we have set up Github to accept that)
     auth_methods: %w(publickey)   # We are using ssh with .pem files
 }
+
 # Extended Server Syntax
 # ======================
 # This can be used to drop a more detailed server
