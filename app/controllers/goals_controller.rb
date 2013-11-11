@@ -1,11 +1,18 @@
 class GoalsController < ApplicationController
+  
   before_filter :authorize, only: [:update, :destroy]
-
+  
+  
   # GET /goals
   # GET /goals.json
   def index
     #@goals = Goal.all
-    @goals = Goal.paginate(:page => params[:page], :per_page => 12)
+    if(params[:search])
+      search = params[:search]
+      @goals = Goal.paginate(:page => params[:page], :per_page => 12,:conditions => ['title like ?', "%#{search}%"], :order => 'title')
+    else
+      @goals = Goal.paginate(:page => params[:page], :per_page => 12, :order => 'title')
+    end
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @goals }
@@ -15,14 +22,18 @@ class GoalsController < ApplicationController
   # GET /goals/1
   # GET /goals/1.json
   def show
-    @current_user_id = params[:current_user]
+    @current_user = User.find(session[:current_user])
     @goal = Goal.find(params[:id])
     @api = Koala::Facebook::API.new(session[:access_token])
+    @is_current_user_joined = false
     # sample data
     # sample_id = ["dsambasivan","ndereli","dibyendu.nath","cr.thesilvertongue","sruthi.kotamraju","malavikka.ramesh.5","soundharya.bala.31"]
     @current_followers = []
     @goal.goal_instances.each { |goal_instance| 
         @current_followers.push( @api.get_object("/"+goal_instance.user.fb_id+"/", "fields"=>["first_name","last_name","picture"]  ) )
+        if goal_instance.user.id == session[:current_user]
+          @is_current_user_joined = true
+        end
     }
     respond_to do |format|
       format.html # show.html.erb
@@ -81,21 +92,24 @@ class GoalsController < ApplicationController
   # DELETE /goals/1
   # DELETE /goals/1.json
   def destroy
-    puts "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
     @goal = Goal.find(params[:id])
-    @goal.destroy
-
-    respond_to do |format|
-      format.html { redirect_to goals_url }
-      format.json { head :no_content }
-    end
+      respond_to do |format|
+        if !@goal.destroy
+          format.html {redirect_to @goal , notice: "You may not edit or delete this goal. There are users currently following it."}
+          format.json {head :no_content}
+        else
+          format.html { redirect_to goals_url }
+          format.json { head :no_content }
+        end 
+      end
+    
   end
   
   private
     def authorize
       @goal = Goal.find(params[:id])
-        unless @goal.user.id == session[:current_user]
-          redirect_to @goal , notice: 'You are not authorized to execute this action'
-      end
+        #unless @goal.user.id == session[:current_user]
+         # redirect_to @goal , notice: 'You are not authorized to execute this action'
+      #end
     end
 end

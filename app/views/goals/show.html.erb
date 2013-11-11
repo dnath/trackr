@@ -2,8 +2,7 @@
 <br/>
 <br/>
 <br/>
-<p id="notice"><%= notice %></p>
-
+<p class="text-error"><%= notice %></p>
 <div class="media">
 	<a class="pull-left" href="#">
 		<%= image_tag @goal.picture.url, :class => "media-object", :width => "200px", :height => "200px" %>
@@ -11,7 +10,9 @@
 	<div class="media-body">
 		<div class="page-header">
 			<h1>
-				<%= link_to 'Join', new_goal_instance_path(:goal_id => @goal.id), class: "btn btn-large btn-primary"%>
+				<% if !@is_current_user_joined %>
+					<%= link_to 'Join', new_goal_instance_path(:goal_id => @goal.id), class: "btn btn-large btn-primary"%>
+				<%end%>
 				<%= @goal.title %><br/>
 				<small><%= @goal.description %></small>
 			</h1>
@@ -65,13 +66,13 @@
 	<!-- end of carousel-->
 <%end%>
 <% if @goal.user %>
-	<%if session[:current_user] == @goal.user.id%>
+	<% if @goal.user.id == @current_user.id %>
 		<%= link_to 'Edit', edit_goal_path(@goal), class: "glyphicon .glyphicon-edit" %> |
 	<%end%>
 <%end%>
 <%= link_to 'Back', goals_path %>
 <% if @goal.user %>
-	<%if session[:current_user] == @goal.user.id%>
+	<% if @goal.user.id == @current_user.id %>
 		<%= button_to 'Delete', @goal, method: :delete,html_options: {confirm: "delete this goal?"} %>
 	<%end%>
 <%end%>

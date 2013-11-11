@@ -16,7 +16,9 @@ goal_instances=GoalInstance.create([
 	{start_date: Date.yesterday, end_date: Date.tomorrow, cheer_ons:7, is_complete:false}
 ])
 
+
 @api = Koala::Facebook::API.new("CAACEdEose0cBAM7RVwCpLR28pgt4ZA3S93y6yPNZBlp2Ji9IWLdrSTHkuHaQnfnCtAl9K12l4YL2QDiSwiI8N1SuIKcUcOa63she90WgrfwUmZBd1MU9ex3YD73sQ6TYt5iEEOXPSQvQ5xuNVz6KH9BnqtUE1lbmyZC2IGxxBsCZAcze9FwbTNWMtijwSjoS3SbpSqJL07QZDZD")
+
 goal_data = @api.get_object("/350133225119092/")
 goal_data = @api.get_connections(goal_data["id"],"posts")
 goals = []
@@ -48,7 +50,7 @@ goal_data = @api.get_object("/100ThingsToDoInLife/")
 goal_data = @api.get_connections(goal_data["id"],"milestones")
 begin
 goal_data.each {|goal| 
-   if (goal["title"] and !(goal["title"].include? "father" or goal["title"].include? "Naked" or goal["title"].include? "love" or goal["title"].include? "beach!" or goal["title"].include? "Beer!") and goal["description"])
+   if (goal["title"] and !(goal["title"].include? "father" or goal["title"].include? "24" or goal["title"].include? "love" or goal["title"].include? "beach!" or goal["title"].include? "Beer!") and goal["description"])
      goal = Goal.create({title:goal["title"].sub(/\([A-Z]*\)/,""),description: goal["description"], goal_instances:[goal_instances[0]]})
      goals.push(goal)
    end
@@ -75,5 +77,6 @@ users = User.create([
 	{fb_id: '1307365962', first_name: 'Arvind', last_name: 'C R', 
 				goals: [goals[1]], goal_instances: [goal_instances[2]]},
 	{fb_id: '530115125', first_name: 'Divya', last_name: 'Sambasivan', 
-				goals: [goals[2]]}
+				goals: [goals[0]], goal_instances: [goal_instances[0],goal_instances[1],goal_instances[2]]}
 ])
+
