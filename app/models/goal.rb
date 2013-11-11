@@ -1,5 +1,4 @@
 class Goal < ActiveRecord::Base
-  searchkick
   has_many :goal_instances
   belongs_to :user
   has_attached_file :picture
