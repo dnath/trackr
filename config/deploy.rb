@@ -31,11 +31,8 @@ namespace :deploy do
     set :rails_env, (fetch(:rails_env) || fetch(:stage))
   end
   
-  desc 'Install libxml2 for nokogiri'
-  task :setup do
-    namespace :db do
-      desc 'Create database'
-      task :create do
+  desc 'Create database'
+    task :create do
         on roles(:db) do
           within fetch(:latest_release_directory) do
             execute :rake, "db:create"
@@ -44,8 +41,6 @@ namespace :deploy do
       end        
       before :create, 'rvm:hook'
       before :create, 'bundler:install'
-    end
-  end
   before "deploy:assets:precompile", "deploy:fix_bug_env"
  
   
