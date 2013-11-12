@@ -7,6 +7,8 @@ set :deploy_to, '/home/ubuntu'
 set :user, %{ubuntu}
 set :use_sudo, false
 set :latest_release_directory, File.join(fetch(:deploy_to), 'current')
+set :rake, '/home/ubuntu/.rvm/gems/ruby-2.0.0-p247@global/bin/rake'
+set :bundle, '/home/ubuntu/.rvm/gems/ruby-2.0.0-p247@global/bin/bundle'
 
 # set :scm, :git
 
@@ -29,7 +31,7 @@ namespace :deploy do
   desc 'Create database'
     task :create do
       on roles(:db) do
-        execute "cd #{release_path}; rake db:create RAILS_ENV=#{fetch(:rails_env)}"
+         execute "#{fetch(:bundle)} exec #{fetch(:rake)} db:create RAILS_ENV=#{fetch(:rails_env)}"
       end
     end        
 
@@ -48,7 +50,8 @@ namespace :deploy do
     set :rails_env, (fetch(:rails_env) || fetch(:stage))
   end
 
-  before "deploy:assets:precompile", "deploy:create"
+  before "deploy:assets:precompile", "rvm:hook"
+  
 
   
   desc 'Restart application'

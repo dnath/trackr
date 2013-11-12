@@ -119,6 +119,8 @@ GEM
     rake (10.1.0)
     rdoc (3.12.2)
       json (~> 1.4)
+    rvm-capistrano (1.5.0)
+      capistrano (>= 2.15.4)
     sass (3.2.12)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
@@ -167,7 +169,7 @@ DEPENDENCIES
   paperclip
   rails (= 3.2.14)
   rails_bootstrap_navbar
-  rake
+  rvm-capistrano
   sass-rails (~> 3.2.3)
   uglifier (>= 1.0.3)
   will_paginate-bootstrap
