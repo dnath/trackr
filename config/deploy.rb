@@ -29,7 +29,7 @@ namespace :deploy do
   desc 'Create database'
     task :create do
       on roles(:db) do
-        execute :rake, "db:create"
+        run "cd #{current_path} && bundle exec rake db:create RAILS_ENV=staging --trace"
       end
     end        
 
