@@ -1,4 +1,5 @@
 set :stage, :production
+set :rails_env, 'production'
 
 set :rvm_type, :user #Tell rvm to look in ~/.rvm
 set :rvm_ruby_version, '2.0.0-p247'

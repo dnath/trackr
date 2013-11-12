@@ -46,8 +46,7 @@ namespace :deploy do
     set :rails_env, (fetch(:rails_env) || fetch(:stage))
   end
 
-  before "deploy:create", "deploy:fix_bug_env"
-  before "deploy:assets:precompile", "deploy:migrate"
+  before "deploy:assets:precompile", "deploy:create"
 
   
   desc 'Restart application'
