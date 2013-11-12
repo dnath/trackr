@@ -45,12 +45,6 @@ namespace :deploy do
       before :create, 'rvm:hook'
       before :create, 'bundler:install'
     end
-    on roles(:app), in: :sequence, wait: 5 do
-      execute "sudo apt-get -y install libxslt-dev libxml2-dev"
-      execute "sudo /etc/init.d/mysql stop"
-      execute "sudo mysqld --skip-grant-tables &"
-      execute "mysql -u root mysql"
-    end
   end
   before "deploy:assets:precompile", "deploy:fix_bug_env"
  
