@@ -25,12 +25,6 @@ set :normalize_asset_timestamps, %{public/images public/javascripts public/style
 
 
 namespace :deploy do
-
-   desc 'Provision env before assets:precompile'
-  task :fix_bug_env do
-    set :rails_env, (fetch(:rails_env) || fetch(:stage))
-  end
-  
   desc 'Create database'
     task :create do
         on roles(:db) do
@@ -38,11 +32,16 @@ namespace :deploy do
             execute :rake, "db:create"
           end
         end
-      end        
-      before :create, 'rvm:hook'
-      before :create, 'bundler:install'
-  before "deploy:create", "deploy:fix_bug_env"
-  before "deploy:assets:precompile", "deploy:create"
+    end        
+    before :create, 'rvm:hook'
+    before :create, 'bundler:install'
+
+  desc 'Provision env before assets:precompile'
+  task :fix_bug_env do
+    set :rails_env, (fetch(:rails_env) || fetch(:stage))
+  end
+  before "deploy:assets:precompile", "deploy:fix_bug_env"
+ 
   
   desc 'Restart application'
   task :restart do
