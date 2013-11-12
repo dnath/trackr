@@ -6,8 +6,7 @@ set :repo_url, 'git@github.com:dnath/trackr.git'
 set :deploy_to, '/home/ubuntu'
 set :user, %{ubuntu}
 set :use_sudo, false
-set(:releases_path)     { File.join(deploy_to, version_dir) }
-set(:release_path)      { File.join(releases_path, release_name) }
+set :latest_release_directory, File.join(fetch(:deploy_to), 'current')
 
 # set :scm, :git
 
