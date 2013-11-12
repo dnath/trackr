@@ -30,7 +30,6 @@ namespace :deploy do
   task :fix_bug_env do
     set :rails_env, (fetch(:rails_env) || fetch(:stage))
   end
-  before "deploy:assets:precompile", "deploy:fix_bug_env"
   
   desc 'Install libxml2 for nokogiri'
   task :setup do
@@ -53,7 +52,7 @@ namespace :deploy do
       execute "mysql -u root mysql"
     end
   end
-  
+  before "deploy:assets:precompile", "deploy:fix_bug_env"
  
   
   desc 'Restart application'
