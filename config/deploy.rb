@@ -33,9 +33,7 @@ namespace :deploy do
           end
         end
     end        
-    before :create, 'rvm:hook'
-    before :create, 'bundler:install'
-
+    
   desc 'Provision env before assets:precompile'
   task :fix_bug_env do
     set :rails_env, (fetch(:rails_env) || fetch(:stage))
