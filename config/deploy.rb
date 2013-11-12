@@ -7,8 +7,7 @@ set :deploy_to, '/home/ubuntu'
 set :user, %{ubuntu}
 set :use_sudo, false
 set :latest_release_directory, File.join(fetch(:deploy_to), 'current')
-set :rake, '/home/ubuntu/.rvm/gems/ruby-2.0.0-p247@global/bin/rake'
-set :bundle, '/home/ubuntu/.rvm/gems/ruby-2.0.0-p247@global/bin/bundle'
+set :bundle, '/home/ubuntu/.rvm/gems/ruby-2.0.0-p247/bin/bundle'
 
 # set :scm, :git
 
@@ -29,18 +28,22 @@ namespace :deploy do
   desc 'Create database'
     task :create do
       on roles(:db) do
-         execute "#{fetch(:bundle)} exec #{fetch(:rake)} db:create RAILS_ENV=#{fetch(:rails_env)}"
+         execute "cd #{release_path};#{fetch(:bundle)} exec rake db:create RAILS_ENV=#{fetch(:rails_env)}"
       end
     end        
 
  desc 'Migrate database'
     task :migrate do
-      execute "cd #{current_path} && bundle exec rake db:migrate RAILS_ENV=staging --trace"
+      on roles(:db) do
+        execute "cd #{release_path};#{fetch(:bundle)} exec rake db:migrate RAILS_ENV=#{fetch(:rails_env)}"
+      end
     end  
 
    desc 'Load seed'
     task :seed do
-      run "cd #{current_path} && bundle exec rake db:seed RAILS_ENV=staging --trace"
+      on roles(:db) do
+        run "cd #{release_path};#{fetch(:bundle)} exec rake db:seed RAILS_ENV=#{fetch(:rails_env)}"
+      end
     end  
 
   desc 'Provision env before assets:precompile'
@@ -55,7 +58,7 @@ namespace :deploy do
   desc 'Restart application'
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do
-      execute "sudo /etc/init.d/nginx restart #restart nginx"
+      execute "sudo /etc/init.d/nginx start #restart nginx"
       # Your restart mechanism here, for example:
       # execute :touch, release_path.join('tmp/restart.txt')
     end
