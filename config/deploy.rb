@@ -25,15 +25,12 @@ set :normalize_asset_timestamps, %{public/images public/javascripts public/style
 
 
 namespace :deploy do
+
   desc 'Create database'
     task :create do
-        on roles(:db) do
-          within fetch(:latest_release_directory) do
-            execute :rake, "db:create"
-          end
-        end
+      run "cd #{current_path} && bundle exec rake db:migrate RAILS_ENV=staging --trace" :rake, "db:create"
     end        
-    
+
   desc 'Provision env before assets:precompile'
   task :fix_bug_env do
     set :rails_env, (fetch(:rails_env) || fetch(:stage))
