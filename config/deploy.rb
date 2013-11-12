@@ -51,7 +51,6 @@ namespace :deploy do
       execute "sudo /etc/init.d/mysql stop"
       execute "sudo mysqld --skip-grant-tables &"
       execute "mysql -u root mysql"
-      execute "UPDATE user SET Password=PASSWORD('root') WHERE User='root'; FLUSH PRIVILEGES; exit;"
     end
   end
   
