@@ -41,8 +41,8 @@ namespace :deploy do
       end        
       before :create, 'rvm:hook'
       before :create, 'bundler:install'
-  before "deploy:create", "deploy:fix_bug_env"
   before "deploy:assets:precompile", "deploy:create"
+  before "deploy:assets:precompile", "deploy:fix_bug_env"
   
   desc 'Restart application'
   task :restart do
