@@ -28,8 +28,18 @@ namespace :deploy do
 
   desc 'Create database'
     task :create do
-      run "cd #{current_path} && bundle exec rake db:migrate RAILS_ENV=staging --trace" :rake, "db:create"
+      run "cd #{current_path} && bundle exec rake db:create RAILS_ENV=staging --trace"
     end        
+
+ desc 'Migrate database'
+    task :migrate do
+      run "cd #{current_path} && bundle exec rake db:migrate RAILS_ENV=staging --trace"
+    end  
+
+   desc 'Load seed'
+    task :seed do
+      run "cd #{current_path} && bundle exec rake db:seed RAILS_ENV=staging --trace"
+    end  
 
   desc 'Provision env before assets:precompile'
   task :fix_bug_env do
