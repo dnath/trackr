@@ -24,8 +24,6 @@ set :keep_releases, 5
 
 set :normalize_asset_timestamps, %{public/images public/javascripts public/stylesheets}
 
-
-
 namespace :deploy do
 
   desc 'Create database'
@@ -50,8 +48,8 @@ namespace :deploy do
     set :rails_env, (fetch(:rails_env) || fetch(:stage))
   end
 
-  before "deploy:assets:precompile", "rvm:hook"
-  
+  before "deploy:create", "rvm:hook"
+  before "deploy:assets:precompile", "deploy:create"
 
   
   desc 'Restart application'
