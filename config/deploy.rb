@@ -28,7 +28,7 @@ namespace :deploy do
 
   desc 'Create database'
     task :create do
-      run "cd #{current_path} && bundle exec rake db:create RAILS_ENV=staging --trace"
+     execute :rake, "db:create"
     end        
 
  desc 'Migrate database'
