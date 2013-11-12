@@ -28,7 +28,9 @@ namespace :deploy do
 
   desc 'Create database'
     task :create do
-     execute :rake, "db:create"
+      on roles(:db) do
+        execute :rake, "db:create"
+      end
     end        
 
  desc 'Migrate database'
