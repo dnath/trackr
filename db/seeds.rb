@@ -10,11 +10,15 @@ Goal.delete_all
 User.delete_all
 GoalInstance.delete_all
 
+n_gi = 180 # 10000
+n_g  = 18 # 110
+n_u  = 33 # 1300
 
 #####################################################
 goal_instances = []
+goal_instances_flag = []
 
-for i in 0..10000
+for i in 0..n_gi-1
 	st = Date.today - rand(30)
 	et = st + rand(45)
 	complete = false
@@ -22,11 +26,15 @@ for i in 0..10000
 		complete = true
 	end
 	goal_instance = GoalInstance.create(
-		{ start_date: st, end_date: st + rand(30), cheer_ons:rand(30), is_complete: complete},
+		{ start_date: st, end_date: st + rand(30), cheer_ons:rand(n_u/2), is_complete: complete},
 	)
 	goal_instances.push(goal_instance);
+	goal_instances_flag << false
 end
 
+puts "goal_instances.length = " + goal_instances.length.to_s
+
+##########################################
 
 file = open('db/goals.json')
 goals_data = JSON.parse(file.read)
@@ -35,20 +43,23 @@ file.close
 goals = []
 s_idx = 0
 goals_data['goals'].each { |g|
-	# 110 goals
-	puts g
-	n = rand(150) # ~ 10000/100
+	# puts g
+	n = rand(n_gi/n_g) # ~ 10000/100
 
 	puts "n = " + n.to_s
 	puts "s_idx = " + s_idx.to_s
 
 	gi = []
 	for i in 0..n
-		if i+s_idx > 10000
+		if i+s_idx >= n_gi
 			puts "** i + s_idx = " + (i+s_idx).to_s
 			break
 		end
 		gi << goal_instances[i+s_idx]
+
+		if gi.length == 1
+			goal_instances_flag[i+s_idx] = true
+		end
 	end
 	
 	s_idx += n+1
@@ -63,31 +74,90 @@ goals_data['goals'].each { |g|
 	)
 }
 
-if s_idx <= 10000
+if s_idx < n_gi
 	puts "## s_idx = " + s_idx.to_s
 	g = goals.last.goal_instances
-	for i in s_idx..10000
+	for i in s_idx..n_gi-1
 		g << goal_instances[i]
 	end
 	goals.last.goal_instances = g
 	goals.last.save
 end
 
-
+puts "goals.length = " + goals.length.to_s
 
 file = open('db/test_users.json', 'r')
 users_data = JSON.parse(file.read)
 file.close
 
 i = 0
+j = 0
 users_data['users'].each { |u|
 	# puts u
-	user = JSON.parse(u.to_json)
+	puts "i = " + i.to_s
+	puts "j = " + j.to_s
+
+	g = []
+	gi =[]
+	# if i < n_g
+	# 	g = [goals[i]]
+	# 	gi = [goals[i].goal_instances[0]]
+	# 	idx = goals[i].goal_instances[0].id - goal_instances.first.id
+	# 	puts "idx = " + idx.to_s
+	# 	goal_instances_flag[idx] = true
+	# end
+
+	# n = rand(n_gi/n_u)
+	# for i in 1..n
+	# 	while goal_instances_flag[j]  && j < n_gi do
+	# 		j += 1
+	# 	end 
+		
+	# 	if j < n_gi
+	# 		gi << goal_instances[j]
+	# 		goal_instances_flag[j] = false
+	# 	end
+	# end
+	# puts "* j = " + j.to_s
+
+	if i < n_g
+		g << goals[i]
+		gi << goals[i].goal_instances[0]
+	end
+
+	n = rand(n_gi/n_u)
+	puts "gi: n = " + n.to_s
+
+	for ii in 1..n
+		puts "<> goal_instances_flag[j] = " + goal_instances_flag[j].to_s 
+		puts "<> b: j = " + j.to_s
+		while (goal_instances_flag[j]) && (j < n_gi) do
+			j += 1
+		end 
+
+		puts "<> j = " + j.to_s
+		
+		if j < n_gi
+			gi << goal_instances[j]
+			goal_instances_flag[j] = true
+		end
+	end
+	puts "* j = " + j.to_s
+
+	usr = JSON.parse(u.to_json)
+
+	puts "g = " + g.to_json
+	puts 
+	puts "gi = " + gi.to_json
+	puts
+
 	User.create(
-		{fb_id: user['id'], first_name: user['first_name'], last_name: user['last_name'], 
-				goals:[i < 111 ? goals[i] : nil ], goal_instances: [goal_instances[i]]
+		{fb_id: usr['id'], first_name: usr['first_name'], last_name: usr['last_name'], 
+				goals:g, goal_instances: gi
 		}
 	)
+
+	i += 1
 }
 
 
