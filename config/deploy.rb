@@ -6,7 +6,8 @@ set :repo_url, 'git@github.com:dnath/trackr.git'
 set :deploy_to, '/home/ubuntu'
 set :user, %{ubuntu}
 set :use_sudo, false
-set :latest_release_directory, File.join(fetch(:deploy_to), 'current')
+set(:releases_path)     { File.join(deploy_to, version_dir) }
+set(:release_path)      { File.join(releases_path, release_name) }
 
 # set :scm, :git
 
@@ -29,7 +30,7 @@ namespace :deploy do
   desc 'Create database'
     task :create do
       on roles(:db) do
-        execute "cd #{latest_release_directory}; rake db:create RAILS_ENV=staging"
+        execute "cd #{release_path}; rake db:create RAILS_ENV=staging"
       end
     end        
 
