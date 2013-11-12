@@ -14,6 +14,19 @@ n_gi = 180 # 10000
 n_g  = 18 # 110
 n_u  = 33 # 1300
 
+goi = 3
+nod = 4
+tit = 'go to italy'
+desc = 'trav'
+ milstone = Milstone.create(
+                { goal_instance: goi, no_of_days: nod , title: tit, description: desc},
+        )
+#milstones.push(goal_instance);
+ #       milstones_flag << false
+
+
+
+
 #####################################################
 goal_instances = []
 goal_instances_flag = []

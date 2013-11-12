@@ -1,4 +1,10 @@
 Trackr::Application.routes.draw do
+  resources :comments
+
+
+  resources :milstones
+
+
   get "friends/index"
 
   resources :goal_instances

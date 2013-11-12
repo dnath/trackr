@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Goal instance:</b>
+  <%= @milstone.goal_instance %>
+</p>
+
+<p>
+  <b>No of days:</b>
+  <%= @milstone.no_of_days %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @milstone.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @milstone.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_milstone_path(@milstone) %> |
+<%= link_to 'Back', milstones_path %>

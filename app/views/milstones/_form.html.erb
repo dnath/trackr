@@ -1,0 +1,33 @@
+<%= form_for(@milstone) do |f| %>
+  <% if @milstone.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@milstone.errors.count, "error") %> prohibited this milstone from being saved:</h2>
+
+      <ul>
+      <% @milstone.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :goal_instance %><br />
+    <%= f.text_field :goal_instance %>
+  </div>
+  <div class="field">
+    <%= f.label :no_of_days %><br />
+    <%= f.text_field :no_of_days %>
+  </div>
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

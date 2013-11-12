@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131102075823) do
+ActiveRecord::Schema.define(:version => 20131112160920) do
+
+  create_table "comments", :force => true do |t|
+    t.string   "goal_instance_id"
+    t.string   "comment"
+    t.string   "user_id"
+    t.string   "timestamp"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
 
   create_table "goal_instances", :force => true do |t|
     t.date     "start_date"
@@ -22,6 +31,7 @@ ActiveRecord::Schema.define(:version => 20131102075823) do
     t.integer  "goal_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.string   "Milestones"
   end
 
   create_table "goals", :force => true do |t|
@@ -34,6 +44,24 @@ ActiveRecord::Schema.define(:version => 20131102075823) do
     t.string   "picture_content_type"
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
+  end
+
+  create_table "milestones", :force => true do |t|
+    t.string   "goal_instance"
+    t.string   "no_of_days"
+    t.string   "title"
+    t.string   "description"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  create_table "milstones", :force => true do |t|
+    t.string   "goal_instance"
+    t.string   "no_of_days"
+    t.string   "title"
+    t.string   "description"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "users", :force => true do |t|

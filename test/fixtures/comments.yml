@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  goal_instance_id: MyString
+  comment: MyString
+  user_id: MyString
+  timestamp: MyString
+
+two:
+  goal_instance_id: MyString
+  comment: MyString
+  user_id: MyString
+  timestamp: MyString
