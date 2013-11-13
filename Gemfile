@@ -6,7 +6,7 @@ gem 'rails_bootstrap_navbar'
 gem 'paperclip'
 gem 'aws-sdk'
 gem 'will_paginate-bootstrap'
-gem 'gruff'
+# gem 'gruff'
 # Deploy with Capistrano
 gem 'capistrano', '~> 3.0.0'
 gem 'capistrano-bundler'
