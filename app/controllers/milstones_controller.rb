@@ -1,4 +1,4 @@
-require 'gchart'
+#require 'gchart'
 
 
 class MilstonesController < ApplicationController
@@ -7,11 +7,11 @@ class MilstonesController < ApplicationController
   def index
 
     @milstones = Milstone.all
-    Gchart.line(:size => '200x300', 
-            :title => "example title",
-            :bg => 'efefef',
-            :legend => ['first data set label', 'second data set label'],
-            :data => [10, 30, 120, 45, 72])
+    # Gchart.line(:size => '200x300', 
+            # :title => "example title",
+            # :bg => 'efefef',
+            # :legend => ['first data set label', 'second data set label'],
+            # :data => [10, 30, 120, 45, 72])
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @milstones }
