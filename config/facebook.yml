@@ -1,12 +1,12 @@
 development:
   app_id : "648937448474069"
-  app_secret: "7c03bc56c32577fe0817067ba061f505"
+  app_secret: "850052c2118af44769f40f3d2e362899"
   site_url: "http://localhost:3000"
 test:
   app_id : "648937448474069"
-  app_secret: "7c03bc56c32577fe0817067ba061f505"
+  app_secret: "850052c2118af44769f40f3d2e362899"
   site_url: "http://localhost:3000"
 production:
   app_id : "648937448474069"
-  app_secret: "7c03bc56c32577fe0817067ba061f505"
+  app_secret: "850052c2118af44769f40f3d2e362899"
   site_url: "http://ec2-54-234-218-147.compute-1.amazonaws.com"

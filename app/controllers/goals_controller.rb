@@ -30,7 +30,7 @@ class GoalsController < ApplicationController
     # sample_id = ["dsambasivan","ndereli","dibyendu.nath","cr.thesilvertongue","sruthi.kotamraju","malavikka.ramesh.5","soundharya.bala.31"]
     @current_followers = []
     @goal.goal_instances.each { |goal_instance| 
-        @current_followers.push( @api.get_object("/"+goal_instance.user.fb_id+"/", "fields"=>["first_name","last_name","picture"]  ) )
+        @current_followers.push( @api.get_object("/" + goal_instance.user.fb_id + "/?fields=first_name,last_name,picture") )
         if goal_instance.user.id == session[:current_user]
           @is_current_user_joined = true
         end

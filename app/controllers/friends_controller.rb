@@ -2,7 +2,7 @@ class FriendsController < ApplicationController
   def index
   	current_user = User.find(session[:current_user])
   	@api = Koala::Facebook::API.new(session[:access_token])
-  	current_user_friends = @api.get_object("/" + current_user.fb_id + "/", "fields"=>["friends"])
+  	current_user_friends = @api.get_object("/" + current_user.fb_id + "/?fields=friends")
   	
     @current_user_friends_in_trackr = []
     current_user_friend_ids = []

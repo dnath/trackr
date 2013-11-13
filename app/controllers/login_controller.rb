@@ -23,7 +23,8 @@ class LoginController < ApplicationController
       puts session[:access_token]
       @api = Koala::Facebook::API.new(session[:access_token])
       begin
-        user_data = @api.get_object("/me/", "fields"=>["first_name","last_name","username", "id"])
+        user_data = @api.get_object("/me/?fields=first_name,last_name,username,id") 
+          # "fields"=>["first_name","last_name","username", "id"])
         existing_user = User.find_by_fb_id(user_data["id"])
         if existing_user
           session[:current_user] = existing_user.id
