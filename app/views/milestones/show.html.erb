@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Goal instance:</b>
+  <%= @milestone.goal_instance %>
+</p>
+
+<p>
+  <b>No of days:</b>
+  <%= @milestone.no_of_days %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @milestone.description %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @milestone.title %>
+</p>
+
+
+<%= link_to 'Edit', edit_milestone_path(@milestone) %> |
+<%= link_to 'Back', milestones_path %>

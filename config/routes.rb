@@ -1,4 +1,7 @@
 Trackr::Application.routes.draw do
+  resources :milestones
+
+
   resources :comments
 
 
