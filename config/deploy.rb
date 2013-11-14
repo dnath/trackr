@@ -42,7 +42,7 @@ namespace :deploy do
    desc 'Load seed'
     task :seed do
       on roles(:db) do
-        run "cd #{release_path};#{fetch(:bundle)} exec rake db:seed RAILS_ENV=#{fetch(:rails_env)}"
+        execute "cd #{release_path};#{fetch(:bundle)} exec rake db:seed RAILS_ENV=#{fetch(:rails_env)}"
       end
     end  
 
@@ -53,6 +53,8 @@ namespace :deploy do
 
   before "deploy:create", "rvm:hook"
   before "deploy:assets:precompile", "deploy:create"
+  after  "deploy:assets:precompile", "deploy:migrate"
+  after "deploy:migrate", "deploy:seed"
 
   
   desc 'Restart application'
