@@ -1038,3 +1038,364 @@ Served asset /login.css - 304 Not Modified (0ms)
 
 Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-11-13 17:31:14 -0800
 Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-11-13 18:28:17 -0800
+Connecting to database specified by database.yml
+Processing by LoginController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1670 LIMIT 1[0m
+Redirected to http://localhost:3000/goal_instances?user_id=1670
+Completed 302 Found in 41ms (ActiveRecord: 15.3ms)
+
+
+Started GET "/goal_instances?user_id=1670" for 127.0.0.1 at 2013-11-13 18:28:17 -0800
+Processing by GoalInstancesController#index as HTML
+  Parameters: {"user_id"=>"1670"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1670 LIMIT 1
+  [1m[36m (5.0ms)[0m  [1mSELECT COUNT(*) FROM `goal_instances` WHERE `goal_instances`.`user_id` = 1670[0m
+  [1m[35mGoalInstance Load (6.8ms)[0m  SELECT `goal_instances`.* FROM `goal_instances` WHERE `goal_instances`.`user_id` = 1670 LIMIT 5 OFFSET 0
+  [1m[36mGoal Load (0.2ms)[0m  [1mSELECT `goals`.* FROM `goals` WHERE `goals`.`id` = 120 LIMIT 1[0m
+  [1m[35mGoal Load (0.4ms)[0m  SELECT `goals`.* FROM `goals` WHERE `goals`.`id` = 153 LIMIT 1
+  Rendered goal_instances/index.html.erb within layouts/application (116.0ms)
+Compiled goal_instances.css  (28ms)  (pid 2213)
+Compiled application.css  (2ms)  (pid 2213)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1670 LIMIT 1[0m
+Completed 200 OK in 191ms (Views: 160.6ms | ActiveRecord: 19.1ms)
+
+
+Started GET "/assets/holder.js" for 127.0.0.1 at 2013-11-13 18:28:18 -0800
+Served asset /holder.js - 304 Not Modified (7ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2013-11-13 18:28:18 -0800
+Served asset /comments.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/milstones.css?body=1" for 127.0.0.1 at 2013-11-13 18:28:18 -0800
+Served asset /milstones.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/goals.css?body=1" for 127.0.0.1 at 2013-11-13 18:28:18 -0800
+Served asset /goals.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/goal_instances.css?body=1" for 127.0.0.1 at 2013-11-13 18:28:18 -0800
+Served asset /goal_instances.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-11-13 18:28:18 -0800
+Served asset /scaffolds.css - 304 Not Modified (2ms)
+
+
+Started GET "/logout" for 127.0.0.1 at 2013-11-13 18:28:23 -0800
+Processing by LoginController#destroy as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-11-13 18:28:23 -0800
+Processing by LoginController#index as HTML
+  Rendered login/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 8ms (Views: 6.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/holder.js" for 127.0.0.1 at 2013-11-13 18:28:24 -0800
+Served asset /holder.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2013-11-13 18:28:24 -0800
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/goal_instances.css?body=1" for 127.0.0.1 at 2013-11-13 18:28:24 -0800
+Served asset /goal_instances.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-11-13 18:28:24 -0800
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/milstones.css?body=1" for 127.0.0.1 at 2013-11-13 18:28:24 -0800
+Served asset /milstones.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/goals.css?body=1" for 127.0.0.1 at 2013-11-13 18:28:24 -0800
+Served asset /goals.css - 304 Not Modified (0ms)
+
+
+Started GET "/login/callback?code=AQBBYnCkX6BFNExiW7-4Zxux-_YIWuOk_S-zEyaNSlD2iDCQekxCRatLoCyZcZIZlB7v5nBTQw2lNpRkXb_1hhQmRPD4vEeR6dRRHr9PBLrw_SJ_pI27S_vlHH3-R36rT5Gd-Tv-9Wql3VuYSpJge6qakkqE8rfk8IrAqL6PS4lpaUKT7RNNQofbmeq92gnX9aeMWP51JQ64n1aHqj1s_X594w_l2GUwCQu5EKfXff-vlgBUfLnmO6RAyHnCv2U_NJNW31sfU7uptD20Rxf1hWfbBMn6WjKn6CgDLwfOQoHVnN0AlbCGS_X-Qf04f8nsNkY" for 127.0.0.1 at 2013-11-13 18:28:26 -0800
+Processing by LoginController#callback as HTML
+  Parameters: {"code"=>"AQBBYnCkX6BFNExiW7-4Zxux-_YIWuOk_S-zEyaNSlD2iDCQekxCRatLoCyZcZIZlB7v5nBTQw2lNpRkXb_1hhQmRPD4vEeR6dRRHr9PBLrw_SJ_pI27S_vlHH3-R36rT5Gd-Tv-9Wql3VuYSpJge6qakkqE8rfk8IrAqL6PS4lpaUKT7RNNQofbmeq92gnX9aeMWP51JQ64n1aHqj1s_X594w_l2GUwCQu5EKfXff-vlgBUfLnmO6RAyHnCv2U_NJNW31sfU7uptD20Rxf1hWfbBMn6WjKn6CgDLwfOQoHVnN0AlbCGS_X-Qf04f8nsNkY"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`fb_id` = '657850580' LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1670 LIMIT 1[0m
+Redirected to http://localhost:3000/goal_instances?user_id=1670
+Completed 302 Found in 429ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/goal_instances?user_id=1670" for 127.0.0.1 at 2013-11-13 18:28:26 -0800
+Processing by GoalInstancesController#index as HTML
+  Parameters: {"user_id"=>"1670"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1670 LIMIT 1
+  [1m[36m (6.0ms)[0m  [1mSELECT COUNT(*) FROM `goal_instances` WHERE `goal_instances`.`user_id` = 1670[0m
+  [1m[35mGoalInstance Load (5.4ms)[0m  SELECT `goal_instances`.* FROM `goal_instances` WHERE `goal_instances`.`user_id` = 1670 LIMIT 5 OFFSET 0
+  [1m[36mGoal Load (0.3ms)[0m  [1mSELECT `goals`.* FROM `goals` WHERE `goals`.`id` = 120 LIMIT 1[0m
+  [1m[35mGoal Load (0.8ms)[0m  SELECT `goals`.* FROM `goals` WHERE `goals`.`id` = 153 LIMIT 1
+  Rendered goal_instances/index.html.erb within layouts/application (20.3ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1670 LIMIT 1[0m
+Completed 200 OK in 93ms (Views: 77.4ms | ActiveRecord: 12.9ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2013-11-13 18:28:26 -0800
+Served asset /comments.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/holder.js" for 127.0.0.1 at 2013-11-13 18:28:26 -0800
+Served asset /holder.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/milstones.css?body=1" for 127.0.0.1 at 2013-11-13 18:28:26 -0800
+Served asset /milstones.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/goal_instances.css?body=1" for 127.0.0.1 at 2013-11-13 18:28:26 -0800
+Served asset /goal_instances.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-11-13 18:28:26 -0800
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/goals.css?body=1" for 127.0.0.1 at 2013-11-13 18:28:26 -0800
+Served asset /goals.css - 304 Not Modified (0ms)
+
+
+Started GET "/goals" for 127.0.0.1 at 2013-11-13 18:28:28 -0800
+Processing by GoalsController#index as HTML
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `goals` 
+  [1m[36mGoal Load (1.0ms)[0m  [1mSELECT `goals`.* FROM `goals` ORDER BY title LIMIT 12 OFFSET 0[0m
+  [1m[35mGoalInstance Load (7.6ms)[0m  SELECT `goal_instances`.* FROM `goal_instances` WHERE `goal_instances`.`goal_id` = 218
+  [1m[36mGoalInstance Load (10.1ms)[0m  [1mSELECT `goal_instances`.* FROM `goal_instances` WHERE `goal_instances`.`goal_id` = 128[0m
+  [1m[35mGoalInstance Load (8.6ms)[0m  SELECT `goal_instances`.* FROM `goal_instances` WHERE `goal_instances`.`goal_id` = 207
+  [1m[36mGoalInstance Load (9.4ms)[0m  [1mSELECT `goal_instances`.* FROM `goal_instances` WHERE `goal_instances`.`goal_id` = 217[0m
+  [1m[35mGoalInstance Load (5.9ms)[0m  SELECT `goal_instances`.* FROM `goal_instances` WHERE `goal_instances`.`goal_id` = 159
+  [1m[36mGoalInstance Load (5.6ms)[0m  [1mSELECT `goal_instances`.* FROM `goal_instances` WHERE `goal_instances`.`goal_id` = 214[0m
+  [1m[35mGoalInstance Load (7.4ms)[0m  SELECT `goal_instances`.* FROM `goal_instances` WHERE `goal_instances`.`goal_id` = 179
+  [1m[36mGoalInstance Load (6.0ms)[0m  [1mSELECT `goal_instances`.* FROM `goal_instances` WHERE `goal_instances`.`goal_id` = 177[0m
+  [1m[35mGoalInstance Load (7.7ms)[0m  SELECT `goal_instances`.* FROM `goal_instances` WHERE `goal_instances`.`goal_id` = 155
+  [1m[36mGoalInstance Load (8.7ms)[0m  [1mSELECT `goal_instances`.* FROM `goal_instances` WHERE `goal_instances`.`goal_id` = 146[0m
+  [1m[35mGoalInstance Load (8.2ms)[0m  SELECT `goal_instances`.* FROM `goal_instances` WHERE `goal_instances`.`goal_id` = 123
+  [1m[36mGoalInstance Load (6.9ms)[0m  [1mSELECT `goal_instances`.* FROM `goal_instances` WHERE `goal_instances`.`goal_id` = 196[0m
+  Rendered goals/index.html.erb within layouts/application (252.7ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1670 LIMIT 1
+Completed 200 OK in 321ms (Views: 226.0ms | ActiveRecord: 94.0ms)
+
+
+Started GET "/assets/holder.js" for 127.0.0.1 at 2013-11-13 18:28:28 -0800
+Served asset /holder.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2013-11-13 18:28:28 -0800
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-11-13 18:28:28 -0800
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/milstones.css?body=1" for 127.0.0.1 at 2013-11-13 18:28:28 -0800
+Served asset /milstones.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/goal_instances.css?body=1" for 127.0.0.1 at 2013-11-13 18:28:28 -0800
+Served asset /goal_instances.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/goals.css?body=1" for 127.0.0.1 at 2013-11-13 18:28:28 -0800
+Served asset /goals.css - 304 Not Modified (0ms)
+
+
+Started GET "/goals/218" for 127.0.0.1 at 2013-11-13 18:28:31 -0800
+Processing by GoalsController#show as HTML
+  Parameters: {"id"=>"218"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1670 LIMIT 1[0m
+  [1m[35mGoal Load (0.3ms)[0m  SELECT `goals`.* FROM `goals` WHERE `goals`.`id` = 218 LIMIT 1
+  [1m[36mGoalInstance Load (6.9ms)[0m  [1mSELECT `goal_instances`.* FROM `goal_instances` WHERE `goal_instances`.`goal_id` = 218[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2737 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2650 LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2882 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2337 LIMIT 1[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2773 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2841 LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1770 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2074 LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1797 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1804 LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2377 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2446 LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1795 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2732 LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1789 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2627 LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2180 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2026 LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2887 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2896 LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2705 LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2857 LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1996 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2445 LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2061 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1975 LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2402 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1816 LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2007 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2698 LIMIT 1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2055 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2629 LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2310 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2475 LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2096 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2621 LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2115 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2758 LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2825 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2232 LIMIT 1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2845 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1742 LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1712 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2076 LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1883 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1892 LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2738 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1618 LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2511 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2455 LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2300 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1824 LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2201 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2193 LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2006 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2037 LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2723 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2595 LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2062 LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2354 LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1693 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1848 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2446 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1856 LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2903 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2240 LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1806 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2447 LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2379 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1923 LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2286 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2844 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1693 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2822 LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2578 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2264 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1806 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2506 LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2158 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2756 LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2566 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1745 LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1968 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2611 LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2067 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1860 LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2645 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2415 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1816 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2235 LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2743 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2022 LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2779 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2670 LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1957 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2008 LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2751 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1962 LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1665 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2574 LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2155 LIMIT 1
+  Rendered goals/show.html.erb within layouts/application (8.4ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1670 LIMIT 1[0m
+Completed 200 OK in 24496ms (Views: 14.2ms | ActiveRecord: 46.0ms)
+
+
+Started GET "/goal_instances?user_id=1670" for 127.0.0.1 at 2013-11-13 18:29:52 -0800
+Connecting to database specified by database.yml
+Processing by GoalInstancesController#index as HTML
+  Parameters: {"user_id"=>"1670"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1670 LIMIT 1[0m
+  [1m[35m (4.2ms)[0m  SELECT COUNT(*) FROM `goal_instances` WHERE `goal_instances`.`user_id` = 1670
+  [1m[36mGoalInstance Load (8.9ms)[0m  [1mSELECT `goal_instances`.* FROM `goal_instances` WHERE `goal_instances`.`user_id` = 1670 LIMIT 5 OFFSET 0[0m
+  [1m[35mGoal Load (0.3ms)[0m  SELECT `goals`.* FROM `goals` WHERE `goals`.`id` = 120 LIMIT 1
+  [1m[36mGoal Load (0.4ms)[0m  [1mSELECT `goals`.* FROM `goals` WHERE `goals`.`id` = 153 LIMIT 1[0m
+  Rendered goal_instances/index.html.erb within layouts/application (119.5ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1670 LIMIT 1
+Completed 200 OK in 285ms (Views: 130.4ms | ActiveRecord: 120.2ms)
+
+
+Started GET "/assets/holder.js" for 127.0.0.1 at 2013-11-13 18:29:53 -0800
+Served asset /holder.js - 304 Not Modified (11ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2013-11-13 18:29:53 -0800
+Served asset /comments.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/goal_instances.css?body=1" for 127.0.0.1 at 2013-11-13 18:29:53 -0800
+Served asset /goal_instances.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/goals.css?body=1" for 127.0.0.1 at 2013-11-13 18:29:53 -0800
+Served asset /goals.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-11-13 18:29:53 -0800
+Served asset /scaffolds.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/milstones.css?body=1" for 127.0.0.1 at 2013-11-13 18:29:53 -0800
+Served asset /milstones.css - 304 Not Modified (2ms)
+
+
+Started GET "/goal_instances/9809" for 127.0.0.1 at 2013-11-13 18:29:54 -0800
+Processing by GoalInstancesController#show as HTML
+  Parameters: {"id"=>"9809"}
+  [1m[36mGoalInstance Load (0.4ms)[0m  [1mSELECT `goal_instances`.* FROM `goal_instances` WHERE `goal_instances`.`id` = 9809 LIMIT 1[0m
+  [1m[35mGoal Load (0.4ms)[0m  SELECT `goals`.* FROM `goals` WHERE `goals`.`id` = 120 LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1670 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1670 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1670 LIMIT 1[0m
+  Rendered goal_instances/show.html.erb within layouts/application (9.4ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1670 LIMIT 1
+Completed 200 OK in 20ms (Views: 16.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2013-11-13 18:29:54 -0800
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/holder.js" for 127.0.0.1 at 2013-11-13 18:29:54 -0800
+Served asset /holder.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/milstones.css?body=1" for 127.0.0.1 at 2013-11-13 18:29:54 -0800
+Served asset /milstones.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/goal_instances.css?body=1" for 127.0.0.1 at 2013-11-13 18:29:54 -0800
+Served asset /goal_instances.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-11-13 18:29:54 -0800
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/goals.css?body=1" for 127.0.0.1 at 2013-11-13 18:29:54 -0800
+Served asset /goals.css - 304 Not Modified (0ms)
