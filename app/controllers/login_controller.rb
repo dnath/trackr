@@ -1,5 +1,14 @@
 class LoginController < ApplicationController
   def index
+    current_user = User.find(session[:current_user]) if session[:current_user]
+
+    if current_user
+      respond_to do |format|
+        puts "id = " + current_user.id.to_s
+        format.html{ redirect_to :controller => "goal_instances", :action => "index", :user_id => current_user.id }
+      end 
+    end
+
     session[:oauth] = Koala::Facebook::OAuth.new(APP_ID, APP_SECRET, SITE_URL + '/login/callback')
     puts("ENVIRONMENT")
     puts SITE_URL
@@ -59,4 +68,5 @@ class LoginController < ApplicationController
         format.json { }                   
     end
   end
+
 end
