@@ -9,9 +9,15 @@ class GoalsController < ApplicationController
     #@goals = Goal.all
     if(params[:search])
       search = params[:search]
-      @goals = Goal.paginate(:page => params[:page], :per_page => 12,:conditions => ['title like ?', "%#{search}%"], :order => 'title')
+      @goals = Goal.paginate(:page => params[:page], 
+                              :per_page => 12,
+                              :conditions => ['title like ?', 
+                              "%#{search}%"], 
+                              :order => 'title')
     else
-      @goals = Goal.paginate(:page => params[:page], :per_page => 12, :order => 'title')
+      @goals = Goal.paginate(:page => params[:page], 
+                              :per_page => 12, 
+                              :order => 'title')
     end
     respond_to do |format|
       format.html # index.html.erb

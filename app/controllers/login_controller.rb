@@ -12,6 +12,14 @@ class LoginController < ApplicationController
     end
   end
 
+  def destroy
+    puts 'destroy'
+    session[:current_user] = nil
+    session[:oauth] = nil
+    session[:access_token] = nil
+    redirect_to root_url, :notice => "You logged out !!!"
+  end
+
   def callback
      #handle error callback
     @error_message= nil

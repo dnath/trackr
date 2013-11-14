@@ -7,10 +7,22 @@
 </ul>
 
 <h1>My Friends</h1>
+
+<form class="form-search">
+  <div class="input-append">
+     <input type="text" class="aearch-query btn-large" placeholder="Search..." style="padding: 12px;">
+       <button type="submit" class="btn btn-small" action=<%=request.path%>>
+          <i class="icon-search"></i>
+          Search
+      </button>
+   </div>
+</form>
+
 <table>
-<% @current_user_friends_in_trackr.each do |friend| %>
+<% @friends.each do |friend| %>
   <tr>
-  	<td><%= link_to friend.first_name, :controller => "goal_instances", :user_id => friend['id']%></td>
+  	<td><%= link_to friend.first_name + " " + friend.last_name, 
+  				:controller => "goal_instances", :user_id => friend['id']%></td>
   </tr>
 <% end %>
 </table>
