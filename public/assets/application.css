@@ -53,6 +53,23 @@ background-color:#ffffff;
   font-weight: bold;
   background: #bebebe;
 }
+/* line 37, ../../app/assets/stylesheets/goal_instances.css.scss */
+.goal_instances .button {
+  background: none !important;
+  border: none;
+  padding: 0 !important;
+  color: #2e79bf;
+  float: left;
+  margin-right: 0px;
+}
+/* line 47, ../../app/assets/stylesheets/goal_instances.css.scss */
+.goal_instances .button:hover {
+  color: #244;
+  background-color: #ffffff;
+  text-decoration: underline;
+  float: left;
+  margin-right: 0px;
+}
 /*!
  * Bootstrap v2.3.2
  *

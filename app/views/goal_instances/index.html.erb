@@ -33,6 +33,8 @@
     <th></th>
   </tr>
 
+<%= will_paginate @goal_instances,renderer: BootstrapPagination::Rails%>
+
 <% @goal_instances.each do |goal_instance| %>
   <tr>
     <td><%= unless goal_instance.goal.nil? 

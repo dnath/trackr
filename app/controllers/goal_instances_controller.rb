@@ -4,7 +4,7 @@ class GoalInstancesController < ApplicationController
   def index
     current_user = User.find(params[:user_id])
     @goal_instances = current_user.goal_instances
-
+    @goal_instances = @goal_instances.paginate(:page => params[:page], :per_page => 5)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @goal_instances }
