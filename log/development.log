@@ -1,0 +1,1040 @@
+
+
+Started GET "/" for 127.0.0.1 at 2013-11-13 16:54:42 -0800
+Connecting to database specified by database.yml
+
+Mysql2::Error (Can't connect to local MySQL server through socket '/var/run/mysqld/mysqld.sock' (2)):
+  mysql2 (0.3.14) lib/mysql2/client.rb:67:in `connect'
+  mysql2 (0.3.14) lib/mysql2/client.rb:67:in `initialize'
+  activerecord (3.2.14) lib/active_record/connection_adapters/mysql2_adapter.rb:16:in `new'
+  activerecord (3.2.14) lib/active_record/connection_adapters/mysql2_adapter.rb:16:in `mysql2_connection'
+  activerecord (3.2.14) lib/active_record/connection_adapters/abstract/connection_pool.rb:315:in `new_connection'
+  activerecord (3.2.14) lib/active_record/connection_adapters/abstract/connection_pool.rb:325:in `checkout_new_connection'
+  activerecord (3.2.14) lib/active_record/connection_adapters/abstract/connection_pool.rb:247:in `block (2 levels) in checkout'
+  activerecord (3.2.14) lib/active_record/connection_adapters/abstract/connection_pool.rb:242:in `loop'
+  activerecord (3.2.14) lib/active_record/connection_adapters/abstract/connection_pool.rb:242:in `block in checkout'
+  /Users/kaos/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/monitor.rb:211:in `mon_synchronize'
+  activerecord (3.2.14) lib/active_record/connection_adapters/abstract/connection_pool.rb:239:in `checkout'
+  activerecord (3.2.14) lib/active_record/connection_adapters/abstract/connection_pool.rb:102:in `block in connection'
+  /Users/kaos/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/monitor.rb:211:in `mon_synchronize'
+  activerecord (3.2.14) lib/active_record/connection_adapters/abstract/connection_pool.rb:101:in `connection'
+  activerecord (3.2.14) lib/active_record/connection_adapters/abstract/connection_pool.rb:410:in `retrieve_connection'
+  activerecord (3.2.14) lib/active_record/connection_adapters/abstract/connection_specification.rb:171:in `retrieve_connection'
+  activerecord (3.2.14) lib/active_record/connection_adapters/abstract/connection_specification.rb:145:in `connection'
+  activerecord (3.2.14) lib/active_record/query_cache.rb:67:in `rescue in call'
+  activerecord (3.2.14) lib/active_record/query_cache.rb:61:in `call'
+  activerecord (3.2.14) lib/active_record/connection_adapters/abstract/connection_pool.rb:479:in `call'
+  actionpack (3.2.14) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+  activesupport (3.2.14) lib/active_support/callbacks.rb:405:in `_run__4054492656673058865__call__3698194988599188278__callbacks'
+  activesupport (3.2.14) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.14) lib/active_support/callbacks.rb:385:in `_run_call_callbacks'
+  activesupport (3.2.14) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.14) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (3.2.14) lib/action_dispatch/middleware/reloader.rb:65:in `call'
+  actionpack (3.2.14) lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+  actionpack (3.2.14) lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+  actionpack (3.2.14) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.14) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.14) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.14) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.14) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.14) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.14) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.14) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.14) lib/rails/engine.rb:484:in `call'
+  railties (3.2.14) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.14) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/kaos/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/kaos/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/kaos/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/kaos/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+  Rendered /Users/kaos/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.3ms)
+  Rendered /Users/kaos/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (7.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-11-13 16:55:39 -0800
+Connecting to database specified by database.yml
+Processing by LoginController#index as HTML
+  Rendered login/index.html.erb within layouts/application (1.2ms)
+Compiled comments.css  (30ms)  (pid 17310)
+Compiled friends.css  (0ms)  (pid 17310)
+Compiled goal_instances.css  (3ms)  (pid 17310)
+Compiled goals.css  (0ms)  (pid 17310)
+Compiled login.css  (1ms)  (pid 17310)
+Compiled milstones.css  (0ms)  (pid 17310)
+Compiled scaffolds.css  (1ms)  (pid 17310)
+Compiled users.css  (1ms)  (pid 17310)
+Compiled application.css  (62ms)  (pid 17310)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 368 LIMIT 1[0m
+Completed 200 OK in 104ms (Views: 101.2ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/assets/holder.js" for 127.0.0.1 at 2013-11-13 16:55:39 -0800
+Compiled holder.js  (2ms)  (pid 17310)
+Served asset /holder.js - 304 Not Modified (16ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:39 -0800
+Served asset /comments.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/goals.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:39 -0800
+Served asset /goals.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/login.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:39 -0800
+Served asset /login.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/friends.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:39 -0800
+Served asset /friends.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/goal_instances.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:39 -0800
+Served asset /goal_instances.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/milstones.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:39 -0800
+Served asset /milstones.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:39 -0800
+Served asset /scaffolds.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:39 -0800
+Served asset /users.css - 304 Not Modified (2ms)
+
+
+Started GET "/logout" for 127.0.0.1 at 2013-11-13 16:55:44 -0800
+Processing by LoginController#destroy as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-11-13 16:55:44 -0800
+Processing by LoginController#index as HTML
+  Rendered login/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 6ms (Views: 5.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/holder.js" for 127.0.0.1 at 2013-11-13 16:55:44 -0800
+Served asset /holder.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:44 -0800
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/friends.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:44 -0800
+Served asset /friends.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/goal_instances.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:44 -0800
+Served asset /goal_instances.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/goals.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:44 -0800
+Served asset /goals.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/login.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:44 -0800
+Served asset /login.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/milstones.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:44 -0800
+Served asset /milstones.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:44 -0800
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:44 -0800
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-11-13 16:55:47 -0800
+Processing by LoginController#index as HTML
+  Rendered login/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 4ms (Views: 3.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/goal_instances.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:47 -0800
+Served asset /goal_instances.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/friends.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:47 -0800
+Served asset /friends.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/goals.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:47 -0800
+Served asset /goals.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:47 -0800
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/holder.js" for 127.0.0.1 at 2013-11-13 16:55:47 -0800
+Served asset /holder.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/milstones.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:47 -0800
+Served asset /milstones.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/login.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:47 -0800
+Served asset /login.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:47 -0800
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:47 -0800
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/login/callback?code=AQATVQk0MXURFlSkt7eKp8kwBxlAymrwk9co2j4NLpK8x3RfyP6e3l1gF7a1UwPQWEKrkuFabmbuM-nP1r5z6sRvyV1fqoN9AmuqEVFFsIJ1kf09nTh0HDz7vtQGmHwTHMU-jP9vIalU76LaHAD6laCUtu1-7fDmLkZxf3O1B2zUv88I6y2-cBQGIB3__DIGP1VrFc4-mCd4wKsMACTlR3vaRs-WnKU-Bybzqog8b9OajJphseXq3rWRfSvjNje0B30-cjKlxNsWjeXCW7wdEeeXpb_F4RYJdms76Xx6TmqvO7-qDRXwgA4jD8GcMJlBeiQ" for 127.0.0.1 at 2013-11-13 16:55:52 -0800
+Processing by LoginController#callback as HTML
+  Parameters: {"code"=>"AQATVQk0MXURFlSkt7eKp8kwBxlAymrwk9co2j4NLpK8x3RfyP6e3l1gF7a1UwPQWEKrkuFabmbuM-nP1r5z6sRvyV1fqoN9AmuqEVFFsIJ1kf09nTh0HDz7vtQGmHwTHMU-jP9vIalU76LaHAD6laCUtu1-7fDmLkZxf3O1B2zUv88I6y2-cBQGIB3__DIGP1VrFc4-mCd4wKsMACTlR3vaRs-WnKU-Bybzqog8b9OajJphseXq3rWRfSvjNje0B30-cjKlxNsWjeXCW7wdEeeXpb_F4RYJdms76Xx6TmqvO7-qDRXwgA4jD8GcMJlBeiQ"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`fb_id` = '100001639762906' LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 368 LIMIT 1[0m
+Redirected to http://localhost:3000/goal_instances?user_id=368
+Completed 302 Found in 320ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/goal_instances?user_id=368" for 127.0.0.1 at 2013-11-13 16:55:53 -0800
+Processing by GoalInstancesController#index as HTML
+  Parameters: {"user_id"=>"368"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 368 LIMIT 1
+  [1m[36mGoalInstance Load (3.7ms)[0m  [1mSELECT `goal_instances`.* FROM `goal_instances` WHERE `goal_instances`.`user_id` = 368[0m
+  [1m[35mGoal Load (0.2ms)[0m  SELECT `goals`.* FROM `goals` WHERE `goals`.`id` = 25 LIMIT 1
+  [1m[36mGoal Load (0.3ms)[0m  [1mSELECT `goals`.* FROM `goals` WHERE `goals`.`id` = 87 LIMIT 1[0m
+  [1m[35mGoal Load (0.1ms)[0m  SELECT `goals`.* FROM `goals` WHERE `goals`.`id` = 85 LIMIT 1
+  [1m[36mGoal Load (0.1ms)[0m  [1mSELECT `goals`.* FROM `goals` WHERE `goals`.`id` = 60 LIMIT 1[0m
+  [1m[35mGoal Load (0.1ms)[0m  SELECT `goals`.* FROM `goals` WHERE `goals`.`id` = 34 LIMIT 1
+  [1m[36mGoal Load (0.2ms)[0m  [1mSELECT `goals`.* FROM `goals` WHERE `goals`.`id` = 24 LIMIT 1[0m
+  [1m[35mGoal Load (0.2ms)[0m  SELECT `goals`.* FROM `goals` WHERE `goals`.`id` = 97 LIMIT 1
+  [1m[36mGoal Load (0.2ms)[0m  [1mSELECT `goals`.* FROM `goals` WHERE `goals`.`id` = 118 LIMIT 1[0m
+  [1m[35mGoal Load (0.2ms)[0m  SELECT `goals`.* FROM `goals` WHERE `goals`.`id` = 92 LIMIT 1
+  Rendered goal_instances/index.html.erb within layouts/application (41.4ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 368 LIMIT 1[0m
+Completed 200 OK in 51ms (Views: 35.7ms | ActiveRecord: 10.0ms)
+
+
+Started GET "/assets/holder.js" for 127.0.0.1 at 2013-11-13 16:55:53 -0800
+Served asset /holder.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/friends.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:53 -0800
+Served asset /friends.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:53 -0800
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/goals.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:53 -0800
+Served asset /goals.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/login.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:53 -0800
+Served asset /login.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/goal_instances.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:53 -0800
+Served asset /goal_instances.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/milstones.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:53 -0800
+Served asset /milstones.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:53 -0800
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:53 -0800
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/logout" for 127.0.0.1 at 2013-11-13 16:55:56 -0800
+Processing by LoginController#destroy as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-11-13 16:55:56 -0800
+Processing by LoginController#index as HTML
+  Rendered login/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 4ms (Views: 3.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/holder.js" for 127.0.0.1 at 2013-11-13 16:55:56 -0800
+Served asset /holder.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/friends.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:56 -0800
+Served asset /friends.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:56 -0800
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/login.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:56 -0800
+Served asset /login.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/goal_instances.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:56 -0800
+Served asset /goal_instances.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/milstones.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:56 -0800
+Served asset /milstones.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/goals.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:56 -0800
+Served asset /goals.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:56 -0800
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:56 -0800
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-11-13 16:55:58 -0800
+Processing by LoginController#index as HTML
+  Rendered login/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/holder.js" for 127.0.0.1 at 2013-11-13 16:55:58 -0800
+Served asset /holder.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/goal_instances.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:58 -0800
+Served asset /goal_instances.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/goals.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:58 -0800
+Served asset /goals.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:58 -0800
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/friends.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:58 -0800
+Served asset /friends.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/login.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:58 -0800
+Served asset /login.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/milstones.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:58 -0800
+Served asset /milstones.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:58 -0800
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:58 -0800
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-11-13 16:55:58 -0800
+Processing by LoginController#index as HTML
+  Rendered login/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/holder.js" for 127.0.0.1 at 2013-11-13 16:55:58 -0800
+Served asset /holder.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/goal_instances.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:58 -0800
+Served asset /goal_instances.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/friends.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:58 -0800
+Served asset /friends.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/goals.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:58 -0800
+Served asset /goals.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:58 -0800
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/login.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:58 -0800
+Served asset /login.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/milstones.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:58 -0800
+Served asset /milstones.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:58 -0800
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:58 -0800
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-11-13 16:55:58 -0800
+Processing by LoginController#index as HTML
+  Rendered login/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 3ms (Views: 2.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/holder.js" for 127.0.0.1 at 2013-11-13 16:55:58 -0800
+Served asset /holder.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/friends.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:58 -0800
+Served asset /friends.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/goal_instances.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:58 -0800
+Served asset /goal_instances.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:58 -0800
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/goals.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:58 -0800
+Served asset /goals.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/login.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:58 -0800
+Served asset /login.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/milstones.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:58 -0800
+Served asset /milstones.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:58 -0800
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:58 -0800
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-11-13 16:55:59 -0800
+Processing by LoginController#index as HTML
+  Rendered login/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/goal_instances.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:59 -0800
+Served asset /goal_instances.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/friends.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:59 -0800
+Served asset /friends.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/goals.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:59 -0800
+Served asset /goals.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:59 -0800
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/holder.js" for 127.0.0.1 at 2013-11-13 16:55:59 -0800
+Served asset /holder.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/login.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:59 -0800
+Served asset /login.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/milstones.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:59 -0800
+Served asset /milstones.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:59 -0800
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:59 -0800
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-11-13 16:55:59 -0800
+Processing by LoginController#index as HTML
+  Rendered login/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 3ms (Views: 2.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/holder.js" for 127.0.0.1 at 2013-11-13 16:55:59 -0800
+Served asset /holder.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:59 -0800
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/friends.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:59 -0800
+Served asset /friends.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/goals.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:59 -0800
+Served asset /goals.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/goal_instances.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:59 -0800
+Served asset /goal_instances.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/login.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:59 -0800
+Served asset /login.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/milstones.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:59 -0800
+Served asset /milstones.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:59 -0800
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:59 -0800
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-11-13 16:55:59 -0800
+Processing by LoginController#index as HTML
+  Rendered login/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 3ms (Views: 2.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/holder.js" for 127.0.0.1 at 2013-11-13 16:55:59 -0800
+Served asset /holder.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/friends.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:59 -0800
+Served asset /friends.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/goal_instances.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:59 -0800
+Served asset /goal_instances.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/goals.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:59 -0800
+Served asset /goals.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:59 -0800
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/login.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:59 -0800
+Served asset /login.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/milstones.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:59 -0800
+Served asset /milstones.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:59 -0800
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-11-13 16:55:59 -0800
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/login/callback?code=AQDEyw--MXCVOuajreXDeucEyEiN32YxMM1r9uQioHC3YbQnBoCyzHrJzRt-Jkxk6xOHG_xntjRcI6Gw9bmLASzWzKVx2z87SGmI2Jo_wkqsD6xf2it_9AOBjtsGN8gqq_PN3yUdN45bfkfDEQ0kaielB0dc_ftSMrM5n-a1U_2Aj6On0NeCU_bLPpbpH1nS30PYz_j6WlAxhGq1RdDefSEWsANFYG7CEZambwZrTG1s6MdAfQfoXTALNO-kPehjssOoc0C3eVoIKQIPgfBhl4Zlgv2t9F2GefRn_uVAp3QrmebmWra-6WVRbYrw1w_ZKeg" for 127.0.0.1 at 2013-11-13 16:56:00 -0800
+Processing by LoginController#callback as HTML
+  Parameters: {"code"=>"AQDEyw--MXCVOuajreXDeucEyEiN32YxMM1r9uQioHC3YbQnBoCyzHrJzRt-Jkxk6xOHG_xntjRcI6Gw9bmLASzWzKVx2z87SGmI2Jo_wkqsD6xf2it_9AOBjtsGN8gqq_PN3yUdN45bfkfDEQ0kaielB0dc_ftSMrM5n-a1U_2Aj6On0NeCU_bLPpbpH1nS30PYz_j6WlAxhGq1RdDefSEWsANFYG7CEZambwZrTG1s6MdAfQfoXTALNO-kPehjssOoc0C3eVoIKQIPgfBhl4Zlgv2t9F2GefRn_uVAp3QrmebmWra-6WVRbYrw1w_ZKeg"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`fb_id` = '100001639762906' LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 368 LIMIT 1[0m
+Redirected to http://localhost:3000/goal_instances?user_id=368
+Completed 302 Found in 311ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/goal_instances?user_id=368" for 127.0.0.1 at 2013-11-13 16:56:01 -0800
+Processing by GoalInstancesController#index as HTML
+  Parameters: {"user_id"=>"368"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 368 LIMIT 1
+  [1m[36mGoalInstance Load (3.7ms)[0m  [1mSELECT `goal_instances`.* FROM `goal_instances` WHERE `goal_instances`.`user_id` = 368[0m
+  [1m[35mGoal Load (0.2ms)[0m  SELECT `goals`.* FROM `goals` WHERE `goals`.`id` = 25 LIMIT 1
+  [1m[36mGoal Load (0.2ms)[0m  [1mSELECT `goals`.* FROM `goals` WHERE `goals`.`id` = 87 LIMIT 1[0m
+  [1m[35mGoal Load (0.2ms)[0m  SELECT `goals`.* FROM `goals` WHERE `goals`.`id` = 85 LIMIT 1
+  [1m[36mGoal Load (0.1ms)[0m  [1mSELECT `goals`.* FROM `goals` WHERE `goals`.`id` = 60 LIMIT 1[0m
+  [1m[35mGoal Load (0.2ms)[0m  SELECT `goals`.* FROM `goals` WHERE `goals`.`id` = 34 LIMIT 1
+  [1m[36mGoal Load (0.2ms)[0m  [1mSELECT `goals`.* FROM `goals` WHERE `goals`.`id` = 24 LIMIT 1[0m
+  [1m[35mGoal Load (0.1ms)[0m  SELECT `goals`.* FROM `goals` WHERE `goals`.`id` = 97 LIMIT 1
+  [1m[36mGoal Load (0.1ms)[0m  [1mSELECT `goals`.* FROM `goals` WHERE `goals`.`id` = 118 LIMIT 1[0m
+  [1m[35mGoal Load (0.2ms)[0m  SELECT `goals`.* FROM `goals` WHERE `goals`.`id` = 92 LIMIT 1
+  Rendered goal_instances/index.html.erb within layouts/application (12.7ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 368 LIMIT 1[0m
+Completed 200 OK in 17ms (Views: 11.1ms | ActiveRecord: 5.3ms)
+
+
+Started GET "/assets/holder.js" for 127.0.0.1 at 2013-11-13 16:56:01 -0800
+Served asset /holder.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/friends.css?body=1" for 127.0.0.1 at 2013-11-13 16:56:01 -0800
+Served asset /friends.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/login.css?body=1" for 127.0.0.1 at 2013-11-13 16:56:01 -0800
+Served asset /login.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/goal_instances.css?body=1" for 127.0.0.1 at 2013-11-13 16:56:01 -0800
+Served asset /goal_instances.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/goals.css?body=1" for 127.0.0.1 at 2013-11-13 16:56:01 -0800
+Served asset /goals.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2013-11-13 16:56:01 -0800
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/milstones.css?body=1" for 127.0.0.1 at 2013-11-13 16:56:01 -0800
+Served asset /milstones.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-11-13 16:56:01 -0800
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-11-13 16:56:01 -0800
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/friends/index" for 127.0.0.1 at 2013-11-13 16:56:16 -0800
+Processing by FriendsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 368 LIMIT 1
+  [1m[36mUser Load (2.9ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`fb_id` IN ('502961332', '517245226', '522157150', '529110613', '530115125', '530999255', '539928383', '540809766', '546415103', '556936879', '557912137', '558683751', '558938804', '567705996', '569348097', '570990094', '585824401', '589510711', '591880706', '593875507', '600244772', '601629221', '601750750', '602395906', '602605119', '602786717', '603156256', '603196042', '603441281', '604120644', '604150080', '604657823', '609029796', '611621298', '612265820', '619996818', '628195128', '632566198', '632681993', '639811236', '642057690', '642862076', '643031645', '643092720', '645421692', '649832469', '657850580', '662637732', '674633124', '682148625', '689496812', '691663939', '692765570', '694457516', '699475084', '703771010', '705208871', '705631539', '706060859', '712226583', '713688575', '715682786', '723275806', '731119375', '733695164', '755215887', '758552073', '760618754', '774035444', '778354416', '790935136', '795045797', '832648591', '838745252', '857194309', '1002128465', '1019907657', '1022048596', '1029849367', '1039677561', '1044675910', '1055485297', '1056036222', '1058025845', '1059387745', '1059465945', '1061736238', '1067182429', '1070883759', '1082353244', '1086613129', '1087201401', '1092108760', '1099382259', '1107894622', '1114113449', '1120728102', '1124945169', '1131500297', '1132543066', '1134788028', '1147050177', '1157250853', '1160280275', '1165892829', '1169423896', '1175181159', '1184478328', '1189972058', '1192291172', '1194835716', '1196142201', '1196384448', '1209360054', '1209935673', '1221585922', '1227408442', '1244522312', '1256900093', '1267895930', '1274712112', '1290649319', '1293055891', '1307365962', '1314108533', '1314172177', '1319332880', '1322602811', '1334257942', '1347390059', '1353004516', '1363357732', '1368333432', '1377578282', '1385958697', '1387279556', '1391596394', '1404280994', '1406672466', '1410087883', '1445713219', '1449351465', '1450895552', '1465603165', '1473985991', '1474311885', '1493990883', '1497181185', '1501455586', '1508793686', '1515888728', '1520975196', '1525092319', '1533387866', '1539036983', '1543682777', '1545654603', '1563065508', '1601893891', '1620334969', '1623548979', '1638844216', '1658138620', '1658747008', '1662411362', '1681563999', '1693184458', '1712604963', '1715209197', '1723047105', '1732947356', '1755709278', '1756711435', '1761523395', '1762030204', '1768412212', '1772870526', '1781079089', '1793591026', '1816736912', '1819429805', '1825273670', '1845233630', '100000015750269', '100000028056701', '100000029201936', '100000044743440', '100000051988539', '100000060795381', '100000064111848', '100000100367711', '100000103894591', '100000112428087', '100000113011803', '100000145921730', '100000157538686', '100000159951141', '100000163611036', '100000172515411', '100000190978696', '100000202659839', '100000224942235', '100000227004498', '100000239242037', '100000251153175', '100000254775672', '100000270712599', '100000274853365', '100000283516076', '100000289788863', '100000311767021', '100000328352792', '100000333262410', '100000336841417', '100000358926910', '100000360704162', '100000371752693', '100000385298380', '100000391975643', '100000393835831', '100000417300086', '100000418376885', '100000427964321', '100000436904593', '100000439403035', '100000450762029', '100000470202135', '100000471533253', '100000491866263', '100000499549671', '100000508892219', '100000521226608', '100000530900873', '100000537347760', '100000549991660', '100000555131766', '100000556249586', '100000575217400', '100000582549269', '100000589503146', '100000608621298', '100000611075158', '100000613102625', '100000615065453', '100000625346297', '100000627003230', '100000627407291', '100000655677956', '100000661140508', '100000677904229', '100000685657032', '100000688517725', '100000736439118', '100000762021649', '100000793455543', '100000796435978', '100000799482035', '100000804698705', '100000836599446', '100000843123725', '100000847624181', '100000863426236', '100000868390380', '100000873783161', '100000875361391', '100000881874808', '100000927623220', '100000929414274', '100000957788898', '100000960439072', '100000966135064', '100000970482716', '100000972424423', '100000975007022', '100001006598400', '100001007360864', '100001013289719', '100001014142882', '100001030715270', '100001051459841', '100001057677645', '100001061025780', '100001062230444', '100001062844446', '100001080374746', '100001086860070', '100001093825652', '100001108572718', '100001109555955', '100001114814569', '100001137158434', '100001149775043', '100001156937298', '100001165328072', '100001185663241', '100001208734674', '100001226291949', '100001240326320', '100001242198002', '100001242237906', '100001242404950', '100001244392822', '100001244992725', '100001245921812', '100001249041774', '100001249318112', '100001267843984', '100001386822334', '100001397190702', '100001417630994', '100001443006942', '100001451708515', '100001462894247', '100001484741201', '100001486107154', '100001497409561', '100001501978804', '100001517382707', '100001519133533', '100001524738786', '100001627031343', '100001636865408', '100001637838442', '100001645720877', '100001657312658', '100001697366361', '100001714460528', '100001744228905', '100001750952053', '100001763237687', '100001777506621', '100001842250816', '100001861150840', '100001861522531', '100001889222000', '100001942454619', '100001961354460', '100002003335529', '100002006237291', '100002053698569', '100002076557008', '100002098477057', '100002129874368', '100002182394045', '100002191654669', '100002276015333', '100002338165006', '100002345279003', '100002393140799', '100002437913110', '100002476256813', '100002551267702', '100002594061121', '100002789797521', '100002926871451', '100002962985585', '100003021457357', '100003139796439', '100003268678488', '100003341844588', '100003396153778', '100003571687978', '100003618289023', '100003740595927', '100003786651920', '100003985840145', '100004045076273', '100004094085383', '100004737093862', '100004902635349', '100004939173763', '100005279941976', '100005517301669', '100006369372646', '100006435409426', '100006533042059')[0m
+  Rendered friends/index.html.erb within layouts/application (90.2ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 368 LIMIT 1
+Completed 200 OK in 840ms (Views: 95.4ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2013-11-13 16:56:17 -0800
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/login.css?body=1" for 127.0.0.1 at 2013-11-13 16:56:17 -0800
+Served asset /login.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/holder.js" for 127.0.0.1 at 2013-11-13 16:56:17 -0800
+Served asset /holder.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/goals.css?body=1" for 127.0.0.1 at 2013-11-13 16:56:17 -0800
+Served asset /goals.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/goal_instances.css?body=1" for 127.0.0.1 at 2013-11-13 16:56:17 -0800
+Served asset /goal_instances.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/friends.css?body=1" for 127.0.0.1 at 2013-11-13 16:56:17 -0800
+Served asset /friends.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/milstones.css?body=1" for 127.0.0.1 at 2013-11-13 16:56:17 -0800
+Served asset /milstones.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-11-13 16:56:17 -0800
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-11-13 16:56:17 -0800
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/friends/index" for 127.0.0.1 at 2013-11-13 17:08:35 -0800
+Processing by FriendsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 368 LIMIT 1[0m
+  [1m[35mUser Load (3.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`fb_id` IN ('502961332', '517245226', '522157150', '529110613', '530115125', '530999255', '539928383', '540809766', '546415103', '556936879', '557912137', '558683751', '558938804', '567705996', '569348097', '570990094', '585824401', '589510711', '591880706', '593875507', '600244772', '601629221', '601750750', '602395906', '602605119', '602786717', '603156256', '603196042', '603441281', '604120644', '604150080', '604657823', '609029796', '611621298', '612265820', '619996818', '628195128', '632566198', '632681993', '639811236', '642057690', '642862076', '643031645', '643092720', '645421692', '649832469', '657850580', '662637732', '674633124', '682148625', '689496812', '691663939', '692765570', '694457516', '699475084', '703771010', '705208871', '705631539', '706060859', '712226583', '713688575', '715682786', '723275806', '731119375', '733695164', '755215887', '758552073', '760618754', '774035444', '778354416', '790935136', '795045797', '832648591', '838745252', '857194309', '1002128465', '1019907657', '1022048596', '1029849367', '1039677561', '1044675910', '1055485297', '1056036222', '1058025845', '1059387745', '1059465945', '1061736238', '1067182429', '1070883759', '1082353244', '1086613129', '1087201401', '1092108760', '1099382259', '1107894622', '1114113449', '1120728102', '1124945169', '1131500297', '1132543066', '1134788028', '1147050177', '1157250853', '1160280275', '1165892829', '1169423896', '1175181159', '1184478328', '1189972058', '1192291172', '1194835716', '1196142201', '1196384448', '1209360054', '1209935673', '1221585922', '1227408442', '1244522312', '1256900093', '1267895930', '1274712112', '1290649319', '1293055891', '1307365962', '1314108533', '1314172177', '1319332880', '1322602811', '1334257942', '1347390059', '1353004516', '1363357732', '1368333432', '1377578282', '1385958697', '1387279556', '1391596394', '1404280994', '1406672466', '1410087883', '1445713219', '1449351465', '1450895552', '1465603165', '1473985991', '1474311885', '1493990883', '1497181185', '1501455586', '1508793686', '1515888728', '1520975196', '1525092319', '1533387866', '1539036983', '1543682777', '1545654603', '1563065508', '1601893891', '1620334969', '1623548979', '1638844216', '1658138620', '1658747008', '1662411362', '1681563999', '1693184458', '1712604963', '1715209197', '1723047105', '1732947356', '1755709278', '1756711435', '1761523395', '1762030204', '1768412212', '1772870526', '1781079089', '1793591026', '1816736912', '1819429805', '1825273670', '1845233630', '100000015750269', '100000028056701', '100000029201936', '100000044743440', '100000051988539', '100000060795381', '100000064111848', '100000100367711', '100000103894591', '100000112428087', '100000113011803', '100000145921730', '100000157538686', '100000159951141', '100000163611036', '100000172515411', '100000190978696', '100000202659839', '100000224942235', '100000227004498', '100000239242037', '100000251153175', '100000254775672', '100000270712599', '100000274853365', '100000283516076', '100000289788863', '100000311767021', '100000328352792', '100000333262410', '100000336841417', '100000358926910', '100000360704162', '100000371752693', '100000385298380', '100000391975643', '100000393835831', '100000417300086', '100000418376885', '100000427964321', '100000436904593', '100000439403035', '100000450762029', '100000470202135', '100000471533253', '100000491866263', '100000499549671', '100000508892219', '100000521226608', '100000530900873', '100000537347760', '100000549991660', '100000555131766', '100000556249586', '100000575217400', '100000582549269', '100000589503146', '100000608621298', '100000611075158', '100000613102625', '100000615065453', '100000625346297', '100000627003230', '100000627407291', '100000655677956', '100000661140508', '100000677904229', '100000685657032', '100000688517725', '100000736439118', '100000762021649', '100000793455543', '100000796435978', '100000799482035', '100000804698705', '100000836599446', '100000843123725', '100000847624181', '100000863426236', '100000868390380', '100000873783161', '100000875361391', '100000881874808', '100000927623220', '100000929414274', '100000957788898', '100000960439072', '100000966135064', '100000970482716', '100000972424423', '100000975007022', '100001006598400', '100001007360864', '100001013289719', '100001014142882', '100001030715270', '100001051459841', '100001057677645', '100001061025780', '100001062230444', '100001062844446', '100001080374746', '100001086860070', '100001093825652', '100001108572718', '100001109555955', '100001114814569', '100001137158434', '100001149775043', '100001156937298', '100001165328072', '100001185663241', '100001208734674', '100001226291949', '100001240326320', '100001242198002', '100001242237906', '100001242404950', '100001244392822', '100001244992725', '100001245921812', '100001249041774', '100001249318112', '100001267843984', '100001386822334', '100001397190702', '100001417630994', '100001443006942', '100001451708515', '100001462894247', '100001484741201', '100001486107154', '100001497409561', '100001501978804', '100001517382707', '100001519133533', '100001524738786', '100001627031343', '100001636865408', '100001637838442', '100001645720877', '100001657312658', '100001697366361', '100001714460528', '100001744228905', '100001750952053', '100001763237687', '100001777506621', '100001842250816', '100001861150840', '100001861522531', '100001889222000', '100001942454619', '100001961354460', '100002003335529', '100002006237291', '100002053698569', '100002076557008', '100002098477057', '100002129874368', '100002182394045', '100002191654669', '100002276015333', '100002338165006', '100002345279003', '100002393140799', '100002437913110', '100002476256813', '100002551267702', '100002594061121', '100002789797521', '100002926871451', '100002962985585', '100003021457357', '100003139796439', '100003268678488', '100003341844588', '100003396153778', '100003571687978', '100003618289023', '100003740595927', '100003786651920', '100003985840145', '100004045076273', '100004094085383', '100004737093862', '100004902635349', '100004939173763', '100005279941976', '100005517301669', '100006369372646', '100006435409426', '100006533042059')
+  Rendered friends/index.html.erb within layouts/application (39.8ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 368 LIMIT 1[0m
+Completed 200 OK in 1013ms (Views: 43.3ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/assets/goal_instances.css?body=1" for 127.0.0.1 at 2013-11-13 17:08:36 -0800
+Served asset /goal_instances.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/friends.css?body=1" for 127.0.0.1 at 2013-11-13 17:08:36 -0800
+Served asset /friends.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/holder.js" for 127.0.0.1 at 2013-11-13 17:08:36 -0800
+Served asset /holder.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2013-11-13 17:08:36 -0800
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/goals.css?body=1" for 127.0.0.1 at 2013-11-13 17:08:36 -0800
+Served asset /goals.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/login.css?body=1" for 127.0.0.1 at 2013-11-13 17:08:36 -0800
+Served asset /login.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/milstones.css?body=1" for 127.0.0.1 at 2013-11-13 17:08:36 -0800
+Served asset /milstones.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-11-13 17:08:36 -0800
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-11-13 17:08:36 -0800
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/goal_instances?user_id=49" for 127.0.0.1 at 2013-11-13 17:08:42 -0800
+Processing by GoalInstancesController#index as HTML
+  Parameters: {"user_id"=>"49"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 49 LIMIT 1
+  [1m[36mGoalInstance Load (3.4ms)[0m  [1mSELECT `goal_instances`.* FROM `goal_instances` WHERE `goal_instances`.`user_id` = 49[0m
+  [1m[35mGoal Load (0.2ms)[0m  SELECT `goals`.* FROM `goals` WHERE `goals`.`id` = 40 LIMIT 1
+  [1m[36mGoal Load (0.2ms)[0m  [1mSELECT `goals`.* FROM `goals` WHERE `goals`.`id` = 45 LIMIT 1[0m
+  [1m[35mGoal Load (0.2ms)[0m  SELECT `goals`.* FROM `goals` WHERE `goals`.`id` = 103 LIMIT 1
+  [1m[36mGoal Load (0.3ms)[0m  [1mSELECT `goals`.* FROM `goals` WHERE `goals`.`id` = 95 LIMIT 1[0m
+  [1m[35mGoal Load (0.1ms)[0m  SELECT `goals`.* FROM `goals` WHERE `goals`.`id` = 70 LIMIT 1
+  [1m[36mGoal Load (0.2ms)[0m  [1mSELECT `goals`.* FROM `goals` WHERE `goals`.`id` = 65 LIMIT 1[0m
+  Rendered goal_instances/index.html.erb within layouts/application (11.2ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 368 LIMIT 1
+Completed 200 OK in 17ms (Views: 10.3ms | ActiveRecord: 5.1ms)
+
+
+Started GET "/assets/holder.js" for 127.0.0.1 at 2013-11-13 17:08:42 -0800
+Served asset /holder.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/goal_instances.css?body=1" for 127.0.0.1 at 2013-11-13 17:08:42 -0800
+Served asset /goal_instances.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2013-11-13 17:08:42 -0800
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/goals.css?body=1" for 127.0.0.1 at 2013-11-13 17:08:42 -0800
+Served asset /goals.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/login.css?body=1" for 127.0.0.1 at 2013-11-13 17:08:42 -0800
+Served asset /login.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/friends.css?body=1" for 127.0.0.1 at 2013-11-13 17:08:42 -0800
+Served asset /friends.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/milstones.css?body=1" for 127.0.0.1 at 2013-11-13 17:08:42 -0800
+Served asset /milstones.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-11-13 17:08:42 -0800
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-11-13 17:08:42 -0800
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/goal_instances?user_id=49" for 127.0.0.1 at 2013-11-13 17:11:10 -0800
+Processing by GoalInstancesController#index as HTML
+  Parameters: {"user_id"=>"49"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 49 LIMIT 1[0m
+  [1m[35mGoalInstance Load (3.7ms)[0m  SELECT `goal_instances`.* FROM `goal_instances` WHERE `goal_instances`.`user_id` = 49
+  [1m[36mGoal Load (0.2ms)[0m  [1mSELECT `goals`.* FROM `goals` WHERE `goals`.`id` = 40 LIMIT 1[0m
+  [1m[35mGoal Load (0.3ms)[0m  SELECT `goals`.* FROM `goals` WHERE `goals`.`id` = 45 LIMIT 1
+  [1m[36mGoal Load (0.2ms)[0m  [1mSELECT `goals`.* FROM `goals` WHERE `goals`.`id` = 103 LIMIT 1[0m
+  [1m[35mGoal Load (0.2ms)[0m  SELECT `goals`.* FROM `goals` WHERE `goals`.`id` = 95 LIMIT 1
+  [1m[36mGoal Load (0.2ms)[0m  [1mSELECT `goals`.* FROM `goals` WHERE `goals`.`id` = 70 LIMIT 1[0m
+  [1m[35mGoal Load (0.2ms)[0m  SELECT `goals`.* FROM `goals` WHERE `goals`.`id` = 65 LIMIT 1
+  Rendered goal_instances/index.html.erb within layouts/application (38.0ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 368 LIMIT 1[0m
+Completed 200 OK in 56ms (Views: 34.0ms | ActiveRecord: 11.4ms)
+
+
+Started GET "/assets/holder.js" for 127.0.0.1 at 2013-11-13 17:11:11 -0800
+Served asset /holder.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2013-11-13 17:11:11 -0800
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/goals.css?body=1" for 127.0.0.1 at 2013-11-13 17:11:11 -0800
+Served asset /goals.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/friends.css?body=1" for 127.0.0.1 at 2013-11-13 17:11:11 -0800
+Served asset /friends.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/goal_instances.css?body=1" for 127.0.0.1 at 2013-11-13 17:11:11 -0800
+Served asset /goal_instances.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/login.css?body=1" for 127.0.0.1 at 2013-11-13 17:11:11 -0800
+Served asset /login.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/milstones.css?body=1" for 127.0.0.1 at 2013-11-13 17:11:11 -0800
+Served asset /milstones.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-11-13 17:11:11 -0800
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-11-13 17:11:11 -0800
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-11-13 17:20:42 -0800
+Processing by LoginController#index as HTML
+  Rendered login/index.html.erb within layouts/application (0.6ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 368 LIMIT 1
+Completed 200 OK in 7ms (Views: 5.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/holder.js" for 127.0.0.1 at 2013-11-13 17:20:42 -0800
+Served asset /holder.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2013-11-13 17:20:42 -0800
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/goals.css?body=1" for 127.0.0.1 at 2013-11-13 17:20:42 -0800
+Served asset /goals.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/login.css?body=1" for 127.0.0.1 at 2013-11-13 17:20:42 -0800
+Served asset /login.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/friends.css?body=1" for 127.0.0.1 at 2013-11-13 17:20:42 -0800
+Served asset /friends.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/goal_instances.css?body=1" for 127.0.0.1 at 2013-11-13 17:20:42 -0800
+Served asset /goal_instances.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/milstones.css?body=1" for 127.0.0.1 at 2013-11-13 17:20:42 -0800
+Served asset /milstones.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-11-13 17:20:42 -0800
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-11-13 17:20:42 -0800
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-11-13 17:29:04 -0800
+Processing by LoginController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 368 LIMIT 1[0m
+Redirected to http://localhost:3000/goal_instances
+Completed 302 Found in 13ms (ActiveRecord: 2.3ms)
+
+
+Started GET "/goal_instances" for 127.0.0.1 at 2013-11-13 17:29:04 -0800
+Processing by GoalInstancesController#index as HTML
+Completed 404 Not Found in 0ms
+
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  app/controllers/goal_instances_controller.rb:5:in `index'
+
+
+  Rendered /Users/kaos/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.7ms)
+  Rendered /Users/kaos/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.6ms)
+  Rendered /Users/kaos/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (5.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-11-13 17:31:06 -0800
+Processing by LoginController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 368 LIMIT 1
+Redirected to http://localhost:3000/goal_instances?user_id=368
+Completed 302 Found in 13ms (ActiveRecord: 1.8ms)
+
+
+Started GET "/goal_instances?user_id=368" for 127.0.0.1 at 2013-11-13 17:31:06 -0800
+Processing by GoalInstancesController#index as HTML
+  Parameters: {"user_id"=>"368"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 368 LIMIT 1[0m
+  [1m[35mGoalInstance Load (3.4ms)[0m  SELECT `goal_instances`.* FROM `goal_instances` WHERE `goal_instances`.`user_id` = 368
+  [1m[36mGoal Load (0.3ms)[0m  [1mSELECT `goals`.* FROM `goals` WHERE `goals`.`id` = 25 LIMIT 1[0m
+  [1m[35mGoal Load (0.2ms)[0m  SELECT `goals`.* FROM `goals` WHERE `goals`.`id` = 87 LIMIT 1
+  [1m[36mGoal Load (0.2ms)[0m  [1mSELECT `goals`.* FROM `goals` WHERE `goals`.`id` = 85 LIMIT 1[0m
+  [1m[35mGoal Load (0.2ms)[0m  SELECT `goals`.* FROM `goals` WHERE `goals`.`id` = 60 LIMIT 1
+  [1m[36mGoal Load (0.2ms)[0m  [1mSELECT `goals`.* FROM `goals` WHERE `goals`.`id` = 34 LIMIT 1[0m
+  [1m[35mGoal Load (0.2ms)[0m  SELECT `goals`.* FROM `goals` WHERE `goals`.`id` = 24 LIMIT 1
+  [1m[36mGoal Load (0.2ms)[0m  [1mSELECT `goals`.* FROM `goals` WHERE `goals`.`id` = 97 LIMIT 1[0m
+  [1m[35mGoal Load (0.2ms)[0m  SELECT `goals`.* FROM `goals` WHERE `goals`.`id` = 118 LIMIT 1
+  [1m[36mGoal Load (0.2ms)[0m  [1mSELECT `goals`.* FROM `goals` WHERE `goals`.`id` = 92 LIMIT 1[0m
+  Rendered goal_instances/index.html.erb within layouts/application (38.9ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 368 LIMIT 1
+Completed 200 OK in 45ms (Views: 33.8ms | ActiveRecord: 9.8ms)
+
+
+Started GET "/assets/login.css?body=1" for 127.0.0.1 at 2013-11-13 17:31:06 -0800
+Served asset /login.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/goals.css?body=1" for 127.0.0.1 at 2013-11-13 17:31:06 -0800
+Served asset /goals.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/goal_instances.css?body=1" for 127.0.0.1 at 2013-11-13 17:31:06 -0800
+Served asset /goal_instances.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2013-11-13 17:31:06 -0800
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/friends.css?body=1" for 127.0.0.1 at 2013-11-13 17:31:06 -0800
+Served asset /friends.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/holder.js" for 127.0.0.1 at 2013-11-13 17:31:06 -0800
+Served asset /holder.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/milstones.css?body=1" for 127.0.0.1 at 2013-11-13 17:31:06 -0800
+Served asset /milstones.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-11-13 17:31:06 -0800
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-11-13 17:31:06 -0800
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/logout" for 127.0.0.1 at 2013-11-13 17:31:13 -0800
+Processing by LoginController#destroy as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-11-13 17:31:13 -0800
+Processing by LoginController#index as HTML
+  Rendered login/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/holder.js" for 127.0.0.1 at 2013-11-13 17:31:13 -0800
+Served asset /holder.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2013-11-13 17:31:13 -0800
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/login.css?body=1" for 127.0.0.1 at 2013-11-13 17:31:13 -0800
+Served asset /login.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/friends.css?body=1" for 127.0.0.1 at 2013-11-13 17:31:13 -0800
+Served asset /friends.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/goal_instances.css?body=1" for 127.0.0.1 at 2013-11-13 17:31:13 -0800
+Served asset /goal_instances.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/goals.css?body=1" for 127.0.0.1 at 2013-11-13 17:31:13 -0800
+Served asset /goals.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/milstones.css?body=1" for 127.0.0.1 at 2013-11-13 17:31:13 -0800
+Served asset /milstones.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-11-13 17:31:13 -0800
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-11-13 17:31:13 -0800
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-11-13 17:31:14 -0800
+Processing by LoginController#index as HTML
+  Rendered login/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/goals.css?body=1" for 127.0.0.1 at 2013-11-13 17:31:14 -0800
+Served asset /goals.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/holder.js" for 127.0.0.1 at 2013-11-13 17:31:14 -0800
+Served asset /holder.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/goal_instances.css?body=1" for 127.0.0.1 at 2013-11-13 17:31:14 -0800
+Served asset /goal_instances.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2013-11-13 17:31:14 -0800
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/friends.css?body=1" for 127.0.0.1 at 2013-11-13 17:31:14 -0800
+Served asset /friends.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/milstones.css?body=1" for 127.0.0.1 at 2013-11-13 17:31:14 -0800
+Served asset /milstones.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-11-13 17:31:14 -0800
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/login.css?body=1" for 127.0.0.1 at 2013-11-13 17:31:14 -0800
+Served asset /login.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-11-13 17:31:14 -0800
+Served asset /users.css - 304 Not Modified (0ms)
