@@ -1,24 +1,17 @@
- <!DOCTYPE html>
-<html>
-<head>
-<%= csrf_meta_tag %>
-</head>
-
 <body>	
-  <div class="center jumbotron">
+
+ 
+<div class="jumbotron">
   <h1>Welcome to Trac.kr !</h1>
   <h2>Your Personal Goal Tracker</h2>
   <br />
   <p class="text-error"><%= notice %></p>
-  <br />
-  <br/>
-  <%= link_to "Login using Facebook", @auth_url, class: "btn btn-large btn-primary" %>
+
+  <%= link_to "Login using Facebook", @auth_url, class: "btn btn-primary btn-lg" %>
 </div>
+
 <br />
-<div class="pagination-centered">
-<%= image_tag("logo.gif", :align => "center") %>
-</div>
-</script>
+<%= image_tag("logo.gif", :class => "center-block") %>
+
 </body>
-</html>
 
