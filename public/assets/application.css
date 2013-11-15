@@ -75,8 +75,8 @@
   margin-right: 0px;
 }
 /* line 1, ../../app/assets/stylesheets/scaffolds.css.scss */
-#notice {
-  color: green;
+.text-error {
+  color: red;
 }
 
 /* line 5, ../../app/assets/stylesheets/scaffolds.css.scss */
