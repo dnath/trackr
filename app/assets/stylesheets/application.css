@@ -12,7 +12,11 @@
  *= require_tree .
  */
 
-a:hover { 
+.link{
+
+}
+
+.link:hover { 
 	color:#244;	
 	background-color:#ffffff;
 }
