@@ -16,7 +16,7 @@ gem 'rvm-capistrano'
 
 gem 'mysql2'
 
-gem 'koala'
+gem 'koala', '~> 1.6.0'
 
 # Gems used only for assets and not required
 # in production environments by default.

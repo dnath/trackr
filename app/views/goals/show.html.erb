@@ -49,7 +49,7 @@
 		          <h1>Currently Pursuing <small>(<%=@current_followers.length%>)</small></h1>
 				  <div class="row">
 				  	<%for j in 0..5%>
-				  		<% index = i*7 + j %>
+				  		<% index = i*6 + j %>
 				  		<% if @current_followers[index] then %>
 				  			<div class="col-md-2"> <%= @current_followers[index]["first_name"] + " "+ @current_followers[index]["last_name"] %> <br/><img width="50%" height="50%" src=<%=@current_followers[index]["picture"]["data"]["url"]%> /> </div>
 				  		<%end%>

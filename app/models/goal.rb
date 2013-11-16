@@ -3,6 +3,7 @@ class Goal < ActiveRecord::Base
   belongs_to :user
   has_attached_file :picture
   validates :title, presence: true
+  validates_attachment_content_type :picture, :content_type => ["image/jpeg","image/png"]
   attr_accessible :description, :title, :user, :picture, :goal_instances
   
   
