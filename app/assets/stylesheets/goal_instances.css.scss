@@ -38,9 +38,10 @@
     background:none!important;
     border:none; 
     padding:0!important;
-    color:#2e79bf;
+    color:#3887d0;
     float:left; 
     margin-right:0px;
+    font-weight:bold;
   }
 
    .button:hover
@@ -50,5 +51,23 @@
     text-decoration:underline;
     float:left; 
     margin-right:0px;
+    font-weight:bold;
     }
+
+    .thumbnail {
+    width: 2000px;
+  }
+
+  .container {
+  max-width: 2000px;
+  width: 2000px;
+  margin-right: 0;
+  margin-left: 0;
+  padding:0!important;
+  border: 0;
+  }
+
+  .col-md-4 {
+  padding-left: 188px;
+  }
 }

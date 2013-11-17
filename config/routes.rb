@@ -7,8 +7,11 @@ Trackr::Application.routes.draw do
 
   get "friends/index"
 
-  resources :goal_instances
+  resources :goal_instances do
+    put :cheeron, on: :member
+  end
 
+  #put "goal_instances/:id/cheeron"
 
   get "login/index"
 

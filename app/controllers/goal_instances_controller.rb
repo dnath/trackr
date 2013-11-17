@@ -15,7 +15,7 @@ class GoalInstancesController < ApplicationController
   # GET /goal_instances/1.json
   def show
     @goal_instance = GoalInstance.find(params[:id])
-
+    puts "shoooooooooooooooooooow"
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @goal_instance }
@@ -84,6 +84,18 @@ class GoalInstancesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to goal_instances_url(:user_id => User.find(session[:current_user]).id) }
       format.json { head :no_content }
+    end
+  end
+
+  # PUT /goal_instances/1/cheeron
+  def cheeron
+    puts 'Cheeron ajax'
+    @goal_instance = GoalInstance.find(params[:id])
+    @goal_instance.cheer_ons = @goal_instance.cheer_ons + 1
+    @goal_instance.update_attributes(params[:goal_instance])
+
+    respond_to do |format|
+      format.html {redirect_to @goal_instance}
     end
   end
 end
