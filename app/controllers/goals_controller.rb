@@ -1,19 +1,25 @@
 class GoalsController < ApplicationController
   
   before_filter :authorize, only: [:update, :destroy]
-  
-  
+  caches_action :index,
+  cache_path: :updated_request_params_to_include_format_for_cache_key.to_proc
+
+  def updated_request_params_to_include_format_for_cache_key
+    params.merge({ format: request.format.symbol || 'html' })
+  end
   # GET /goals
   # GET /goals.json
   def index
     #@goals = Goal.all
     if(params[:search])
       search = params[:search]
+      cache ["goals",@goals] do
       @goals = Goal.paginate(:page => params[:page], 
                               :per_page => 12,
                               :conditions => ['title like ?', 
                               "%#{search}%"], 
                               :order => 'title')
+      end
     else
       @goals = Goal.paginate(:page => params[:page], 
                               :per_page => 12, 
@@ -32,18 +38,26 @@ class GoalsController < ApplicationController
     @goal = Goal.find(params[:id])
     @api = Koala::Facebook::API.new(session[:access_token])
     @is_current_user_joined = false
-    # sample data
-    # sample_id = ["dsambasivan","ndereli","dibyendu.nath","cr.thesilvertongue","sruthi.kotamraju","malavikka.ramesh.5","soundharya.bala.31"]
-    @current_followers = []
-    @goal.goal_instances.each { |goal_instance| 
-        @current_followers.push( @api.get_object("/" + goal_instance.user.fb_id + "/?fields=first_name,last_name,picture") )
-        if goal_instance.user.id == session[:current_user]
-          @is_current_user_joined = true
-        end
-    }
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @goal }
+    cache ["goal",@goal] do
+      _current_follower_ids=[]
+      @current_followers = []
+      _time1 = Time.now
+      @goal.goal_instances.each { |goal_instance|
+          _current_follower_ids.push(goal_instance.user.fb_id)
+          if goal_instance.user.id == session[:current_user]
+            @is_current_user_joined = true
+          end
+      }
+      puts "number of fb ids = " + _current_follower_ids.length.to_s
+      @current_followers= @api.get_objects(_current_follower_ids, :fields=>"first_name,last_name,picture").values
+      puts "number of current followers = "+ @current_followers.length.to_s
+      _time2 = Time.now
+      puts "Total time taken for fb objects = "+ (_time2-_time1).to_s
+      puts @current_followers[0]
+      respond_to do |format|
+        format.html # show.html.erb
+        format.json { render json: @goal }
+      end
     end
   end
 

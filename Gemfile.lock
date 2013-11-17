@@ -164,7 +164,7 @@ DEPENDENCIES
   capistrano-rvm (~> 0.0.3)
   coffee-rails (~> 3.2.1)
   jquery-rails
-  koala
+  koala (~> 1.6.0)
   mysql2
   paperclip
   rails (= 3.2.14)
