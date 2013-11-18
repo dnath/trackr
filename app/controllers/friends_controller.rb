@@ -1,4 +1,6 @@
 class FriendsController < ApplicationController
+  helper_method :user_image_url
+
   def index
   	current_user = User.find(session[:current_user])
   	api = Koala::Facebook::API.new(session[:access_token])
@@ -26,4 +28,13 @@ class FriendsController < ApplicationController
       format.xml { render xml: current_user_friends['friends']['data'] }
     end
   end
+
+  def user_image_url(user_id)
+    puts user_id
+    api = Koala::Facebook::API.new(session[:access_token])
+    # puts "/" + user_id.to_s + "/?fields=picture"
+    user_image_url = api.get_object("/" + User.find(user_id)['fb_id'].to_s + "/?fields=picture")
+    # puts "*****************************" + user_image_url['picture']['data']['url']
+    return user_image_url['picture']['data']['url']
+  end  
 end
