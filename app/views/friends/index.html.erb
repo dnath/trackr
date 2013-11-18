@@ -28,28 +28,41 @@
   </div>
 </div>
 
+<br />
+<br />
+<br />
+
+
 <div class="container">
 <h1>My Friends</h1>
 
-<form class="form-search">
-  <div class="input-append">
-     <input type="text" class="aearch-query btn-large" placeholder="Search..." style="padding: 12px;">
-       <button type="submit" class="btn btn-small" action=<%=request.path%>>
-          <i class="icon-search"></i>
-          Search
-      </button>
-   </div>
+<!--
+<form role="search" action=<%=request.path%>>
+<div class="col-lg-6" style="padding-left:0px">
+    <div class="input-group">
+      <input name="search" type="text" class="form-control" placeholder="Search Friends...">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="submit">Search <i class="glyphicon glyphicon-search"></i></button>
+      </span>
+    </div>
+  </div>
 </form>
 
-<table>
-<% @friends.each do |friend| %>
-  <tr>
-  	<td>
-      <%= image_tag user_image_url(friend['id']) %>
-      <%= link_to friend.first_name + " " + friend.last_name, 
-  				:controller => "goal_instances", :user_id => friend['id']%>
-    </td>
-  </tr>
+<br />
+<br />
+-->
+
+<% @current_trackr_friends.each_with_index do |friend, index| %>
+  <div class="col-md-6">
+    <h3>
+    <%= image_tag friend['picture']['data']['url'] %>
+    <%= link_to friend['first_name'] + " " + friend['last_name'], 
+				{:controller => "goal_instances", :user_id => User.find_by_fb_id(friend['id']).id}, 
+        {:class => "label label-default"} %>
+    </h3>
+  </div>
 <% end %>
-</table>
+
+<br />
+ <!-- %= will_paginate @current_trackr_friends, renderer: BootstrapPagination::Rails %-->
 </div>
