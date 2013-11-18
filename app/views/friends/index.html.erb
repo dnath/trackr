@@ -1,3 +1,37 @@
+
+<!--
+<div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container-fluid">
+      <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="brand" href="#">Trac.kr</a>
+      <div class="nav-collapse collapse">
+        <p class="navbar-text pull-right">
+          Logged in as <a href="#" class="navbar-link">Username</a>
+        </p>
+        <ul class="nav">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+-->
+
 <%= image_tag("logo.gif",:align => 'left',:width => '100px',:height => '100px') %>
 
 <ul class="nav nav-tabs">
@@ -7,10 +41,22 @@
 </ul>
 
 <h1>My Friends</h1>
+
+<form class="form-search">
+  <div class="input-append">
+     <input type="text" class="aearch-query btn-large" placeholder="Search..." style="padding: 12px;">
+       <button type="submit" class="btn btn-small" action=<%=request.path%>>
+          <i class="icon-search"></i>
+          Search
+      </button>
+   </div>
+</form>
+
 <table>
-<% @current_user_friends_in_trackr.each do |friend| %>
+<% @friends.each do |friend| %>
   <tr>
-  	<td><%= link_to friend.first_name, :controller => "goal_instances", :user_id => friend['id']%></td>
+  	<td><%= link_to friend.first_name + " " + friend.last_name, 
+  				:controller => "goal_instances", :user_id => friend['id']%></td>
   </tr>
 <% end %>
 </table>

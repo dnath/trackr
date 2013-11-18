@@ -1,20 +1,35 @@
 class MilestonesController < ApplicationController
   # GET /milestones
   # GET /milestones.json
+
+#def add_to_my_books
+ #  @milestones = Milestone.all
+  #  @miles = Milestone.where(:id => 1)
+
+   # respond_to do 
+    #    format.js {render alert("book added to your books")}
+  #  end        
+#end
+
+
   def index
     @milestones = Milestone.all
-
+    @miles = Milestone.where(:id => 1)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @milestones }
     end
+   
   end
-
+  def set_my_session_var
+    session[:somekey]='somevalue'
+  end
   # GET /milestones/1
   # GET /milestones/1.json
+
   def show
     @milestone = Milestone.find(params[:id])
-
+    @comment = @milestone.comments.new
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @milestone }
@@ -23,9 +38,12 @@ class MilestonesController < ApplicationController
 
   # GET /milestones/new
   # GET /milestones/new.json
+
   def new
     @milestone = Milestone.new
-
+    @comment = Comment.new
+    @comment.comment = 'Some comment'
+    @milestone.comments << @comment
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @milestone }
@@ -33,14 +51,16 @@ class MilestonesController < ApplicationController
   end
 
   # GET /milestones/1/edit
+
   def edit
     @milestone = Milestone.find(params[:id])
   end
 
   # POST /milestones
   # POST /milestones.json
+
   def create
-    @milestone = Milestone.new(params[:milestone])
+    @milestone = Milestone.new(params[:goal_id])
 
     respond_to do |format|
       if @milestone.save

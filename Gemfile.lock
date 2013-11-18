@@ -64,6 +64,8 @@ GEM
     execjs (2.0.2)
     faraday (0.8.8)
       multipart-post (~> 1.2.0)
+    googlecharts (1.6.8)
+    haml (3.1.6)
     hike (1.2.3)
     i18n (0.6.5)
     journey (1.0.4)
@@ -165,6 +167,8 @@ DEPENDENCIES
   capistrano-rails
   capistrano-rvm (~> 0.0.3)
   coffee-rails (~> 3.2.1)
+  googlecharts
+  haml
   jquery-rails
   koala
   mysql2

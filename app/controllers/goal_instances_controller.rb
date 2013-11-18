@@ -4,7 +4,7 @@ class GoalInstancesController < ApplicationController
   def index
     current_user = User.find(params[:user_id])
     @goal_instances = current_user.goal_instances
-
+    @goal_instances = @goal_instances.paginate(:page => params[:page], :per_page => 5)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @goal_instances }
@@ -75,6 +75,14 @@ class GoalInstancesController < ApplicationController
     end
   end
 
+def add_to_my_books
+    @book = Book.find params[:id]
+    @my_books = current_user.books
+    @my_books << @book
+    respond_to do 
+        format.js {render alert("book added to your books")}
+    end        
+end
   # DELETE /goal_instances/1
   # DELETE /goal_instances/1.json
   def destroy

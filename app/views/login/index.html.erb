@@ -4,10 +4,12 @@
 <%= csrf_meta_tag %>
 </head>
 
-<body>
-   <div class="center hero-unit">
+<body>	
+  <div class="center hero-unit">
   <h1>Welcome to Trac.kr !</h1>
   <h2>Your Personal Goal Tracker</h2>
+  <br />
+  <p class="text-error"><%= notice %></p>
   <br />
   <br/>
   <%= link_to "Login using Facebook", @auth_url, class: "btn btn-large btn-primary" %>

@@ -12507,6 +12507,10 @@ if ( typeof module === "object" && module && typeof module.exports === "object" 
 
 
 }).call(this);
+(function() {
+
+
+}).call(this);
 /*
 
 Holder - 2.2 - client side image placeholders
@@ -13044,6 +13048,10 @@ if (typeof define === "function" && define.amd) {
 }
 
 })(Holder, window);
+(function() {
+
+
+}).call(this);
 (function() {
 
 

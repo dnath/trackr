@@ -1,16 +1,15 @@
 Trackr::Application.routes.draw do
-  resources :milestones
-
-
-  resources :comments
-
-
-  resources :milstones
-
 
   get "friends/index"
 
-  resources :goal_instances
+  resources :goal_instances do 
+     member do
+     get :add_to_my_books
+     end
+   end
+  resources :milestones  
+  post "/myroute", :to=>"milestones#set_my_session_var" 
+  
 
 
   get "login/index"
@@ -73,6 +72,8 @@ Trackr::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
   root :to => 'login#index'
+
+  get "logout" => "login#destroy", :as => "logout"
 
   # See how all your routes lay out with "rake routes"
 

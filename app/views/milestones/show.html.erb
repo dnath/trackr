@@ -20,6 +20,9 @@
   <%= @milestone.title %>
 </p>
 
-
+<%- form_for [@post, @comment] do |f|-%>
+  <%= f.text_area :body -%>
+  <%= f.submit -%>
+<%- end -%>
 <%= link_to 'Edit', edit_milestone_path(@milestone) %> |
 <%= link_to 'Back', milestones_path %>

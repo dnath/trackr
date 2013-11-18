@@ -37,6 +37,8 @@
     <th></th>
   </tr>
 
+<%= will_paginate @goal_instances,renderer: BootstrapPagination::Rails%>
+
 <% @goal_instances.each do |goal_instance| %>
   <tr>
     <td><%= unless goal_instance.goal.nil? 
@@ -48,8 +50,15 @@
     <td><%= goal_instance.start_date %></td>
     <td><%= goal_instance.end_date %></td>
     <td><%= goal_instance.cheer_ons %></td>
+    <td><%= link_to 'Milestones', add_to_my_books, remote: true  %> </td>
   </tr>
 <% end %>
 </table>
 
 <br />
+  <%= button_to "my_button" %>
+$(function(){
+  $("#my-button").click(function(){
+    $.post('/myroute');
+  })
+})

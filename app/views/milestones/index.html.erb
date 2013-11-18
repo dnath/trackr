@@ -11,7 +11,8 @@
 
 <table>
   <tr>
-    <th>Goal instance</th>
+<th>Id</th>    
+<th>Goal instance</th>
     <th>No of days</th>
     <th>Description</th>
     <th>Title</th>
@@ -20,12 +21,24 @@
     <th></th>
   </tr>
 
-<% @milestones.each do |milestone| %>
+<% @miles.each do |milestone| %>
   <tr>
+    <td><%= milestone.id %> </td>	
     <td><%= milestone.goal_instance %></td>
     <td><%= milestone.no_of_days %></td>
     <td><%= milestone.description %></td>
     <td><%= milestone.title %></td>
+
+
+<!--<td><%= unless milestone.goal_instance.nil?
+         link_to milestone.goal_instance.start_date end%> </td>-->
+<% require 'gchart' %>
+
+<img src="<%=Gchart.line(:data => [0, 40, 10, 70, 20])%>"/>
+
+
+
+    <%= button_to "my_button" %>    	
    <!-- <td><%= link_to 'Show', milestone %></td>
     <td><%= link_to 'Edit', edit_milestone_path(milestone) %></td>
     <td><%= link_to 'Destroy', milestone, method: :delete, data: { confirm: 'Are you sure?' } %></td>

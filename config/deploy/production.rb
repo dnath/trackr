@@ -18,7 +18,7 @@ role :all, fetch(:server_name) # This doesn't work completely yet, hence the abo
 
 set :ssh_options, {
     user: %{ubuntu},                # The user we want to log in as
-    keys: %w{/home/divya/.ssh/Tracker.pem
+    keys: %w{/Users/nazl/Downloads/Tracker.pem
       }, # Your .pem file
     forward_agent: true,          # In order for our EC2 instance to be able to access Github via ssh we need to forward our local ssh agent (since we have set up Github to accept that)
     auth_methods: %w(publickey)   # We are using ssh with .pem files
