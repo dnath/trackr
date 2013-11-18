@@ -29,57 +29,45 @@
   </div>
 </div>
 
-<div class="container">
+<br />
+<br />
+<br />
+<br />
 
 
+<div class="container container-gi">
 
-<!--<table>
-  <tr></tr>
-  <tr class="list_bar">
-    <td class="list_description">
-    <dl>
-      <dt>Title</dt>
-    </dl></td>
-     <td class="list_description">
-    <dl>
-      <dt>Description</dt>
-    </dl></td>
-    <td class="list_description">
-    <dl>
-      <dt>Start Date</dt>
-    </dl></td>
-     <td class="list_description">
-    <dl>
-      <dt>End Date</dt>
-    </dl></td>
-     <td class="list_description">
-    <dl>
-      <dt>Cheer Ons</dt>
-    </dl></td>
-    <th></th>
-    <th></th>
-  </tr>-->
 <% @goal_instances.each do |goal_instance| %>
   <li class="thumbnail">
-        <div class="container">
+        <div class="container container-gi">
           <div class="row">
-          <div class="col-sm-2">
-              <%= image_tag goal_instance.goal.picture.url, :width => "120px", :height => "80px"%>
+          
+            <div class="col-sm-2">
+              <%= image_tag goal_instance.goal.picture.url, :width => "120px", :height => "100px"%>
             </div>
-            <div class="col-sm-4">
+            
+            <div class="col-sm-8">
             <% unless goal_instance.goal.nil? then %> 
               <em><h4><%= link_to goal_instance.goal.title , goal_instance%></h4></em>
             <%end%>
             <div class="progress">
-              <div class="progress-bar" role="progressbar" aria-valuenow="<%=(Date.today-goal_instance.start_date).to_i%>" aria-valuemin="0" aria-valuemax= "<%=(goal_instance.end_date-goal_instance.start_date).to_i%>" style="width:<%=((Date.today-goal_instance.start_date).to_f/(goal_instance.end_date-goal_instance.start_date).to_f)*100%>%"> <%=(((Date.today-goal_instance.start_date).to_f/(goal_instance.end_date-goal_instance.start_date).to_f)*100).round%>% complete
+              <div class="progress-bar" role="progressbar" 
+                  aria-valuenow="<%=(Date.today-goal_instance.start_date).to_i%>" 
+                  aria-valuemin="0" 
+                  aria-valuemax= "<%=(goal_instance.end_date-goal_instance.start_date).to_i%>" 
+                  style="width:<%=((Date.today-goal_instance.start_date).to_f/(goal_instance.end_date-goal_instance.start_date).to_f)*100%>%"
+              > 
+                <%=(((Date.today-goal_instance.start_date).to_f/(goal_instance.end_date-goal_instance.start_date).to_f)*100).round%>% complete
               </div>
             </div>
             </div>
+            
             <br />
             <br />
-            <div class="col-md-4">
+            
+            <div class="col-sm-2">
               <% unless goal_instance.goal.nil? then %> 
-                <span class="badge" class="pull-right"><%= goal_instance.cheer_ons%> cheer ons</span>
+                <span class="badge" class="pull-right"><%= goal_instance.cheer_ons%> Cheer Ons <i class="glyphicon glyphicon-heart"></i>  </span>
                <%end%> 
             </div>
             </div> 
@@ -88,5 +76,7 @@
 <% end %>
 </ul>
 <br />
+
 <%= will_paginate @goal_instances, renderer: BootstrapPagination::Rails, :class => "center-block" %>
+
 </div>

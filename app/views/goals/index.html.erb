@@ -33,7 +33,7 @@
 <br />
 <br />
 
-<div class="container">
+<div class="container container-g">
 
 <% flash.each do |key, value| %>
   <div class="alert alert-<%= key %>"><%= value %></div>
@@ -44,30 +44,19 @@
 <form role="search" action=<%=request.path%>>
 <div class="col-lg-6">
     <div class="input-group">
-      <input type="text" class="form-control">
+      <input name="search" type="text" class="form-control" placeholder="Search Goals...">
       <span class="input-group-btn">
-        <button class="btn btn-default" type="button"><i class="icon-search"></i>Search</button>
+        <button class="btn btn-default" type="submit">Search <i class="glyphicon glyphicon-search"></i></button>
       </span>
     </div><!-- /input-group -->
   </div><!-- /.col-lg-6 -->
-</div>
 </form>
 
-<form class="form-search" role="search" action=<%=request.path%>>
-  <div class="input-append">
-     <input name="search" type="text" class="aearch-query btn-large" placeholder="Search Goals..." style="padding: 12px;" />
-     <button type="submit" class="btn btn-small">
-      <i class="icon-search"></i>
-      Search
-     </button>
-   </div>
-</form>
-
-
+<br />
 <br />
 
 <% @goals.each_with_index do |goal,index| %>
-<% if (index+1)%6 == 0%>
+<% if (index+1) % 3 == 0 %>
 	<div class="row">
 <%end%>
 <div class="col-sm-12 col-md-2">
@@ -78,7 +67,7 @@
 	  	</div>
    </div>
 </div>
-<% if (index+1)%6 == 0%>
+<% if (index+1) % 3 == 0 %>
 	</div>
 <%end%>
 <% end %>
