@@ -556,6 +556,14 @@ if (typeof define === "function" && define.amd) {
 
 }).call(this);
 (function() {
+  $(function() {
+    return $("#my-button").click(function() {
+      return $.post("/myroute");
+    });
+  });
+
+}).call(this);
+(function() {
 
 
 }).call(this);

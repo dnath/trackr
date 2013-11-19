@@ -15,32 +15,30 @@
 				<small><%= @goal_instance.goal.description %></small>
 			</h1>
 		</div>
-		<div class="pull-left">
-		<div class="container">
+		<div class="container" class="pull-left">
 			<div class="row">
-				<div class="col-md-4"> <b> Started At</b></div>
-				<div class="col-md-4"> <%= @goal_instance.start_date%></div>
+				<div class="col-sm-2"> <b> Started At</b></div>
+				<div class="col-sm-2"> <%= @goal_instance.start_date%></div>
 			</div>
 			<div class="row">
-				<div class="col-md-4"> <b> End By </b></div>
-				<div class="col-md-4"> <%= @goal_instance.end_date%></div>
+				<div class="col-sm-2"> <b> End By </b></div>
+				<div class="col-sm-2"> <%= @goal_instance.end_date%></div>
 			</div>
 			<br \>
 			<br \>
 			<div class="row">
-				<div class="col-md-6"> <b>
+				<div class="col-sm-2"> <b>
 					<% if User.find(session[:current_user]) == @goal_instance.user then %>
 					You have <%=@goal_instance.cheer_ons%> cheer ons for this goal.
 					<% else %> <%=@goal_instance.user.first_name %> has <%=@goal_instance.cheer_ons%> cheer ons for this goal.
 					<%end%>
 				</b></div>
-				<div class="col-md-4"><b>
+				<div class="col-sm-2"><b>
 					<% if User.find(session[:current_user]) != @goal_instance.user then %>
 						<%= button_to 'Cheer on', {:action => 'cheeron', remote: true }, :class => 'btn btn-success btn-xs', :method => :put%> 
 					<% end%>
-				</div>
-			</div>	
-		</div>
+				</div>	
+			</div>
 	</div>
 	</div>
 </div>
