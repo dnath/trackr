@@ -48,12 +48,12 @@ class GoalsController < ApplicationController
             @is_current_user_joined = true
           end
       }
-      puts "number of fb ids = " + _current_follower_ids.length.to_s
-      @current_followers= @api.get_objects(_current_follower_ids, :fields=>"first_name,last_name,picture").values
-      puts "number of current followers = "+ @current_followers.length.to_s
-      _time2 = Time.now
-      puts "Total time taken for fb objects = "+ (_time2-_time1).to_s
-      puts @current_followers[0]
+      if _current_follower_ids.length > 0
+        @current_followers= @api.get_objects(_current_follower_ids, :fields=>"first_name,last_name,picture")
+        if @current_followers.length > 0 then
+          @current_followers = @current_followers.length
+        end
+      end
       respond_to do |format|
         format.html # show.html.erb
         format.json { render json: @goal }

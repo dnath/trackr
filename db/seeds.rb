@@ -62,6 +62,7 @@ users_data = JSON.parse(file.read)
 file.close
 
 users_data['users'].each { |user_data|
+  puts "."
   user_json = JSON.parse(user_data.to_json)
   user = User.create({fb_id: user_json['id'], first_name: user_json['first_name'], last_name: user_json['last_name']
                 })
@@ -88,6 +89,7 @@ goals_data['goals'].each { |goal_data|
 number_goal_instances = 10000
 goal_instances = []
 for i in 0..number_goal_instances-1
+   puts "goal instance "+ i.to_s
    st = Date.today - rand(30)
    et = st + rand(45)
    complete = false
