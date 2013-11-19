@@ -51,7 +51,7 @@ class GoalsController < ApplicationController
       if _current_follower_ids.length > 0
         @current_followers= @api.get_objects(_current_follower_ids, :fields=>"first_name,last_name,picture")
         if @current_followers.length > 0 then
-          @current_followers = @current_followers.length
+          @current_followers = @current_followers.values
         end
       end
       respond_to do |format|
