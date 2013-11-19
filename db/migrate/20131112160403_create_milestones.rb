@@ -1,6 +1,6 @@
 class CreateMilstones < ActiveRecord::Migration
   def change
-    create_table :milestones do |t|
+    create_table :milstones do |t|
       t.string :goal_instance
       t.string :no_of_days
       t.string :title
