@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131112160920) do
+ActiveRecord::Schema.define(:version => 20131117215120) do
 
   create_table "comments", :force => true do |t|
     t.string   "goal_instance_id"
@@ -31,6 +31,8 @@ ActiveRecord::Schema.define(:version => 20131112160920) do
     t.integer  "goal_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.string   "Milestones"
+    t.string   "id_number"
   end
 
   create_table "goals", :force => true do |t|
@@ -43,6 +45,17 @@ ActiveRecord::Schema.define(:version => 20131112160920) do
     t.string   "picture_content_type"
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
+  end
+
+  create_table "milestones", :force => true do |t|
+    t.string   "goal_instance"
+    t.string   "no_of_days"
+    t.string   "description"
+    t.string   "title"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.string   "user"
+    t.integer  "goal_instance_id"
   end
 
   create_table "milstones", :force => true do |t|

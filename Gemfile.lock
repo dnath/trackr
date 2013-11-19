@@ -28,6 +28,7 @@ GEM
     activesupport (3.2.14)
       i18n (~> 0.6, >= 0.6.4)
       multi_json (~> 1.0)
+    acts_as_commentable (3.0.1)
     addressable (2.3.5)
     arel (3.0.2)
     aws-sdk (1.25.0)
@@ -63,6 +64,8 @@ GEM
     execjs (2.0.2)
     faraday (0.8.8)
       multipart-post (~> 1.2.0)
+    googlecharts (1.6.8)
+    haml (3.1.6)
     hike (1.2.3)
     i18n (0.6.5)
     journey (1.0.4)
@@ -156,6 +159,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts_as_commentable (= 3.0.1)
   aws-sdk
   bootstrap-sass (= 2.3.2.2)
   capistrano (~> 3.0.0)
@@ -163,6 +167,8 @@ DEPENDENCIES
   capistrano-rails
   capistrano-rvm (~> 0.0.3)
   coffee-rails (~> 3.2.1)
+  googlecharts
+  haml
   jquery-rails
   koala (~> 1.6.0)
   mysql2

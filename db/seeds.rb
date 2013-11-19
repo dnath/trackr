@@ -4,11 +4,51 @@
 Goal.delete_all
 User.delete_all
 GoalInstance.delete_all
-
-# n_gi = 180 # 10000
+Milestone.delete_all
+ n_gi = 180 # 10000
 # n_g  = 18 # 110
 # n_u  = 33 # 1300
+milestones= []
 # 
+#Arvind
+oi = 3
+nod = 4
+tit = 'milestone'
+desc = 'trav'
+uservar='user_'
+#milstones.push(goal_instance);
+ #       milstones_flag << false
+
+
+milstone = []
+
+#####################################################
+goal_instances = []
+goal_instances_flag = []
+
+for i in 1..n_gi
+        st = Date.today - rand(30)
+        et = st + rand(45)
+        complete = false
+        if et > Date.today
+                complete = true
+        end
+       milestone = Milestone.create(
+                [{ goal_instance: i, no_of_days: nod , title: tit+'1', description: desc }]
+
+        )
+milestone = Milestone.create(
+               [{ goal_instance: i, no_of_days: nod , title: tit+'2', description: desc }]
+
+        )
+milestone = Milestone.create(
+                [{ goal_instance: i, no_of_days: nod , title: tit+'3', description: desc }]
+
+        )
+
+
+end
+
 # #####################################################
 # goal_instances = []
 # goal_instances_flag = []

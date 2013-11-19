@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+gem 'googlecharts', :require => "gchart"
 gem 'rails', '3.2.14'
 gem 'bootstrap-sass', '2.3.2.2'
 gem 'rails_bootstrap_navbar'
@@ -8,13 +8,15 @@ gem 'aws-sdk'
 gem 'will_paginate-bootstrap'
 # gem 'gruff'
 # Deploy with Capistrano
+gem 'acts_as_commentable', '3.0.1'
 gem 'capistrano', '~> 3.0.0'
 gem 'capistrano-bundler'
 gem 'capistrano-rails'
 gem 'capistrano-rvm', '~> 0.0.3'
 gem 'rvm-capistrano'
-
+#gem 'acts_as_commentable', '3.0.1'
 gem 'mysql2'
+<<<<<<< HEAD
 
 gem 'koala', '~> 1.6.0'
 

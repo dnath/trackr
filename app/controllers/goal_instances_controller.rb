@@ -75,6 +75,14 @@ class GoalInstancesController < ApplicationController
     end
   end
 
+def add_to_my_books
+    @book = Book.find params[:id]
+    @my_books = current_user.books
+    @my_books << @book
+    respond_to do 
+        format.js {render alert("book added to your books")}
+    end        
+end
   # DELETE /goal_instances/1
   # DELETE /goal_instances/1.json
   def destroy

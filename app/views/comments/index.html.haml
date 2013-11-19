@@ -1,0 +1,5 @@
+%h1== Comments for #{@Milestone.title}:
+%ul
+  - comments.each do |comment|
+    %h3= comment.title
+    %p= comment.comment
