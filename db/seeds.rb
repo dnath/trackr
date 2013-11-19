@@ -26,28 +26,28 @@ milstone = []
 goal_instances = []
 goal_instances_flag = []
 
-for i in 1..n_gi
-        st = Date.today - rand(30)
-        et = st + rand(45)
-        complete = false
-        if et > Date.today
-                complete = true
-        end
-       milestone = Milestone.create(
-                [{ goal_instance: i, no_of_days: nod , title: tit+'1', description: desc }]
+# #for i in 1..n_gi
+#         st = Date.today - rand(30)
+#         et = st + rand(45)
+#         complete = false
+#         if et > Date.today
+#                 complete = true
+#         end
+#        milestone = Milestone.create(
+#                 [{ goal_instance: i, no_of_days: nod , title: tit+'1', description: desc }]
 
-        )
-milestone = Milestone.create(
-               [{ goal_instance: i, no_of_days: nod , title: tit+'2', description: desc }]
+#         )
+# milestone = Milestone.create(
+#                [{ goal_instance: i, no_of_days: nod , title: tit+'2', description: desc }]
 
-        )
-milestone = Milestone.create(
-                [{ goal_instance: i, no_of_days: nod , title: tit+'3', description: desc }]
+#         )
+# milestone = Milestone.create(
+#                 [{ goal_instance: i, no_of_days: nod , title: tit+'3', description: desc }]
 
-        )
+#         )
 
 
-end
+# end
 
 # #####################################################
 # goal_instances = []
