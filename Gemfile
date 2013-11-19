@@ -16,7 +16,6 @@ gem 'capistrano-rvm', '~> 0.0.3'
 gem 'rvm-capistrano'
 #gem 'acts_as_commentable', '3.0.1'
 gem 'mysql2'
-<<<<<<< HEAD
 
 gem 'koala', '~> 1.6.0'
 
