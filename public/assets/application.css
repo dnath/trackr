@@ -89,6 +89,10 @@
   padding: 0 !important;
   border: 0;
 }
+/* line 70, ../../app/assets/stylesheets/goal_instances.css.scss */
+.goal_instances .col-md-4 {
+  padding-left: 188px;
+}
 /* Space out content a bit */
 /* line 7, ../../app/assets/stylesheets/login.css.scss */
 body {
