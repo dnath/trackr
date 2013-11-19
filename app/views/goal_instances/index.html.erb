@@ -1,66 +1,72 @@
-<%= image_tag("logo.gif",:align => 'left',:width => '100px',:height => '100px') %>
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container container-navbar">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand trackr" href="#"><b>Trac.kr</b></a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">My Goals</a></li>
+        <li><a href="/goals">Find Goals</a></li>
+        <li><a href="/friends/index">Friends</a></li>
 
-<ul class="nav nav-tabs">
-  <li class="active"><a href="#">My Goals</a></li>
-  <li><a href="/goals">Find Goals</a></li>
-  <li><a href="friends/index">Friend's Goals</a></li>
-</ul>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a>Logged in as</a></li>
+        <li>
+          <%= image_tag session['current_user_picture'], :width => "30px", :height => "30px", :style => "margin-top:10px" %>
+        </li>
+        <li><a href="#"><b><%=session['current_user_first_name']%></b></a></li>
+        <li><a href="/logout">
+            Logout <span class="glyphicon glyphicon-remove-circle"></span></a></li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</div>
 
-<!--<table>
-  <tr></tr>
-  <tr class="list_bar">
-    <td class="list_description">
-    <dl>
-      <dt>Title</dt>
-    </dl></td>
-     <td class="list_description">
-    <dl>
-      <dt>Description</dt>
-    </dl></td>
-    <td class="list_description">
-    <dl>
-      <dt>Start Date</dt>
-    </dl></td>
-     <td class="list_description">
-    <dl>
-      <dt>End Date</dt>
-    </dl></td>
-     <td class="list_description">
-    <dl>
-      <dt>Cheer Ons</dt>
-    </dl></td>
-<dl>
-<td class="list_description">
-      <dt>Milestones</dt>
-    </dl></td>
-    <th></th>
-    <th></th>
-  </tr>-->
-
-<%= will_paginate @goal_instances,renderer: BootstrapPagination::Rails%>
 <br />
-<ul class="list-inline">
+<br />
+<br />
+<br />
+
+
+<div class="container container-gi">
+
 <% @goal_instances.each do |goal_instance| %>
   <li class="thumbnail">
-        <div class="container">
+        <div class="container container-gi">
           <div class="row">
-          <div class="col-sm-2">
-              <%= image_tag goal_instance.goal.picture.url, :width => "110px", :height => "80px"%>
+            <div class="col-sm-2">
+              <%= image_tag goal_instance.goal.picture.url, :width => "120px", :height => "100px"%>
             </div>
-            <div class="col-sm-4">
+            
+            <div class="col-sm-8">
             <% unless goal_instance.goal.nil? then %> 
               <em><h4><%= link_to goal_instance.goal.title , goal_instance%></h4></em>
             <%end%>
             <div class="progress">
-              <div class="progress-bar" role="progressbar" aria-valuenow="<%=(Date.today-goal_instance.start_date).to_i%>" aria-valuemin="0" aria-valuemax= "<%=(goal_instance.end_date-goal_instance.start_date).to_i%>" style="width:<%=((Date.today-goal_instance.start_date).to_f/(goal_instance.end_date-goal_instance.start_date).to_f)*100%>%"> <%=(((Date.today-goal_instance.start_date).to_f/(goal_instance.end_date-goal_instance.start_date).to_f)*100).round%>% complete
+              <div class="progress-bar" role="progressbar" 
+                  aria-valuenow="<%=(Date.today-goal_instance.start_date).to_i%>" 
+                  aria-valuemin="0" 
+                  aria-valuemax= "<%=(goal_instance.end_date-goal_instance.start_date).to_i%>" 
+                  style="width:<%=((Date.today-goal_instance.start_date).to_f/(goal_instance.end_date-goal_instance.start_date).to_f)*100%>%"
+              > 
+                <%=(((Date.today-goal_instance.start_date).to_f/(goal_instance.end_date-goal_instance.start_date).to_f)*100).round%>% complete
               </div>
             </div>
             </div>
+            
             <br />
             <br />
-            <div class="col-md-4">
+            
+            <div class="col-sm-2">
               <% unless goal_instance.goal.nil? then %> 
-                <span class="badge" class="pull-right"><%= goal_instance.cheer_ons%> cheer ons</span>
+                <span class="badge" class="pull-right"><%= goal_instance.cheer_ons%> Cheer Ons <i class="glyphicon glyphicon-heart"></i>  </span>
                <%end%> 
             </div>
             </div> 
@@ -69,9 +75,14 @@
 <% end %>
 </ul>
 <br />
+
 <!--  <%= button_to "my_button" %>
 $(function(){
   $("#my-button").click(function(){
     $.post('/myroute');
   })
 })-->
+
+<%= will_paginate @goal_instances, renderer: BootstrapPagination::Rails, :class => "center-block" %>
+
+</div>

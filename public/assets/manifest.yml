@@ -11,6 +11,8 @@ pictures_missing.gif: pictures_missing.gif
 pictures_missing/index.gif: pictures_missing.gif
 pictures_missing.jpg: pictures_missing.jpg
 pictures_missing/index.jpg: pictures_missing.jpg
+trackr-favicon.ico: trackr-favicon.ico
+trackr-favicon/index.ico: trackr-favicon.ico
 application.js: application.js
 application/index.js: application.js
 application.css: application.css

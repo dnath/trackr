@@ -44,30 +44,23 @@
     font-weight:bold;
   }
 
-   .button:hover
-    { 
+  .button:hover { 
     color:#244; 
     background-color:#ffffff;
     text-decoration:underline;
     float:left; 
     margin-right:0px;
     font-weight:bold;
-    }
+  }
 
-    .thumbnail {
+  .thumbnail {
     width: 2000px;
   }
 
-  .container {
-  max-width: 2000px;
-  width: 2000px;
-  margin-right: 0;
-  margin-left: 0;
-  padding:0!important;
-  border: 0;
-  }
-
-  .col-md-4 {
-  padding-left: 188px;
-  }
+  .container.container-gi{
+    max-width: 1024px;
+    width: 1024px;
+    padding:0!important;
+    border: 0;
+  } 
 }

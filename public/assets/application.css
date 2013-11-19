@@ -67,7 +67,7 @@
   margin-right: 0px;
   font-weight: bold;
 }
-/* line 48, ../../app/assets/stylesheets/goal_instances.css.scss */
+/* line 47, ../../app/assets/stylesheets/goal_instances.css.scss */
 .goal_instances .button:hover {
   color: #244;
   background-color: #ffffff;
@@ -76,32 +76,31 @@
   margin-right: 0px;
   font-weight: bold;
 }
-/* line 57, ../../app/assets/stylesheets/goal_instances.css.scss */
+/* line 56, ../../app/assets/stylesheets/goal_instances.css.scss */
 .goal_instances .thumbnail {
   width: 2000px;
 }
-/* line 61, ../../app/assets/stylesheets/goal_instances.css.scss */
-.goal_instances .container {
-  max-width: 2000px;
-  width: 2000px;
-  margin-right: 0;
-  margin-left: 0;
+/* line 60, ../../app/assets/stylesheets/goal_instances.css.scss */
+.goal_instances .container.container-gi {
+  max-width: 1024px;
+  width: 1024px;
   padding: 0 !important;
   border: 0;
 }
-/* line 70, ../../app/assets/stylesheets/goal_instances.css.scss */
-.goal_instances .col-md-4 {
-  padding-left: 188px;
+/* line 5, ../../app/assets/stylesheets/login.css.scss */
+.alert.alert-success {
+  width: 400px;
+  margin: auto;
+  margin-bottom: 30px;
 }
-/* Space out content a bit */
-/* line 7, ../../app/assets/stylesheets/login.css.scss */
+
+/* line 13, ../../app/assets/stylesheets/login.css.scss */
 body {
   padding-top: 0px;
   padding-bottom: 20px;
 }
 
-/* Everything but the jumbotron gets side spacing for mobile first views */
-/* line 15, ../../app/assets/stylesheets/login.css.scss */
+/* line 21, ../../app/assets/stylesheets/login.css.scss */
 .header,
 .marketing,
 .footer {
@@ -109,14 +108,12 @@ body {
   padding-right: 15px;
 }
 
-/* Custom page header */
-/* line 21, ../../app/assets/stylesheets/login.css.scss */
+/* line 27, ../../app/assets/stylesheets/login.css.scss */
 .header {
   border-bottom: 1px solid #e5e5e5;
 }
 
-/* Make the masthead heading the same height as the navigation */
-/* line 25, ../../app/assets/stylesheets/login.css.scss */
+/* line 32, ../../app/assets/stylesheets/login.css.scss */
 .header h3 {
   margin-top: 0;
   margin-bottom: 0;
@@ -124,54 +121,48 @@ body {
   padding-bottom: 19px;
 }
 
-/* line 33, ../../app/assets/stylesheets/login.css.scss */
-a
+/* line 40, ../../app/assets/stylesheets/login.css.scss */
 .footer {
   padding-top: 19px;
   color: #777;
   border-top: 1px solid #e5e5e5;
 }
 
-/* Customize container */
 @media (min-width: 768px) {
-  /* line 41, ../../app/assets/stylesheets/login.css.scss */
+  /* line 48, ../../app/assets/stylesheets/login.css.scss */
   .container {
-    max-width: 740px;
+    max-width: 1024px;
   }
 }
-/* line 45, ../../app/assets/stylesheets/login.css.scss */
+/* line 52, ../../app/assets/stylesheets/login.css.scss */
 .container-narrow > hr {
   margin: 30px 0;
 }
 
-/* Main marketing message and sign up button */
-/* line 50, ../../app/assets/stylesheets/login.css.scss */
+/* line 57, ../../app/assets/stylesheets/login.css.scss */
 .jumbotron {
   text-align: center;
   border-bottom: 1px solid #e5e5e5;
 }
 
-/* line 54, ../../app/assets/stylesheets/login.css.scss */
+/* line 61, ../../app/assets/stylesheets/login.css.scss */
 .jumbotron .btn {
   font-size: 21px;
   padding: 14px 24px;
 }
 
-/* Supporting marketing content */
-/* line 60, ../../app/assets/stylesheets/login.css.scss */
+/* line 67, ../../app/assets/stylesheets/login.css.scss */
 .marketing {
   margin: 40px 0;
 }
 
-/* line 63, ../../app/assets/stylesheets/login.css.scss */
+/* line 70, ../../app/assets/stylesheets/login.css.scss */
 .marketing p + h4 {
   margin-top: 28px;
 }
 
-/* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
-  /* Remove the padding we set earlier */
-  /* line 72, ../../app/assets/stylesheets/login.css.scss */
+  /* line 79, ../../app/assets/stylesheets/login.css.scss */
   .header,
   .marketing,
   .footer {
@@ -179,31 +170,24 @@ a
     padding-right: 0;
   }
 
-  /* Space out the masthead */
-  /* line 77, ../../app/assets/stylesheets/login.css.scss */
+  /* line 84, ../../app/assets/stylesheets/login.css.scss */
   .header {
     margin-bottom: 30px;
   }
 
-  /* Remove the bottom border on the jumbotron for visual effect */
-  /* line 81, ../../app/assets/stylesheets/login.css.scss */
+  /* line 88, ../../app/assets/stylesheets/login.css.scss */
   .jumbotron {
     border-bottom: 0;
   }
 }
 /* line 1, ../../app/assets/stylesheets/scaffolds.css.scss */
-.text-error {
-  color: red;
-}
-
-/* line 5, ../../app/assets/stylesheets/scaffolds.css.scss */
 .field_with_errors {
   padding: 2px;
   background-color: red;
   display: table;
 }
 
-/* line 11, ../../app/assets/stylesheets/scaffolds.css.scss */
+/* line 7, ../../app/assets/stylesheets/scaffolds.css.scss */
 #error_explanation {
   width: 450px;
   border: 2px solid red;
@@ -212,7 +196,7 @@ a
   margin-bottom: 20px;
   background-color: #f0f0f0;
 }
-/* line 18, ../../app/assets/stylesheets/scaffolds.css.scss */
+/* line 14, ../../app/assets/stylesheets/scaffolds.css.scss */
 #error_explanation h2 {
   text-align: left;
   font-weight: bold;
@@ -223,8 +207,22 @@ a
   background-color: #c00;
   color: #fff;
 }
-/* line 28, ../../app/assets/stylesheets/scaffolds.css.scss */
+/* line 24, ../../app/assets/stylesheets/scaffolds.css.scss */
 #error_explanation ul li {
   font-size: 12px;
   list-style: square;
+}
+
+/* line 30, ../../app/assets/stylesheets/scaffolds.css.scss */
+a.navbar-brand.trackr {
+  background-color: #3f8fcf;
+  color: #fff;
+  text-shadow: 0em 0em 0.5em black;
+}
+
+/* line 36, ../../app/assets/stylesheets/scaffolds.css.scss */
+a.navbar-brand.trackr:hover {
+  background-color: #3f7fbf;
+  color: #fff;
+  text-shadow: 0em 0em 1em white;
 }

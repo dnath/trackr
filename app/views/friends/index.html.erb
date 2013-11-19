@@ -1,62 +1,68 @@
-
-<!--
-<div class="navbar navbar-inverse navbar-fixed-top">
-  <div class="navbar-inner">
-    <div class="container-fluid">
-      <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container container-navbar">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="brand" href="#">Trac.kr</a>
-      <div class="nav-collapse collapse">
-        <p class="navbar-text pull-right">
-          Logged in as <a href="#" class="navbar-link">Username</a>
-        </p>
-        <ul class="nav">
-          <li class="active"><a href="#">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </div>
+      <a class="navbar-brand trackr" href="#"><b>Trac.kr</b></a>
     </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="/goal_instances?user_id=<%= session[:current_user]%>">My Goals</a></li>
+        <li><a href="/goals">Find Goals</a></li>
+        <li class="active"><a href="#">Friends</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a>Logged in as</a></li>
+        <li>
+          <%= image_tag session['current_user_picture'], :width => "30px", :height => "30px", :style => "margin-top:10px" %>
+        </li>
+        <li><a href="#"><b><%=session['current_user_first_name']%></b></a></li>
+        <li><a href="/logout">
+            Logout <span class="glyphicon glyphicon-remove-circle"></span></a></li>
+      </ul>
+    </div><!--/.nav-collapse -->
   </div>
 </div>
 
 <br />
 <br />
 <br />
-<br />
-<br />
+
+
+<div class="container">
+<h1>My Friends</h1>
+
+<!--
+<form role="search" action=<%=request.path%>>
+<div class="col-lg-6" style="padding-left:0px">
+    <div class="input-group">
+      <input name="search" type="text" class="form-control" placeholder="Search Friends...">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="submit">Search <i class="glyphicon glyphicon-search"></i></button>
+      </span>
+    </div>
+  </div>
+</form>
+
 <br />
 <br />
 -->
 
-<%= image_tag("logo.gif",:align => 'left',:width => '100px',:height => '100px') %>
-
-<ul class="nav nav-tabs">
-  <li><a href="/goal_instances?user_id=<%= session[:current_user]%>">My Goals</a></li>
-  <li><a href="/goals">Find Goals</a></li>
-  <li class="active"><a href="#">Friend's Goals</a></li>
-</ul>
-
-<h1>My Friends</h1>
-
-<form class="form-search">
-  <div class="input-append">
-     <input type="text" class="aearch-query btn-large" placeholder="Search..." style="padding: 12px;">
-       <button type="submit" class="btn btn-small" action=<%=request.path%>>
-          <i class="icon-search"></i>
-          Search
-      </button>
-   </div>
-</form>
-
-<table>
-<% @friends.each do |friend| %>
-  <tr>
-  	<td><%= link_to friend.first_name + " " + friend.last_name, 
-  				:controller => "goal_instances", :user_id => friend['id']%></td>
-  </tr>
+<% @current_trackr_friends.each_with_index do |friend, index| %>
+  <div class="col-md-6">
+    <h3>
+    <%= image_tag friend['picture']['data']['url'] %>
+    <%= link_to friend['first_name'] + " " + friend['last_name'], 
+				{:controller => "goal_instances", :user_id => User.find_by_fb_id(friend['id']).id}, 
+        {:class => "label label-default"} %>
+    </h3>
+  </div>
 <% end %>
-</table>
+
+<br />
+ <!-- %= will_paginate @current_trackr_friends, renderer: BootstrapPagination::Rails %-->
+</div>

@@ -1,17 +1,15 @@
-<body>	
-
- 
 <div class="jumbotron">
   <h1>Welcome to Trac.kr !</h1>
   <h2>Your Personal Goal Tracker</h2>
   <br />
-  <p class="text-error"><%= notice %></p>
-
+  <% if notice %>
+  	<div class="alert alert-success" >
+  		<button type="button" class="close" data-dismiss="alert">&times;</button>
+  		<%= notice %>
+  	</div>
+  <%end%>
   <%= link_to "Login using Facebook", @auth_url, class: "btn btn-primary btn-lg" %>
 </div>
 
 <br />
 <%= image_tag("logo.gif", :class => "center-block") %>
-
-</body>
-
