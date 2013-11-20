@@ -2,6 +2,9 @@
 <br/>
 <br/>
 <br/>
+
+<div class="container">
+
 <p id="notice"><%= notice %></p>
 
 <div class="media">
@@ -12,6 +15,7 @@
 		<div class="page-header">
 			<h1>
 				<%= @goal_instance.goal.title %>
+				<br />
 				<small><%= @goal_instance.goal.description %></small>
 			</h1>
 		</div>
@@ -57,5 +61,7 @@
 </div>
 </div>
 <!--<%= link_to 'Delete', @goal_instance, method: :delete, data: { confirm: 'Are you sure?' } %> |-->
+
+</div>
 
 
