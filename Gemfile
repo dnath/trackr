@@ -6,6 +6,7 @@ gem 'rails_bootstrap_navbar'
 gem 'paperclip'
 gem 'aws-sdk'
 gem 'will_paginate-bootstrap'
+gem 'nokogiri'
 # gem 'gruff'
 # Deploy with Capistrano
 gem 'acts_as_commentable', '3.0.1'
