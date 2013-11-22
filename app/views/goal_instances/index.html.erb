@@ -60,12 +60,21 @@
             <%end%>
             <div class="progress">
               <div class="progress-bar" role="progressbar" 
-                  aria-valuenow="<%=(Date.today-goal_instance.start_date).to_i%>" 
+                  aria-valuenow="<% if (Date.today-goal_instance.start_date) > (goal_instance.end_date-goal_instance.start_date) then %>
+                                      100%
+                                 <%else%> <%=(Date.today-goal_instance.start_date).to_i%>
+                                 <%end%>" 
                   aria-valuemin="0" 
-                  aria-valuemax= "<%=(goal_instance.end_date-goal_instance.start_date).to_i%>" 
-                  style="width:<%=((Date.today-goal_instance.start_date).to_f/(goal_instance.end_date-goal_instance.start_date).to_f)*100%>%"
+                  aria-valuemax= "100%" 
+                  style="width:<% if (Date.today-goal_instance.start_date) > (goal_instance.end_date-goal_instance.start_date) then %>
+                                      100%
+                                 <%else%> <%=((Date.today-goal_instance.start_date).to_f/(goal_instance.end_date-goal_instance.start_date).to_f)*100%>%
+                              <%end%>" 
               > 
-                <%=(((Date.today-goal_instance.start_date).to_f/(goal_instance.end_date-goal_instance.start_date).to_f)*100).round%>% complete
+                <%if (Date.today-goal_instance.start_date) > (goal_instance.end_date-goal_instance.start_date) then %>
+                100% complete
+                <%else%> <%=(((Date.today-goal_instance.start_date).to_f/(goal_instance.end_date-goal_instance.start_date).to_f)*100).round%>% complete
+                <%end%>
               </div>
             </div>
             </div>
