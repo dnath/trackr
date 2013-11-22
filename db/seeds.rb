@@ -102,13 +102,17 @@ for i in 0..number_goal_instances-1
     if et < Date.today
        complete = true
     end
-    goal_instance = GoalInstance.create(
-                { start_date: st, end_date: et, cheer_ons:rand(users.length/2), is_complete: complete},
-        )
-    puts "before goal"
-    Goal.find(goals[rand(goals.length)].id).goal_instances.push(goal_instance) #make this an instance of a random goal
-    puts "after goal before user"
-    User.find(users[rand(users.length)].id).goal_instances.push(goal_instance) #make this instance of a random user
-    puts "after user"
-    puts ""
+    begin
+      goal_instance = GoalInstance.create(
+                  { start_date: st, end_date: et, cheer_ons:rand(users.length/2), is_complete: complete},
+          )
+      puts "before goal"
+      Goal.find(goals[rand(goals.length)].id).goal_instances.push(goal_instance) #make this an instance of a random goal
+      puts "after goal before user"
+      User.find(users[rand(users.length)].id).goal_instances.push(goal_instance) #make this instance of a random user
+      puts "after user"
+      puts ""
+   rescue => e
+     puts e
+   end
 end 
