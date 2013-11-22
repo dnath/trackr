@@ -72,7 +72,7 @@ users_data['users'].each { |user_data|
 
 #create goals
 
-file = open('db/goals.json')
+file = open('db/goals1.json')
 goals_data = JSON.parse(file.read)
 file.close
 goals = []
