@@ -57,7 +57,7 @@ goal_instances_flag = []
 #create users
 number_users = 0
 users = []
-file = open('db/test_users.json', 'r')
+file = open('db/test_data/test_users.json', 'r')
 users_data = JSON.parse(file.read)
 file.close
 
@@ -78,15 +78,21 @@ file.close
 goals = []
 goals_data['goals'].each { |goal_data|
   goal_json = JSON.parse(goal_data.to_json)
-  goal = Goal.create(
-          { title:goal_json["title"], description: goal_json["description"], picture: goal_json["picture"] }
-  )
-  User.find(users[rand(users.length)].id).goals.push(goal) #add a random User as the creater of the goal
-  goals.push(goal)              
+  begin
+    goal = Goal.create(
+            { title:goal_json["title"], description: goal_json["description"], picture: goal_json["picture"] }
+    )
+    User.find(users[rand(users.length)].id).goals.push(goal) #add a random User as the creater of the goal
+    goals.push(goal)         
+    puts goals.length     
+  rescue => e
+    puts "There is an exception. Probably the picture link is invalid"
+    puts e.to_s
+  end
 }
 
 #create goal instances
-number_goal_instances = 10000
+number_goal_instances = 1000
 goal_instances = []
 for i in 0..number_goal_instances-1
    puts "goal instance "+ i.to_s
