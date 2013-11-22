@@ -57,7 +57,7 @@ goal_instances_flag = []
 #create users
 number_users = 0
 users = []
-file = open('db/test_data/test_users.json', 'r')
+file = open('db/users.json', 'r')
 users_data = JSON.parse(file.read)
 file.close
 
@@ -92,7 +92,7 @@ goals_data['goals'].each { |goal_data|
 }
 
 #create goal instances
-number_goal_instances = 100000
+number_goal_instances = 10000
 goal_instances = []
 for i in 0..number_goal_instances-1
    puts "goal instance "+ i.to_s
