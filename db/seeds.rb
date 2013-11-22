@@ -92,7 +92,7 @@ goals_data['goals'].each { |goal_data|
 }
 
 #create goal instances
-number_goal_instances = 10000
+number_goal_instances = 100000
 goal_instances = []
 for i in 0..number_goal_instances-1
    puts "goal instance "+ i.to_s
