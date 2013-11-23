@@ -103,15 +103,17 @@ for i in 0..number_goal_instances-1
        complete = true
     end
     begin
-      goal_instance = GoalInstance.create(
-                  { start_date: st, end_date: et, cheer_ons:rand(users.length/2), is_complete: complete},
-          )
-      puts "before goal"
-      Goal.find(goals[rand(goals.length)].id).goal_instances.push(goal_instance) #make this an instance of a random goal
-      puts "after goal before user"
-      User.find(users[rand(users.length)].id).goal_instances.push(goal_instance) #make this instance of a random user
-      puts "after user"
-      puts ""
+      ActiveRecord::Base.transaction do
+        goal_instance = GoalInstance.create(
+                    { start_date: st, end_date: et, cheer_ons:rand(users.length/2), is_complete: complete},
+            )
+        puts "before goal"
+        Goal.find(goals[rand(goals.length)].id).goal_instances.push(goal_instance) #make this an instance of a random goal
+        puts "after goal before user"
+        User.find(users[rand(users.length)].id).goal_instances.push(goal_instance) #make this instance of a random user
+        puts "after user"
+        puts ""
+      end
    rescue => e
      puts e
    end
