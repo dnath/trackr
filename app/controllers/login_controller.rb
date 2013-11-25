@@ -84,7 +84,8 @@ class LoginController < ApplicationController
   end
 
   def perf_login
-      @api = Koala::Facebook::API.new(params[:fb_token])
+      session[:access_token] = params[:fb_token]
+      @api = Koala::Facebook::API.new(session[:access_token])
       begin
         user_data = @api.get_object("/me/?fields=first_name,last_name,username,id,picture") 
         existing_user = User.find_by_fb_id(user_data["id"])
