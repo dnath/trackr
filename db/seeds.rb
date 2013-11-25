@@ -57,7 +57,12 @@ goal_instances_flag = []
 #create users
 number_users = 0
 users = []
-file = open('db/users.json', 'r')
+if Rails.env == "development"
+  puts "development"
+  file = open('db/test_data/test_users.json','r')
+else
+  file = open('db/users.json', 'r')
+end
 users_data = JSON.parse(file.read)
 file.close
 
@@ -71,8 +76,12 @@ users_data['users'].each { |user_data|
 }
 
 #create goals
-
-file = open('db/goals1.json')
+if Rails.env == "development"
+  puts "development"
+  file = open('db/goals.json','r')
+else
+  file = open('db/goals1.json')
+end
 goals_data = JSON.parse(file.read)
 file.close
 goals = []
@@ -92,7 +101,11 @@ goals_data['goals'].each { |goal_data|
 }
 
 #create goal instances
-number_goal_instances = 100000
+if Rails.env == "development"
+  number_goal_instances = 1000
+else
+  number_goal_instances = 100000
+end
 goal_instances = []
 for i in 0..number_goal_instances-1
    puts "goal instance "+ i.to_s
@@ -107,12 +120,8 @@ for i in 0..number_goal_instances-1
         goal_instance = GoalInstance.create(
                     { start_date: st, end_date: et, cheer_ons:rand(users.length/2), is_complete: complete},
             )
-        puts "before goal"
-        Goal.find(goals[rand(goals.length)].id).goal_instances.push(goal_instance) #make this an instance of a random goal
-        puts "after goal before user"
-        User.find(users[rand(users.length)].id).goal_instances.push(goal_instance) #make this instance of a random user
-        puts "after user"
-        puts ""
+        Goal.find(goals[rand(goals.length)-1].id).goal_instances.push(goal_instance) #make this an instance of a random goal
+        User.find(users[rand(users.length)-1].id).goal_instances.push(goal_instance) #make this instance of a random user
       end
    rescue => e
      puts e
