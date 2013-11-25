@@ -84,11 +84,9 @@ class LoginController < ApplicationController
   end
 
   def perf_login
-      @api = Koala::Facebook::API.new("CAACEdEose0cBAOPhY7APpjktidH05MmgwGXYMH7ZA0LDWLulSO5RqmDmtItJj3pZCgttEvfGtmklByBwzxumoAQzSaZCB2GCknZARRePZADnGPdaUq9rZBiXaLuoMXZBXZAZA3jMY1qTt1RrjuMnPmpPD346bKYsAQjhhHWylH4vdC8Pc7MXmmZBdeKZAHxXWxmue7ZAcSp9BSlJqwZDZD")
+      @api = Koala::Facebook::API.new(params[:fb_token])
       begin
         user_data = @api.get_object("/me/?fields=first_name,last_name,username,id,picture") 
-        puts user_data.to_s
-        puts "....................................................."
         existing_user = User.find_by_fb_id(user_data["id"])
         
         if existing_user
