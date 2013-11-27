@@ -15,6 +15,8 @@ Trackr::Application.routes.draw do
   get "login/index"
 
   get "login/callback"
+  
+  get "login/perf_login", :to=>"login#perf_login"
 
   resources :goals
 

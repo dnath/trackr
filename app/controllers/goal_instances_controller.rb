@@ -17,13 +17,14 @@ class GoalInstancesController < ApplicationController
   # GET /goal_instances/1
   # GET /goal_instances/1.json
   def show
+
    @goal_instance = GoalInstance.find(params[:id])
-    #@milestones = Milestone.where("goal_instance_id='params[:id]'") 
-   #@milestones = @milestones.paginate(:page => params[:page], :per_page => 5)
+   
 
   @milestones = Milestone.find_by_sql("select id,description, duration, is_complete from milestones where goal_instance_id = 55253");
-   puts "show"
-    puts @milestones.inspect
+  
+    
+
     respond_to do |format|
       format.html # show.html.erb
  format.json { render json: {:goal_instances => @goal_instances, :milestones => @milestones}}

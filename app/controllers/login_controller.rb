@@ -19,7 +19,6 @@ class LoginController < ApplicationController
     @auth_url =  session[:oauth].url_for_oauth_code(:permissions=>"read_stream")
     
     puts session.to_s + "<<< session"
-    
     respond_to do |format|
       format.html{}
     end
@@ -69,11 +68,8 @@ class LoginController < ApplicationController
           session[:current_user_first_name] = new_user.first_name
           session[:current_user_last_name] = new_user.last_name
         end
-
         session[:current_user_picture] = user_data["picture"]["data"]["url"]
-
         puts "user picture = " + session[:current_user_picture]
-        
       rescue Exception=>ex
         puts "EXCEPTION EXCEPTION"
         puts ex.message
@@ -81,12 +77,44 @@ class LoginController < ApplicationController
     end
     respond_to do |format|
         format.html {
-            if not @error_message 
                    redirect_to goal_instances_url(:user_id => User.find(session[:current_user]).id)
-            end 
          }   
         format.json { }                   
     end
   end
 
+  def perf_login
+      session[:access_token] = params[:fb_token]
+      @api = Koala::Facebook::API.new(session[:access_token])
+      begin
+        user_data = @api.get_object("/me/?fields=first_name,last_name,username,id,picture") 
+        existing_user = User.find_by_fb_id(user_data["id"])
+        
+        if existing_user
+          session[:current_user] = existing_user.id
+          session[:current_user_first_name] = existing_user.first_name
+          session[:current_user_last_name] = existing_user.last_name
+
+        else not existing_user
+          new_user = User.create(
+            first_name: user_data["first_name"],
+            last_name: user_data["last_name"],
+            fb_id: user_data["id"]
+          );
+
+          session[:current_user] = new_user.id
+          session[:current_user_first_name] = new_user.first_name
+          session[:current_user_last_name] = new_user.last_name
+        end
+
+        session[:current_user_picture] = user_data["picture"]["data"]["url"]
+
+        puts "user picture = " + session[:current_user_picture]
+        redirect_to goal_instances_url(:user_id => User.find(session[:current_user]).id)
+      rescue Exception=>ex
+        puts "EXCEPTION EXCEPTION"
+        puts ex.message
+      end
+    end
+    
 end
