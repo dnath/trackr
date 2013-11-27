@@ -120,10 +120,13 @@ for i in 0..number_goal_instances-1
         goal_instance = GoalInstance.create(
                     { start_date: st, end_date: et, cheer_ons:rand(users.length/2), is_complete: complete},
             )
-        Goal.find(goals[rand(goals.length)-1].id).goal_instances.push(goal_instance) #make this an instance of a random goal
-        User.find(users[rand(users.length)-1].id).goal_instances.push(goal_instance) #make this instance of a random user
+        goal_id = rand(goals.length)-1
+        user_id = rand(users.length)-1
+        Goal.find(goals[goal_id].id).goal_instances.push(goal_instance) #make this an instance of a random goal
+        User.find(users[user_id].id).goal_instances.push(goal_instance) #make this instance of a random user
       end
    rescue => e
+     puts "goal id = "+ goal_id.to_s+" user id = "+ user_id.to_s
      puts e
    end
 end 
