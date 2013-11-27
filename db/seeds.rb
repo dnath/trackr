@@ -20,7 +20,7 @@ uservar='user_'
  #       milstones_flag << false
 
 
-milstone = []
+milestone = []
 
 #####################################################
 goal_instances = []
@@ -99,6 +99,20 @@ for i in 0..number_goal_instances-1
     goal_instance = GoalInstance.create(
                 { start_date: st, end_date: et, cheer_ons:rand(users.length/2), is_complete: complete},
         )
-    Goal.find(goals[rand(goals.length)].id).goal_instances.push(goal_instance) #make this an instance of a random goal
+    Goal.find(goals[rand(goals.length)].id).goal_instances.push(goal_instance)
     User.find(users[rand(users.length)].id).goal_instances.push(goal_instance) #make this instance of a random user
+        milestone = Milestone.create( [{ description: 'This is description of milestone1', duration: '10 days' , is_complete: false }]
+         )
+
+goal_instance.milestones.push(milestone)
+ milestone = Milestone.create(
+               { description: 'This is description of milestone2', duration: '10 days' , is_complete: false }
+
+        )
+goal_instance.milestones.push(milestone)
+ milestone = Milestone.create(
+{ description: 'This is description of milestone3', duration: '10 days' , is_complete: false}
+
+         )
+goal_instance.milestones.push(milestone)
 end 

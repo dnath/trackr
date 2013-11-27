@@ -1,6 +1,4 @@
 class Milestone < ActiveRecord::Base
-belongs_to  :goal_instance
-#foreign_key :goal_id
-attr_accessible :description, :goal_instance, :no_of_days, :title, :goal_instance_id
-  acts_as_commentable
+  belongs_to :goal_instance
+  attr_accessible :description, :duration, :is_complete, :milestones, :goal_instance_id
 end

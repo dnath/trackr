@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131117215120) do
+ActiveRecord::Schema.define(:version => 20131123161804) do
 
   create_table "comments", :force => true do |t|
     t.string   "goal_instance_id"
@@ -31,8 +31,6 @@ ActiveRecord::Schema.define(:version => 20131117215120) do
     t.integer  "goal_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
-    t.string   "Milestones"
-    t.string   "id_number"
   end
 
   create_table "goals", :force => true do |t|
@@ -48,23 +46,21 @@ ActiveRecord::Schema.define(:version => 20131117215120) do
   end
 
   create_table "milestones", :force => true do |t|
-    t.string   "goal_instance"
-    t.string   "no_of_days"
+    t.integer  "goal_instance_id"
     t.string   "description"
-    t.string   "title"
+    t.string   "duration"
+    t.boolean  "is_complete"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
-    t.string   "user"
-    t.integer  "goal_instance_id"
   end
 
-  create_table "milstones", :force => true do |t|
-    t.string   "goal_instance"
-    t.string   "no_of_days"
-    t.string   "title"
-    t.string   "description"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+  add_index "milestones", ["goal_instance_id"], :name => "index_milestones_on_goal_instance_id"
+
+  create_table "products", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "users", :force => true do |t|

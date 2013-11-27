@@ -3,24 +3,44 @@ class GoalInstancesController < ApplicationController
   # GET /goal_instances.json
   def index
     current_user = User.find(params[:user_id])
+    puts params[:user_id].inspect
     @goal_instances = current_user.goal_instances
     @goal_instances = @goal_instances.paginate(:page => params[:page], :per_page => 5)
-    respond_to do |format|
+    @milestones = Milestone.find_by_goal_instance_id(params[:id])
+      respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @goal_instances }
-    end
+    
+     format.json { render json: {:goal_instances => @goal_instances, :milestones => @milestones}}
+     end
   end
 
   # GET /goal_instances/1
   # GET /goal_instances/1.json
   def show
-    @goal_instance = GoalInstance.find(params[:id])
-    puts "shoooooooooooooooooooow"
+   @goal_instance = GoalInstance.find(params[:id])
+    #@milestones = Milestone.where("goal_instance_id='params[:id]'") 
+   #@milestones = @milestones.paginate(:page => params[:page], :per_page => 5)
+
+  @milestones = Milestone.find_by_sql("select id,description, duration, is_complete from milestones where goal_instance_id = 55253");
+   puts "show"
+    puts @milestones.inspect
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @goal_instance }
-    end
+ format.json { render json: {:goal_instances => @goal_instances, :milestones => @milestones}}
+   end
+end
+ def update_preview
+    puts "-> hey!!!"
   end
+
+#def completed
+# @goal_instan = GoalInstance.find(params[:goal_instance_id])
+# @milesto = @goal_instan.milestones.find([params[:id])
+#  respond_to do |format|
+#  format.js { render :nothing => true }
+#  format.html redirect_to(@goal_instan)
+#end
+ 
 
   # GET /goal_instances/new
   # GET /goal_instances/new.json
@@ -37,11 +57,13 @@ class GoalInstancesController < ApplicationController
   def edit
     @goal_instance = GoalInstance.find(params[:id])
   end
+   
 
   # POST /goal_instances
   # POST /goal_instances.json
   def create
     @goal_instance = GoalInstance.new(params[:goal_instance])
+    @milestones = Milestone.find_by_goal_instance_id(params[:id])
     current_user = User.find(session[:current_user])
     current_user.goal_instances.push(@goal_instance)
     puts "Nazli"
@@ -75,14 +97,6 @@ class GoalInstancesController < ApplicationController
     end
   end
 
-def add_to_my_books
-    @book = Book.find params[:id]
-    @my_books = current_user.books
-    @my_books << @book
-    respond_to do 
-        format.js {render alert("book added to your books")}
-    end        
-end
   # DELETE /goal_instances/1
   # DELETE /goal_instances/1.json
   def destroy
