@@ -15,7 +15,6 @@ class GoalInstancesController < ApplicationController
   # GET /goal_instances/1.json
   def show
     @goal_instance = GoalInstance.find(params[:id])
-    puts "shoooooooooooooooooooow"
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @goal_instance }
