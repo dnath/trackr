@@ -42,7 +42,7 @@ namespace :deploy do
    desc 'Load seed'
     task :seed do
       on roles(:db) do
-        #execute "cd #{release_path};#{fetch(:bundle)} exec rake db:seed RAILS_ENV=#{fetch(:rails_env)}"
+        execute "cd #{release_path};#{fetch(:bundle)} exec rake db:seed RAILS_ENV=#{fetch(:rails_env)}"
       end
     end  
 

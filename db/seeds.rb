@@ -122,6 +122,7 @@ for i in 0..number_goal_instances-1
             )
         goal_id = rand(goals.length)-1
         user_id = rand(users.length)-1
+        puts "goal id = "+ goal_id.to_s+" user id = "+ user_id.to_s
         Goal.find(goals[goal_id].id).goal_instances.push(goal_instance) #make this an instance of a random goal
         User.find(users[user_id].id).goal_instances.push(goal_instance) #make this instance of a random user
       end
