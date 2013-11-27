@@ -58,8 +58,8 @@
             <% unless goal_instance.goal.nil? then %> 
               <em><h4><%= link_to goal_instance.goal.title , goal_instance%></h4></em>
             <%end%>
-<<<<<<< HEAD
-=======
+
+
             <div class="progress">
               <div class="progress-bar" role="progressbar" 
                   aria-valuenow="<% if (Date.today-goal_instance.start_date) > (goal_instance.end_date-goal_instance.start_date) then %>
@@ -79,7 +79,7 @@
                 <%end%>
               </div>
             </div>
->>>>>>> 3772a396c6aec51e520385f4e40d3186bdeb9643
+
             </div>
             
             <br />
