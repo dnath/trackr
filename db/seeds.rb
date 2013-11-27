@@ -78,7 +78,7 @@ users_data['users'].each { |user_data|
 #create goals
 if Rails.env == "development"
   puts "development"
-  file = open('db/goals.json','r')
+  file = open('db/goals2.json','r')
 else
   file = open('db/goals1.json')
 end
@@ -100,6 +100,7 @@ goals_data['goals'].each { |goal_data|
   end
 }
 
+goals = Goal.all
 #create goal instances
 if Rails.env == "development"
   number_goal_instances = 1000
@@ -120,8 +121,8 @@ for i in 0..number_goal_instances-1
         goal_instance = GoalInstance.create(
                     { start_date: st, end_date: et, cheer_ons:rand(users.length/2), is_complete: complete},
             )
-        goal_id = rand(goals.length)-1
-        user_id = rand(users.length)-1
+        goal_id = rand(goals.length)
+        user_id = rand(users.length)
         puts "goal id = "+ goal_id.to_s+" user id = "+ user_id.to_s
         Goal.find(goals[goal_id].id).goal_instances.push(goal_instance) #make this an instance of a random goal
         User.find(users[user_id].id).goal_instances.push(goal_instance) #make this instance of a random user
