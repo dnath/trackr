@@ -1,8 +1,8 @@
 class GoalsController < ApplicationController
   
   before_filter :authorize, only: [:update, :destroy]
-  caches_action :index,
-  cache_path: :updated_request_params_to_include_format_for_cache_key.to_proc
+  #caches_action :index,
+  #cache_path: :updated_request_params_to_include_format_for_cache_key.to_proc
 
   def updated_request_params_to_include_format_for_cache_key
     params.merge({ format: request.format.symbol || 'html' })
@@ -13,13 +13,13 @@ class GoalsController < ApplicationController
     #@goals = Goal.all
     if(params[:search])
       search = params[:search]
-      cache ["goals",@goals] do
+      #cache ["goals",@goals] do
       @goals = Goal.paginate(:page => params[:page], 
                               :per_page => 12,
                               :conditions => ['title like ?', 
                               "%#{search}%"], 
                               :order => 'title')
-      end
+      #end
     else
       @goals = Goal.paginate(:page => params[:page], 
                               :per_page => 12, 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131123161804) do
+ActiveRecord::Schema.define(:version => 20131128195329) do
 
   create_table "comments", :force => true do |t|
     t.string   "goal_instance_id"
@@ -33,6 +33,9 @@ ActiveRecord::Schema.define(:version => 20131123161804) do
     t.datetime "updated_at",  :null => false
   end
 
+  add_index "goal_instances", ["goal_id"], :name => "index_goal_instances_on_goal_id"
+  add_index "goal_instances", ["user_id"], :name => "index_goal_instances_on_user_id"
+
   create_table "goals", :force => true do |t|
     t.string   "title"
     t.text     "description"
@@ -44,6 +47,8 @@ ActiveRecord::Schema.define(:version => 20131123161804) do
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
   end
+
+  add_index "goals", ["user_id"], :name => "index_goals_on_user_id"
 
   create_table "milestones", :force => true do |t|
     t.integer  "goal_instance_id"
@@ -63,5 +68,7 @@ ActiveRecord::Schema.define(:version => 20131123161804) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  add_index "users", ["fb_id"], :name => "index_users_on_fb_id"
 
 end
