@@ -11,11 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20131123161804) do
-=======
-ActiveRecord::Schema.define(:version => 20131125000339) do
->>>>>>> 3772a396c6aec51e520385f4e40d3186bdeb9643
 
   create_table "comments", :force => true do |t|
     t.string   "goal_instance_id"
@@ -37,9 +33,6 @@ ActiveRecord::Schema.define(:version => 20131125000339) do
     t.datetime "updated_at",  :null => false
   end
 
-  add_index "goal_instances", ["goal_id"], :name => "index_goal_instances_on_goal_id"
-  add_index "goal_instances", ["user_id"], :name => "index_goal_instances_on_user_id"
-
   create_table "goals", :force => true do |t|
     t.string   "title"
     t.text     "description"
@@ -52,36 +45,17 @@ ActiveRecord::Schema.define(:version => 20131125000339) do
     t.datetime "picture_updated_at"
   end
 
-  add_index "goals", ["user_id"], :name => "index_goals_on_user_id"
-
   create_table "milestones", :force => true do |t|
-<<<<<<< HEAD
     t.integer  "goal_instance_id"
     t.string   "description"
     t.string   "duration"
     t.boolean  "is_complete"
-=======
-    t.string   "goal_instance"
-    t.string   "no_of_days"
-    t.string   "title"
-    t.string   "description"
->>>>>>> 3772a396c6aec51e520385f4e40d3186bdeb9643
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
   end
 
-<<<<<<< HEAD
   add_index "milestones", ["goal_instance_id"], :name => "index_milestones_on_goal_instance_id"
 
-  create_table "products", :force => true do |t|
-    t.string   "name"
-    t.text     "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-  end
-
-=======
->>>>>>> 3772a396c6aec51e520385f4e40d3186bdeb9643
   create_table "users", :force => true do |t|
     t.string   "fb_id"
     t.string   "first_name"
