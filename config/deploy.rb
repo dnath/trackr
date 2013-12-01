@@ -1,3 +1,5 @@
+require "rvm/capistrano"
+
 set :application, 'trackr'
 set :repo_url, 'git@github.com:dnath/trackr.git'
 
@@ -23,8 +25,9 @@ set :keep_releases, 5
 
 set :normalize_asset_timestamps, %{public/images public/javascripts public/stylesheets}
 
-namespace :deploy do
 
+namespace :deploy do
+  
   desc 'Create database'
     task :create do
       on roles(:db) do
@@ -42,7 +45,7 @@ namespace :deploy do
    desc 'Load seed'
     task :seed do
       on roles(:db) do
-        #execute "cd #{release_path};#{fetch(:bundle)} exec rake db:seed RAILS_ENV=#{fetch(:rails_env)}"
+        execute "cd #{release_path};#{fetch(:bundle)} exec rake db:seed RAILS_ENV=#{fetch(:rails_env)}"
       end
     end  
 
@@ -50,6 +53,7 @@ namespace :deploy do
   task :fix_bug_env do
     set :rails_env, (fetch(:rails_env) || fetch(:stage))
   end
+
 
   before "deploy:create", "rvm:hook"
   before "deploy:assets:precompile", "deploy:create"

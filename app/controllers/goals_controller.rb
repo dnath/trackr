@@ -38,26 +38,17 @@ class GoalsController < ApplicationController
     @goal = Goal.find(params[:id])
     @api = Koala::Facebook::API.new(session[:access_token])
     @is_current_user_joined = false
-    cache ["goal",@goal] do
-      _current_follower_ids=[]
-      @current_followers = []
-      _time1 = Time.now
-      @goal.goal_instances.each { |goal_instance|
-          _current_follower_ids.push(goal_instance.user.fb_id)
-          if goal_instance.user.id == session[:current_user]
-            @is_current_user_joined = true
-          end
-      }
-      if _current_follower_ids.length > 0
-        @current_followers= @api.get_objects(_current_follower_ids, :fields=>"first_name,last_name,picture")
-        if @current_followers.length > 0 then
-          @current_followers = @current_followers.values
-        end
+    _users = User.where('id in (?)',@goal.goal_instances.pluck(:user_id)).pluck(:fb_id)
+    _current_follower_ids = _users
+    if _current_follower_ids.length > 0
+      @current_followers= @api.get_objects(_current_follower_ids, :fields=>"first_name,last_name,picture")
+      if @current_followers.length > 0 then
+        @current_followers = @current_followers.values
       end
-      respond_to do |format|
-        format.html # show.html.erb
-        format.json { render json: @goal }
-      end
+    end
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @goal }
     end
   end
 
