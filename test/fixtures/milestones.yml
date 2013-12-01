@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  goal_instance: MyString
-  no_of_days: MyString
+  goal_instance: 
   description: MyString
-  title: MyString
+  duration: MyString
+  is_complete: false
 
 two:
-  goal_instance: MyString
-  no_of_days: MyString
+  goal_instance: 
   description: MyString
-  title: MyString
+  duration: MyString
+  is_complete: false

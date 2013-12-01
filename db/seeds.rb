@@ -5,55 +5,8 @@ Goal.delete_all
 User.delete_all
 GoalInstance.delete_all
 Milestone.delete_all
- n_gi = 180 # 10000
-# n_g  = 18 # 110
-# n_u  = 33 # 1300
+
 milestones= []
-# 
-#Arvind
-oi = 3
-nod = 4
-tit = 'milestone'
-desc = 'trav'
-uservar='user_'
-#milstones.push(goal_instance);
- #       milstones_flag << false
-
-
-milstone = []
-
-#####################################################
-goal_instances = []
-goal_instances_flag = []
-
-# #for i in 1..n_gi
-#         st = Date.today - rand(30)
-#         et = st + rand(45)
-#         complete = false
-#         if et > Date.today
-#                 complete = true
-#         end
-#        milestone = Milestone.create(
-#                 [{ goal_instance: i, no_of_days: nod , title: tit+'1', description: desc }]
-
-#         )
-# milestone = Milestone.create(
-#                [{ goal_instance: i, no_of_days: nod , title: tit+'2', description: desc }]
-
-#         )
-# milestone = Milestone.create(
-#                 [{ goal_instance: i, no_of_days: nod , title: tit+'3', description: desc }]
-
-#         )
-
-
-# end
-
-# #####################################################
-# goal_instances = []
-# goal_instances_flag = []
-
-#Divya - code starts
 #create users
 number_users = 0
 users = []
@@ -78,7 +31,7 @@ users_data['users'].each { |user_data|
 #create goals
 if Rails.env == "development"
   puts "development"
-  file = open('db/goals2.json','r')
+  file = open('db/goals.json','r')
 else
   file = open('db/goals1.json')
 end
@@ -116,19 +69,33 @@ for i in 0..number_goal_instances-1
     if et < Date.today
        complete = true
     end
-    begin
-      ActiveRecord::Base.transaction do
-        goal_instance = GoalInstance.create(
-                    { start_date: st, end_date: et, cheer_ons:rand(users.length/2), is_complete: complete},
-            )
-        goal_id = rand(goals.length)
-        user_id = rand(users.length)
-        puts "goal id = "+ goal_id.to_s+" user id = "+ user_id.to_s
-        Goal.find(goals[goal_id].id).goal_instances.push(goal_instance) #make this an instance of a random goal
-        User.find(users[user_id].id).goal_instances.push(goal_instance) #make this instance of a random user
-      end
-   rescue => e
-     puts "goal id = "+ goal_id.to_s+" user id = "+ user_id.to_s
-     puts e
-   end
+  begin ActiveRecord::Base.transaction do
+    goal_instance = GoalInstance.create(
+                { start_date: st, end_date: et, cheer_ons:rand(users.length/2), is_complete: complete}
+              )
+  
+    Goal.find(goals[rand(goals.length)].id).goal_instances.push(goal_instance)
+    User.find(users[rand(users.length)].id).goal_instances.push(goal_instance) #make this instance of a random user
+  
+    milestone = Milestone.create(
+                  { description: 'This is description of milestone1', duration: '10 days' , is_complete: false }
+                )
+  
+    goal_instance.milestones.push(milestone)
+    milestone = Milestone.create(
+                { description: 'This is description of milestone2', duration: '10 days' , is_complete: false }
+              )
+  
+    goal_instance.milestones.push(milestone)
+    milestone = Milestone.create(
+            { description: 'This is description of milestone3', duration: '10 days' , is_complete: false}
+          )
+  
+    goal_instance.milestones.push(milestone)
+  end
+  rescue => e
+       puts "goal id = "+ goal_id.to_s+" user id = "+ user_id.to_s
+       puts e
+  end
+
 end 

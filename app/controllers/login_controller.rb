@@ -110,7 +110,7 @@ class LoginController < ApplicationController
         session[:current_user_picture] = user_data["picture"]["data"]["url"]
 
         puts "user picture = " + session[:current_user_picture]
-        redirect_to goal_instances_url(:user_id => User.find(session[:current_user]).id)
+        #redirect_to goal_instances_url(:user_id => User.find(session[:current_user]).id)
       rescue Exception=>ex
         puts "EXCEPTION EXCEPTION"
         puts ex.message

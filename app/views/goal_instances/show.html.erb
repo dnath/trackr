@@ -6,6 +6,7 @@
 <div class="container">
 
 <p id="notice"><%= notice %></p>
+<% sample = 0 %>
 
 <div class="media">
 	<a class="pull-left" href="#">
@@ -23,12 +24,13 @@
 			<div class="row">
 				<div class="col-sm-5"> <b> Started At</b></div>
 				<div class="col-sm-5"> <%= @goal_instance.start_date%></div>
+				<div class="col-sm-5"><img src="<%=Gchart.pie(:data => [0.02,sample,3-sample])%>"/></div>
+			<br \>
 			</div>
 			<div class="row">
 				<div class="col-sm-5"> <b> End By </b></div>
 				<div class="col-sm-5"> <%= @goal_instance.end_date%></div>
 			</div>
-			<br \>
 			<br \>
 			<div class="row">
 				<div class="col-sm-5"> <b>
@@ -40,13 +42,41 @@
 				<div class="col-sm-5"><b>
 					<% if User.find(session[:current_user]) != @goal_instance.user then %>
 						<%= button_to 'Cheer on', {:action => 'cheeron', remote: true }, :class => 'btn btn-success btn-xs', :method => :put%> 
-					<% end%>
+					<% end %>
 				</div>	
 			</div>
 	</div>
 	</div>
 </div>
 <br />	
+
+<table class="table bordered-table">
+   <caption class="text-left">Milestones</caption>
+   <thead>
+      <tr>
+         <th><a href='#' onClick="return false">Check</a></th>
+         <th>Is Complete</th>
+         <th>Description</th>
+         <th>Duration</th>
+      </tr>
+   </thead>
+   <tbody>
+      
+        <%  @milestones.each do |milestone| %>
+         <tr>
+         <td> <%= check_box_tag  milestone.id, 0 %>
+         <td><%= milestone.is_complete %></td>
+         <%= if milestone.is_complete = 1 then sample=sample+1 end %>
+         <td><%= milestone.description %></td>
+         <td><%= milestone.duration %></td>
+      </tr>   
+        <% end %>
+
+     
+
+      </tbody>
+</table>
+
 <div class="pull-left">
 <div class="media">
 		<div class="container">
@@ -60,8 +90,6 @@
 		</div>
 </div>
 </div>
-<!--<%= link_to 'Delete', @goal_instance, method: :delete, data: { confirm: 'Are you sure?' } %> |-->
 
-</div>
 
 

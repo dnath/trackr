@@ -1,4 +1,4 @@
-rm -rf tmp
-rm -rf log
 rm -rf public/*
+rm -rf log/*
+rm -rf tmp/*
 
