@@ -20,7 +20,8 @@ class FriendsController < ApplicationController
       fb_ids << f['fb_id']
     }
 
-    result = @api.get_objects(fb_ids, :fields=>"id,first_name,last_name,picture").values
+    _result = @api.get_objects(fb_ids, :fields=>"id,first_name,last_name,picture")
+    result = (_result!=nil and _result!=[])? _result.values : []
     
     # puts "**** result = " + @esult.to_s
 
