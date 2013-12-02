@@ -106,10 +106,30 @@
 				  		<% if @current_followers[index] then %>
 				  		<div class="col-md-2" style="margin-p"> 
 				  			<img width="100%" height="100%" src=<%=@current_followers[index]["picture"]["data"]["url"]%> />
+				  			
 				  			<br />
-				  			<%= @current_followers[index]["first_name"]%> 
+				  			
+				  			<% if (str = @current_followers[index]["first_name"].to_s.split(' ')).length > 1%>
+				  				<% if str[0].length < 8 %>
+				  					<%= str[0] + ' ' + str[1].first + '.' %>
+				  				<% else %>
+				  					<%= str.last%>
+				  				<% end %>
+				  			<% else %>
+				  				<%= @current_followers[index]["first_name"]%> 
+				  			<% end %>
+				  			
 				  			<br/> 
-				  			<%= @current_followers[index]["last_name"] %> 
+
+				  			<% if (str = @current_followers[index]["last_name"].to_s.split(' ')).length > 1%>
+				  				<% if str.last.length < 8 %>
+				  					<%= str[0].first + '. ' + str.last %>
+				  				<% else %>
+				  					<%= str.last%>
+				  				<% end %>
+				  			<% else %>
+				  				<%= @current_followers[index]["last_name"]%> 
+				  			<% end %>
 				  		</div>
 				  		<%end%>
 				  	<%end%>
