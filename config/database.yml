@@ -37,6 +37,8 @@ production:
   reconnect: false
   database: trackr_production
   pool: 5
-  username: root
-  password: root
-  socket: /tmp/mysql.sock
+  username: trackr
+  password: trackr
+  host: ec2-54-227-156-71.compute-1.amazonaws.com
+  port: 3306
+  socket: /var/run/mysqld/mysqld.sock

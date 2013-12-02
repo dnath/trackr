@@ -4,17 +4,21 @@ set :rails_env, 'production'
 set :rvm_type, :user #Tell rvm to look in ~/.rvm
 set :rvm_ruby_version, '2.0.0-p247'
 
-set :server_name, %w{ec2-54-227-7-255.compute-1.amazonaws.com} #Trackr 1
-#set :server_name, %w{ec2-54-196-21-103.compute-1.amazonaws.com}
+set :server_name1, %w{ec2-54-196-21-103.compute-1.amazonaws.com}
+set :server_name2, %w{ec2-54-227-7-255.compute-1.amazonaws.com} #Trackr 1
+set :db_server, %w{ec2-54-227-156-71.compute-1.amazonaws.com}
 # Simple Role Syntax
 # ==================
 # Supports bulk-adding hosts to roles, the primary
 # server in each group is considered to be the first
 # unless any hosts have the primary property set.
-role :web, fetch(:server_name) # Needed for precompiling assets
-role :app, fetch(:server_name) # Needed for preparing something I forgot what
-role :db, fetch(:server_name) # Needed for migration
-role :all, fetch(:server_name) # This doesn't work completely yet, hence the above 3 specifications
+
+role :web, "ec2-54-196-21-103.compute-1.amazonaws.com"
+role :web, "ec2-54-227-7-255.compute-1.amazonaws.com"
+role :app, "ec2-54-196-21-103.compute-1.amazonaws.com" #fetch(:server_name1), fetch(:server_name2)# Needed for preparing something I forgot what
+role :app, "ec2-54-227-7-255.compute-1.amazonaws.com"
+role :db, fetch(:db_server) # Needed for migration
+#role :all, [fetch(:server_name1), fetch(:server_name2), fetch(:db_server)]# This doesn't work completely yet, hence the above 3 specifications
 
 set :ssh_options, {
     user: %{ubuntu},                # The user we want to log in as
