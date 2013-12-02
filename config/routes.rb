@@ -20,9 +20,9 @@ Trackr::Application.routes.draw do
 
   resources :goals
 
-
   resources :users
-
+ 
+  get "logout" => "login#destroy", :as => "logout"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -74,8 +74,6 @@ Trackr::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
   root :to => 'login#index'
-
-  get "logout" => "login#destroy", :as => "logout"
 
   # See how all your routes lay out with "rake routes"
 

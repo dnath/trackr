@@ -15,9 +15,12 @@
 
 <% puts controller.controller_name %>
 
+
 <% if current_user%>
-	<%= link_to raw("Logout <i class=\"icon-remove-sign\"></i>"), "/logout", :class => "btn btn-snall", :style => "float:right;"%>
-<%	 end %>
+	<div class="container">
+	<%= link_to raw("Logout <i class=\"glyphicon glyphicon-remove-circle\"></i>"), "/logout", :class => "btn btn-default", :style => "float:right;"%>
+	</end>
+<% end %>
 
 <%= yield %>
 

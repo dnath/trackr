@@ -1,12 +1,18 @@
 class GoalsController < ApplicationController
-  
   before_filter :authorize, only: [:update, :destroy]
-  #caches_action :index,
-  #cache_path: :updated_request_params_to_include_format_for_cache_key.to_proc
+  # cache_sweeper :goals_sweeper, :only => [:create, :update, :destroy]
+  # caches_action :index, :expires_in => 30.minutes, :cache_path => :index_cache_path.to_proc
+  
+ #  caches_action :index, : cache_path: :updated_request_params_to_include_format_for_cache_key.to_proc
 
-  def updated_request_params_to_include_format_for_cache_key
-    params.merge({ format: request.format.symbol || 'html' })
+  def index_cache_path
+    return 'tmp/cache/goals/' + session[:current_user].to_s + "_" + params[:search].to_s + "_" + params[:page].to_s
   end
+
+  # def updated_request_params_to_include_format_for_cache_key
+  #   params.merge({ format: request.format.symbol || 'html' })
+  # end
+  
   # GET /goals
   # GET /goals.json
   def index
@@ -30,14 +36,18 @@ class GoalsController < ApplicationController
       format.json { render json: @goals }
     end
   end
+
+  def search
+
+  end
   
   # GET /goals/1
   # GET /goals/1.json
   def show
-    @current_user = User.find(session[:current_user])
     @goal = Goal.find(params[:id])
     @api = Koala::Facebook::API.new(session[:access_token])
     @is_current_user_joined = false
+
     _users = User.where('id in (?)',@goal.goal_instances.pluck(:user_id)).pluck(:fb_id)
     _current_follower_ids = _users
     if _current_follower_ids.length > 0
@@ -70,6 +80,10 @@ class GoalsController < ApplicationController
 
   # POST /goals.json
   def create
+    # expire_action :action => :index
+    # cache_key = "views/tmp/cache/goals"
+    # Rails.cache.delete(cache_key)
+
     @goal = Goal.new(params[:goal])
     current_user = User.find(session[:current_user])
     current_user.goals.push(@goal)
@@ -87,6 +101,10 @@ class GoalsController < ApplicationController
   # PUT /goals/1
   # PUT /goals/1.json
   def update
+    # expire_action :action => :index
+    # cache_key = "views/tmp/cache/goals"
+    # Rails.cache.delete(cache_key)
+
     @goal = Goal.find(params[:id])
 
     respond_to do |format|
@@ -103,6 +121,10 @@ class GoalsController < ApplicationController
   # DELETE /goals/1
   # DELETE /goals/1.json
   def destroy
+    # expire_action :action => :index
+    # cache_key = "views/tmp/cache/goals"
+    # Rails.cache.delete(cache_key)
+
     @goal = Goal.find(params[:id])
       respond_to do |format|
         if !@goal.destroy

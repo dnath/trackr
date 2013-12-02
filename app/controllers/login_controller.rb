@@ -25,10 +25,11 @@ class LoginController < ApplicationController
   end
 
   def destroy
-    puts 'destroy'
+    puts 'Destroying current session...'
     session[:current_user] = nil
     session[:current_user_first_name] = nil
     session[:current_user_last_name] = nil
+    session[:current_user_fb_id] = nil
     
     session[:oauth] = nil
     session[:access_token] = nil
@@ -53,9 +54,16 @@ class LoginController < ApplicationController
         existing_user = User.find_by_fb_id(user_data["id"])
         
         if existing_user
+          if existing_user.first_name != user_data["first_name"] or existing_user.last_name != user_data["last_name"]
+
+            existing_user.update(first_name: user_data["first_name"], last_name: user_data["last_name"]);
+          
+          end  
+          
           session[:current_user] = existing_user.id
           session[:current_user_first_name] = existing_user.first_name
           session[:current_user_last_name] = existing_user.last_name
+          session[:current_user_fb_id] = existing_user.fb_id
 
         else not existing_user
           new_user = User.create(
@@ -67,10 +75,13 @@ class LoginController < ApplicationController
           session[:current_user] = new_user.id
           session[:current_user_first_name] = new_user.first_name
           session[:current_user_last_name] = new_user.last_name
+          session[:current_user_fb_id] = new_user.fb_id
         end
+        
         session[:current_user_picture] = user_data["picture"]["data"]["url"]
         puts "user picture = " + session[:current_user_picture]
-      rescue Exception=>ex
+      
+      rescue Exception => ex
         puts "EXCEPTION EXCEPTION"
         puts ex.message
       end
@@ -94,6 +105,7 @@ class LoginController < ApplicationController
           session[:current_user] = existing_user.id
           session[:current_user_first_name] = existing_user.first_name
           session[:current_user_last_name] = existing_user.last_name
+          session[:current_user_fb_id] = existing_user.fb_id
 
         else not existing_user
           new_user = User.create(
@@ -105,6 +117,7 @@ class LoginController < ApplicationController
           session[:current_user] = new_user.id
           session[:current_user_first_name] = new_user.first_name
           session[:current_user_last_name] = new_user.last_name
+          session[:current_user_fb_id] = new_user.fb_id
         end
 
         session[:current_user_picture] = user_data["picture"]["data"]["url"]

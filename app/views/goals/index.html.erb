@@ -51,7 +51,7 @@
     </div><!-- /input-group -->
   </div><!-- /.col-lg-6 -->
 </form>
-<%= link_to '+ Create New Goal', new_goal_path, :class => "btn btn-primary" %>
+<%= link_to raw('<i class="glyphicon glyphicon-plus"></i> Create New Goal'), new_goal_path, :class => "btn btn-primary" %>
 
 <br />
 <br />
@@ -63,13 +63,13 @@
 
   <div class="col-sm-12 col-md-4">
   	<div class="thumbnail">
-  	  	<%= image_tag goal.picture.url, :width => "200px", :height => "200px" %>
+  	  	<%= image_tag goal.picture.url, :width => "300px", :height => "300px" %>
   	  	<div class="caption" >
-  	  		<em><h4>
-<%= link_to goal.title , goal%>
-<span class="badge"><%= goal.goal_instances.length%></span>
+  	  		<h4 class="text-center">
+          <%= link_to goal.title, goal%>
+          <span class="badge"><%= goal.goal_instances.length%> <i class="glyphicon glyphicon-fire" ></i></span>
 
-</h4></em>
+          </h4>
   	  	</div>
      </div>
   </div>

@@ -1,39 +1,76 @@
-<br/>
-<br/>
-<br/>
-<br/>
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container container-navbar">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand trackr" href="#"><b>Trac.kr</b></a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="/goal_instances?user_id=<%= session[:current_user]%>">My Goals</a></li>
+        <li><a href="/goals">Find Goals</a></li>
+        <li><a href="/friends/index">Friends</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a>Logged in as</a></li>
+        <li>
+          <%= image_tag session['current_user_picture'], :width => "30px", :height => "30px", :style => "margin-top:10px" %>
+        </li>
+        <li><a href="#"><b><%= session['current_user_first_name']%></b></a></li>
+        <li><a href="/logout">
+            Logout <span class="glyphicon glyphicon-remove-circle"></span></a></li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</div>
+
+<br />
+<br />
+<br />
+<br />
 
 <div class="container">
 
-<p class="text-error"><%= notice %></p>
-
-<div class="media">
-	<a class="pull-left" href="#">
-		<%= image_tag @goal.picture.url, :class => "media-object", :width => "300px", :height => "200px" %>
-	</a>
-	<div class="media-body">
-		<div class="page-header">
-			<h1>
-				<% if !@is_current_user_joined %>
-					<%= link_to 'Join', new_goal_instance_path(:goal_id => @goal.id), class: "btn btn-lg btn-primary"%>
-				<%end%>
-				<%= @goal.title %>
-				<br/>
-				<small><%= @goal.description %></small>
-			</h1>
-		</div>
-		<div class="container">
-			<div class="row">
-				<%if @goal.user then %>
-					Created by 
-					<%= link_to @goal.user.first_name + " " + @goal.user.last_name, 
-							{:controller => "goal_instances", :user_id => @goal.user.id}
-					%>
-				<%end%> 
-			</div>
-		</div>
-	</div>	
+<% if notice %>
+<div class="alert alert-success" >
+	<button type="button" class="close" data-dismiss="alert">&times;</button>
+	<%= notice %>
 </div>
+<% end %>
+
+<div class="container">
+	<div class="pull-left" style="margin: 20px 20px 0px 0px;">
+		<a href="#">
+			<%= image_tag @goal.picture.url, :class => "img-thumbnail img-responsive", :width => "350px", :height => "350x" %>
+		</a>
+	</div>
+	
+	<div class="container">
+		<div class="pull-right" style="margin-top:10px;">
+			<% if !@is_current_user_joined %>
+				<%= link_to raw('Join <i class="glyphicon glyphicon-share-alt"></i>'), new_goal_instance_path(:goal_id => @goal.id), :class => "btn btn-lg btn-success"%>
+			<%end%>
+		</div>
+		<h1><b><%= @goal.title %></b></h1>
+			
+		<hr />
+		<h2><small><%= @goal.description %></small></h2>
+		
+		<%if @goal.user then %>
+			<hr />
+			<div class="text-center"><h4>
+				Created by 
+				<%= link_to @goal.user.first_name + " " + @goal.user.last_name,
+						{:controller => "goal_instances", :user_id => @goal.user.id}
+				%>
+			</h4></div>
+		<%end%> 
+	</div>	
+
 
 <% if @current_followers.length != 0%>
 	<!-- carousel -->
@@ -68,11 +105,11 @@
 				  		<% index = i*6 + j %>
 				  		<% if @current_followers[index] then %>
 				  		<div class="col-md-2" style="margin-p"> 
+				  			<img width="100%" height="100%" src=<%=@current_followers[index]["picture"]["data"]["url"]%> />
+				  			<br />
 				  			<%= @current_followers[index]["first_name"]%> 
 				  			<br/> 
 				  			<%= @current_followers[index]["last_name"] %> 
-				  			<br/>
-				  			<img width="100%" height="100%" src=<%=@current_followers[index]["picture"]["data"]["url"]%> />
 				  		</div>
 				  		<%end%>
 				  	<%end%>
@@ -89,17 +126,16 @@
 <%end%>
 <br />
 
+<%= link_to raw('<i class="glyphicon glyphicon-chevron-left"></i> Back'), goals_path, :class => "btn btn-default" %>
 <% if @goal.user %>
-	<% if @goal.user.id == @current_user.id %>
-		<%= link_to 'Edit', edit_goal_path(@goal), class: "glyphicon glyphicon-edit" %> |
+	<% if @goal.user.id == session[:current_user] %>
+		<%= link_to(raw('<i class="glyphicon glyphicon-edit"></i> Edit'), edit_goal_path(@goal), {:class => "btn btn-primary"}) %>
 	<%end%>
 <%end%>
 
-<%= link_to 'Back', goals_path, :class => "btn btn-default" %>
-
-<% if @goal.user %>
-	<% if @goal.user.id == @current_user.id %>
-		<%= button_to 'Delete', @goal, method: :delete, html_options: {confirm: "delete this goal?"} %>
-	<%end%>
+<span style="float:right;">
+<% if @goal.user and @goal.user.id == session[:current_user] %>
+	<%= button_to 'Delete', @goal, method: :delete, confirm: "Do you really want to delete this goal ?" , :class => "btn btn-default" %>
 <%end%>
+
 </div>

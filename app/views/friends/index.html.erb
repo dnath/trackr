@@ -20,7 +20,7 @@
         <li>
           <%= image_tag session['current_user_picture'], :width => "30px", :height => "30px", :style => "margin-top:10px" %>
         </li>
-        <li><a href="#"><b><%=session['current_user_first_name']%></b></a></li>
+        <li><a href="#"><b><%= session['current_user_first_name']%></b></a></li>
         <li><a href="/logout">
             Logout <span class="glyphicon glyphicon-remove-circle"></span></a></li>
       </ul>
