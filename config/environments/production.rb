@@ -73,5 +73,7 @@ Trackr::Application.configure do
       :access_key_id => 'AKIAJCDRMSB2EUT3GELQ',
       :secret_access_key => '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'
     }
-  }    
+  }
+
+  config.autoload_paths += %W(#{config.root}/app/sweepers)
 end
