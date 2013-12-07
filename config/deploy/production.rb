@@ -17,6 +17,26 @@ role :web, "ec2-54-196-21-103.compute-1.amazonaws.com"
 role :web, "ec2-54-227-7-255.compute-1.amazonaws.com"
 role :app, "ec2-54-196-21-103.compute-1.amazonaws.com" #fetch(:server_name1), fetch(:server_name2)# Needed for preparing something I forgot what
 role :app, "ec2-54-227-7-255.compute-1.amazonaws.com"
+
+#Sao Paulo
+role :web, "ec2-54-232-170-169.sa-east-1.compute.amazonaws.com"
+role :web, "ec2-54-232-172-48.sa-east-1.compute.amazonaws.com"
+role :web, "ec2-177-71-170-9.sa-east-1.compute.amazonaws.com"
+role :web, "ec2-54-232-33-156.sa-east-1.compute.amazonaws.com"
+role :web, "ec2-54-232-33-156.sa-east-1.compute.amazonaws.com"
+role :web, "ec2-54-207-141-135.sa-east-1.compute.amazonaws.com"
+role :web, "ec2-54-207-129-233.sa-east-1.compute.amazonaws.com"
+role :web, "ec2-54-207-138-123.sa-east-1.compute.amazonaws.com"
+role :web, "ec2-54-232-162-254.sa-east-1.compute.amazonaws.com"
+role :web, "ec2-54-207-155-88.sa-east-1.compute.amazonaws.com"
+role :web, "ec2-54-232-11-184.sa-east-1.compute.amazonaws.com"
+role :web, "ec2-54-232-173-235.sa-east-1.compute.amazonaws.com"
+role :web, "ec2-177-71-132-34.sa-east-1.compute.amazonaws.com"
+role :web, "ec2-54-207-150-172.sa-east-1.compute.amazonaws.com"
+role :web, "ec2-54-232-160-78.sa-east-1.compute.amazonaws.com"
+role :web, "ec2-54-207-160-245.sa-east-1.compute.amazonaws.com"
+role :web, "ec2-177-71-225-175.sa-east-1.compute.amazonaws.com"
+
 role :db, fetch(:db_server) # Needed for migration
 #role :all, [fetch(:server_name1), fetch(:server_name2), fetch(:db_server)]# This doesn't work completely yet, hence the above 3 specifications
 
