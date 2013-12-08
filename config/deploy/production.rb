@@ -6,43 +6,62 @@ set :rvm_ruby_version, '2.0.0-p247'
 
 set :server_name1, %w{ec2-54-196-21-103.compute-1.amazonaws.com}
 set :server_name2, %w{ec2-54-227-7-255.compute-1.amazonaws.com} #Trackr 1
-set :db_server, %w{ec2-54-227-156-71.compute-1.amazonaws.com}
+set :db_server, %w{ec2-54-232-159-118.sa-east-1.compute.amazonaws.com}
 # Simple Role Syntax
 # ==================
 # Supports bulk-adding hosts to roles, the primary
 # server in each group is considered to be the first
 # unless any hosts have the primary property set.
 
-role :web, "ec2-54-196-21-103.compute-1.amazonaws.com"
-role :web, "ec2-54-227-7-255.compute-1.amazonaws.com"
-role :app, "ec2-54-196-21-103.compute-1.amazonaws.com" #fetch(:server_name1), fetch(:server_name2)# Needed for preparing something I forgot what
-role :app, "ec2-54-227-7-255.compute-1.amazonaws.com"
+# role :web, "ec2-54-196-21-103.compute-1.amazonaws.com"
+# role :web, "ec2-54-227-7-255.compute-1.amazonaws.com"
+# role :app, "ec2-54-196-21-103.compute-1.amazonaws.com" #fetch(:server_name1), fetch(:server_name2)# Needed for preparing something I forgot what
+# role :app, "ec2-54-227-7-255.compute-1.amazonaws.com"
 
 #Sao Paulo
 role :web, "ec2-54-232-170-169.sa-east-1.compute.amazonaws.com"
 role :web, "ec2-54-232-172-48.sa-east-1.compute.amazonaws.com"
-role :web, "ec2-177-71-170-9.sa-east-1.compute.amazonaws.com"
+role :web, "ec2-177-71-170-9.sa-east-1.compute.amazonaws.com" #works
 role :web, "ec2-54-232-33-156.sa-east-1.compute.amazonaws.com"
 role :web, "ec2-54-232-33-156.sa-east-1.compute.amazonaws.com"
 role :web, "ec2-54-207-141-135.sa-east-1.compute.amazonaws.com"
-role :web, "ec2-54-207-129-233.sa-east-1.compute.amazonaws.com"
+role :web, "ec2-54-207-129-233.sa-east-1.compute.amazonaws.com" #works
 role :web, "ec2-54-207-138-123.sa-east-1.compute.amazonaws.com"
 role :web, "ec2-54-232-162-254.sa-east-1.compute.amazonaws.com"
 role :web, "ec2-54-207-155-88.sa-east-1.compute.amazonaws.com"
 role :web, "ec2-54-232-11-184.sa-east-1.compute.amazonaws.com"
 role :web, "ec2-54-232-173-235.sa-east-1.compute.amazonaws.com"
-role :web, "ec2-177-71-132-34.sa-east-1.compute.amazonaws.com"
-role :web, "ec2-54-207-150-172.sa-east-1.compute.amazonaws.com"
+role :web, "ec2-177-71-132-34.sa-east-1.compute.amazonaws.com" #works
+role :web, "ec2-54-207-150-172.sa-east-1.compute.amazonaws.com" #works
 role :web, "ec2-54-232-160-78.sa-east-1.compute.amazonaws.com"
-role :web, "ec2-54-207-160-245.sa-east-1.compute.amazonaws.com"
-role :web, "ec2-177-71-225-175.sa-east-1.compute.amazonaws.com"
+role :web, "ec2-54-207-160-245.sa-east-1.compute.amazonaws.com" #works
+role :web, "ec2-177-71-225-175.sa-east-1.compute.amazonaws.com" #works
+
+
+role :app, "ec2-54-232-170-169.sa-east-1.compute.amazonaws.com"
+role :app, "ec2-54-232-172-48.sa-east-1.compute.amazonaws.com"
+role :app, "ec2-177-71-170-9.sa-east-1.compute.amazonaws.com" #works
+role :app, "ec2-54-232-33-156.sa-east-1.compute.amazonaws.com"
+role :app, "ec2-54-232-33-156.sa-east-1.compute.amazonaws.com"
+role :app, "ec2-54-207-141-135.sa-east-1.compute.amazonaws.com"
+role :app, "ec2-54-207-129-233.sa-east-1.compute.amazonaws.com" #works
+role :app, "ec2-54-207-138-123.sa-east-1.compute.amazonaws.com"
+role :app, "ec2-54-232-162-254.sa-east-1.compute.amazonaws.com"
+role :app, "ec2-54-207-155-88.sa-east-1.compute.amazonaws.com"
+role :app, "ec2-54-232-11-184.sa-east-1.compute.amazonaws.com"
+role :app, "ec2-54-232-173-235.sa-east-1.compute.amazonaws.com"
+role :app, "ec2-177-71-132-34.sa-east-1.compute.amazonaws.com" #works
+role :app, "ec2-54-207-150-172.sa-east-1.compute.amazonaws.com" #works
+role :app, "ec2-54-232-160-78.sa-east-1.compute.amazonaws.com"
+role :app, "ec2-54-207-160-245.sa-east-1.compute.amazonaws.com" #works
+role :app, "ec2-177-71-225-175.sa-east-1.compute.amazonaws.com"
 
 role :db, fetch(:db_server) # Needed for migration
 #role :all, [fetch(:server_name1), fetch(:server_name2), fetch(:db_server)]# This doesn't work completely yet, hence the above 3 specifications
 
 set :ssh_options, {
     user: %{ubuntu},                # The user we want to log in as
-    keys: %w{/home/divya/.ssh/Tracker.pem
+    keys: %w{/home/divya/.ssh/Tracker-Sao.pem
       }, # Your .pem file
     forward_agent: true,          # In order for our EC2 instance to be able to access Github via ssh we need to forward our local ssh agent (since we have set up Github to accept that)
     auth_methods: %w(publickey)   # We are using ssh with .pem files
