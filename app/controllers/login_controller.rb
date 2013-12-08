@@ -11,14 +11,15 @@ class LoginController < ApplicationController
 
     session[:oauth] = Koala::Facebook::OAuth.new(APP_ID, APP_SECRET, SITE_URL + '/login/callback')
     
-    puts("ENVIRONMENT")
-    puts SITE_URL
-    puts APP_SECRET
-    puts APP_ID
+    # puts("ENVIRONMENT")
+    # puts 'SITE_URL = ' + SITE_URL
+    # puts 'APP_SECRET = ' + APP_SECRET
+    # puts 'APP_ID = ' + APP_ID
     
     @auth_url =  session[:oauth].url_for_oauth_code(:permissions=>"read_stream")
     
     puts session.to_s + "<<< session"
+    
     respond_to do |format|
       format.html{}
     end
@@ -30,6 +31,7 @@ class LoginController < ApplicationController
     session[:current_user_first_name] = nil
     session[:current_user_last_name] = nil
     session[:current_user_fb_id] = nil
+    session[:current_user_picture] = nil
     
     session[:oauth] = nil
     session[:access_token] = nil
@@ -79,7 +81,7 @@ class LoginController < ApplicationController
         end
         
         session[:current_user_picture] = user_data["picture"]["data"]["url"]
-        puts "user picture = " + session[:current_user_picture]
+        # puts "user picture = " + session[:current_user_picture]
       
       rescue Exception => ex
         puts "EXCEPTION EXCEPTION"

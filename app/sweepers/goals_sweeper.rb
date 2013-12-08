@@ -18,6 +18,9 @@ class GoalsSweeper < ActionController::Caching::Sweeper
   
   def expire_cache(goal)
     puts "Expiring goal cache..."
-    # expire_action :controller => :goals, :action => :index
+    # expire_action :controller => :goals, :action => :index  
+    r = Regexp.new("views/.+/goals.*")
+    puts "r = " + r.to_s
+    expire_fragment(r) 
   end
-end
+end 

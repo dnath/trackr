@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-before_filter :get_milestone
+  before_filter :get_milestone
 
   def get_milestone
     @Milestone = Milestone.find(params[:post_id])
