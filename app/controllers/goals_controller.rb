@@ -47,9 +47,11 @@ class GoalsController < ApplicationController
     @goal = Goal.find(params[:id])
     @api = Koala::Facebook::API.new(session[:access_token])
     @is_current_user_joined = false
-
-    _users = User.where('id in (?)',@goal.goal_instances.pluck(:user_id)).pluck(:fb_id)
+    _user_ids = @goal.goal_instances.pluck(:user_id)
+    _users = User.where('id in (?)',_user_ids).pluck(:fb_id)
     _current_follower_ids = _users
+    @is_current_user_joined = _user_ids.include? session[:current_user]
+    puts "current user joined. ........................."+ @is_current_user_joined.to_s
     if _current_follower_ids.length > 0
       @current_followers= @api.get_objects(_current_follower_ids, :fields=>"first_name,last_name,picture")
       if @current_followers.length > 0 then
