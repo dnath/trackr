@@ -1,4 +1,7 @@
 class GoalInstancesController < ApplicationController
+  cache_sweeper :goal_instances_sweeper, :only => [:create, :update, :destroy]
+  caches_action :index, :expires_in => 30.minutes,  :cache_path => Proc.new { |c| c.params } # index_cache_path.to_proc
+
   # GET /goal_instances
   # GET /goal_instances.json
   def index

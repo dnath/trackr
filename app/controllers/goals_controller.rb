@@ -3,15 +3,6 @@ class GoalsController < ApplicationController
   cache_sweeper :goals_sweeper, :only => [:create, :update, :destroy]
   caches_action :index, :expires_in => 30.minutes,  :cache_path => Proc.new { |c| c.params } # index_cache_path.to_proc
   
-  # caches_action :index, : cache_path: :updated_request_params_to_include_format_for_cache_key.to_proc
-
-  def index_cache_path
-    return 'tmp/cache/goals' + params[:search].to_s + params[:page].to_s
-  end
-
-  # def updated_request_params_to_include_format_for_cache_key
-  #   params.merge({ format: request.format.symbol || 'html' })
-  # end
   
   # GET /goals
   # GET /goals.json
@@ -37,9 +28,6 @@ class GoalsController < ApplicationController
     end
   end
 
-  def search
-
-  end
   
   # GET /goals/1
   # GET /goals/1.json
