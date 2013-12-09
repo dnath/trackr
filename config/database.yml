@@ -36,7 +36,9 @@ production:
   encoding: utf8
   reconnect: false
   database: trackr_production
-  pool: 5
-  username: root
-  password: root
+  pool: 30
+  username: trackr
+  password: trackr
+  host: ec2-54-232-159-118.sa-east-1.compute.amazonaws.com
+  port: 3306
   socket: /var/run/mysqld/mysqld.sock

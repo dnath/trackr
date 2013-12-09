@@ -31,7 +31,7 @@ users_data['users'].each { |user_data|
 #create goals
 if Rails.env == "development"
   puts "development"
-  file = open('db/goals.json','r')
+  file = open('db/goals2.json','r')
 else
   file = open('db/goals1.json')
 end

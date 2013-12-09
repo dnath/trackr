@@ -1,12 +1,18 @@
 class GoalsController < ApplicationController
-  
   before_filter :authorize, only: [:update, :destroy]
-  #caches_action :index,
-  #cache_path: :updated_request_params_to_include_format_for_cache_key.to_proc
+  cache_sweeper :goals_sweeper, :only => [:create, :update, :destroy]
+  caches_action :index, :expires_in => 30.minutes,  :cache_path => Proc.new { |c| c.params } # index_cache_path.to_proc
+  
+  # caches_action :index, : cache_path: :updated_request_params_to_include_format_for_cache_key.to_proc
 
-  def updated_request_params_to_include_format_for_cache_key
-    params.merge({ format: request.format.symbol || 'html' })
+  def index_cache_path
+    return 'tmp/cache/goals' + params[:search].to_s + params[:page].to_s
   end
+
+  # def updated_request_params_to_include_format_for_cache_key
+  #   params.merge({ format: request.format.symbol || 'html' })
+  # end
+  
   # GET /goals
   # GET /goals.json
   def index
@@ -30,34 +36,31 @@ class GoalsController < ApplicationController
       format.json { render json: @goals }
     end
   end
+
+  def search
+
+  end
   
   # GET /goals/1
   # GET /goals/1.json
   def show
-    @current_user = User.find(session[:current_user])
     @goal = Goal.find(params[:id])
     @api = Koala::Facebook::API.new(session[:access_token])
     @is_current_user_joined = false
-    cache ["goal",@goal] do
-      _current_follower_ids=[]
-      @current_followers = []
-      _time1 = Time.now
-      @goal.goal_instances.each { |goal_instance|
-          _current_follower_ids.push(goal_instance.user.fb_id)
-          if goal_instance.user.id == session[:current_user]
-            @is_current_user_joined = true
-          end
-      }
-      if _current_follower_ids.length > 0
-        @current_followers= @api.get_objects(_current_follower_ids, :fields=>"first_name,last_name,picture")
-        if @current_followers.length > 0 then
-          @current_followers = @current_followers.values
-        end
+    _user_ids = @goal.goal_instances.pluck(:user_id)
+    _users = User.where('id in (?)',_user_ids).pluck(:fb_id)
+    _current_follower_ids = _users
+    @is_current_user_joined = _user_ids.include? session[:current_user]
+    puts "current user joined. ........................."+ @is_current_user_joined.to_s
+    if _current_follower_ids.length > 0
+      @current_followers= @api.get_objects(_current_follower_ids, :fields=>"first_name,last_name,picture")
+      if @current_followers.length > 0 then
+        @current_followers = @current_followers.values
       end
-      respond_to do |format|
-        format.html # show.html.erb
-        format.json { render json: @goal }
-      end
+    end
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @goal }
     end
   end
 
@@ -79,6 +82,10 @@ class GoalsController < ApplicationController
 
   # POST /goals.json
   def create
+    # expire_action :action => :index
+    # cache_key = "views/tmp/cache/goals"
+    # Rails.cache.delete(cache_key)
+
     @goal = Goal.new(params[:goal])
     current_user = User.find(session[:current_user])
     current_user.goals.push(@goal)
@@ -96,6 +103,10 @@ class GoalsController < ApplicationController
   # PUT /goals/1
   # PUT /goals/1.json
   def update
+    # expire_action :action => :index
+    # cache_key = "views/tmp/cache/goals"
+    # Rails.cache.delete(cache_key)
+
     @goal = Goal.find(params[:id])
 
     respond_to do |format|
@@ -112,6 +123,10 @@ class GoalsController < ApplicationController
   # DELETE /goals/1
   # DELETE /goals/1.json
   def destroy
+    # expire_action :action => :index
+    # cache_key = "views/tmp/cache/goals"
+    # Rails.cache.delete(cache_key)
+
     @goal = Goal.find(params[:id])
       respond_to do |format|
         if !@goal.destroy

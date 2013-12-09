@@ -63,6 +63,7 @@ end
   # POST /goal_instances
   # POST /goal_instances.json
   def create
+    puts params.to_s()
     @goal_instance = GoalInstance.new(params[:goal_instance])
     @milestones = Milestone.find_by_goal_instance_id(params[:id])
     current_user = User.find(session[:current_user])

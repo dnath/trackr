@@ -9,4 +9,4 @@ test:
 production:
   app_id : "648937448474069"
   app_secret: "850052c2118af44769f40f3d2e362899"
-  site_url: "http://ec2-54-227-7-255.compute-1.amazonaws.com/"
+  site_url: "http://trackr-1048843333.us-east-1.elb.amazonaws.com/"

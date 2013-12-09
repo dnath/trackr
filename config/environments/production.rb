@@ -8,6 +8,8 @@ Trackr::Application.configure do
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
 
+  config.action_controller.cache_store = :file_store, "tmp/cache"
+
   # Disable Rails's static asset server (Apache or nginx will already do this)
   config.serve_static_assets = false
 
@@ -72,4 +74,6 @@ Trackr::Application.configure do
       :secret_access_key => 'wKvyVBV/f6lMZ6p7z+Xkq0EXYgdzTrUMLEgvgvN1'
     }
   }
+
+  config.autoload_paths += %W(#{config.root}/app/sweepers)
 end

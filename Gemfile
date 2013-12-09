@@ -7,6 +7,8 @@ gem 'paperclip'
 gem 'aws-sdk'
 gem 'will_paginate-bootstrap'
 gem 'nokogiri'
+#for automatically installing ruby and rails on a new app server
+gem 'rvm-capistrano'
 # gem 'gruff'
 # Deploy with Capistrano
 gem 'acts_as_commentable', '3.0.1'

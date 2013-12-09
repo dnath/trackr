@@ -1,34 +1,44 @@
 <%= form_for(@goal) do |f| %>
-  <% if @goal.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@goal.errors.count, "error") %> prohibited this goal from being saved:</h2>
+	 <% if @goal.errors.any? %>
+		<div class="alert alert-danger" >
+  			<button type="button" class="close" data-dismiss="alert">&times;</button>
+  			<h2><%= pluralize(@goal.errors.count, "error") %> prohibited this goal from being saved:</h2>
 
-      <ul>
-      <% @goal.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+			<ul>
+			<% @goal.errors.full_messages.each do |msg| %>
+			  <li><%= msg %></li>
+			<% end %>
+			</ul>
+  		</div>
+	<% end %>
 
-  <div class="media">
-		<a class="pull-left" href="#">
-			<%= image_tag @goal.picture.url, :class => "media-object", :width => "350px", :height => "350px" %>
-		</a>
-		<div class="media-body">
-		  <div class="field">
-		    <span class="label label-primary"><%= f.label :title %></b></span><br />
-		    <%= f.text_area :title, rows:2 %>
+	<div class="media">
+		<div class="pull-left">
+			<a href="#">
+				<%= image_tag @goal.picture.url, :class => "img-thumbnail img-responsive", :width => "350px", :height => "350px" %>
+			</a>
+			<br />
+			<a data-toggle="modal" href="#modal_window" class="btn btn-default navbar-btn" style="margin-left:100px;">
+				Change Image <i class="glyphicon glyphicon-picture"></i>
+			</a>
+		</div>
+		
+		<div class="pull-right col-sm-7">
+		  <div class="form-group">
+		    <h4><span class="label label-primary"><%= f.label :title %></span></h4>
+		    <%= f.text_area :title, rows:1, :class => "form-control"%>
 		  </div>
-		  <div class="field">
-		    <span class="label label-primary"><%= f.label :description %></span><br />
-		    <%= f.text_area :description, rows: 6 %>
+
+		  <div class="form-group">
+		    <h4><span class="label label-primary"><%= f.label :description %></span></h4>
+		    <%= f.text_area :description, rows:7, :class => "form-control" %>
 		  </div>
-		  <div class="actions">
-		    <%= f.submit %>
-		  </div>
+		  
+		  <%= link_to raw('<i class="glyphicon glyphicon-chevron-left"></i> Back'), goals_path, :class => "btn btn-primary" %>
+		  <%= f.submit "Create New Goal", :class => "btn btn-success navbar-btn" %>
 		</div>
 	</div>
+
 	<!-- modal window start-->
 	<div id="modal_window" class="modal fade in">
 	<div class="modal-header">
@@ -45,7 +55,6 @@
 		<a href="#" class="btn" data-dismiss="modal">Close</a>
 	</div>
 	</div>
-	<p><a data-toggle="modal" href="#modal_window" class="btn btn-default navbar-btn">Change Image</a></p>
 	<!-- modal window end -->
   </div>
 <% end %>

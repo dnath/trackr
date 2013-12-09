@@ -1,38 +1,3 @@
-<div class="navbar navbar-default navbar-fixed-top" role="navigation">
-  <div class="container container-navbar">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand trackr" href="#"><b>Trac.kr</b></a>
-    </div>
-    <div class="collapse navbar-collapse">
-      <ul class="nav navbar-nav">
-        <li><a href="/goal_instances?user_id=<%= session[:current_user]%>">My Goals</a></li>
-        <li class="active"><a href="#">Find Goals</a></li>
-        <li><a href="/friends/index">Friends</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a>Logged in as</a></li>
-        <li>
-          <%= image_tag session['current_user_picture'], :width => "30px", :height => "30px", :style => "margin-top:10px" %>
-        </li>
-        <li><a href="#"><b><%=session['current_user_first_name']%></b></a></li>
-        <li><a href="/logout">
-            Logout <span class="glyphicon glyphicon-remove-circle"></span></a></li>
-      </ul>
-    </div><!--/.nav-collapse -->
-  </div>
-</div>
-
-<br />
-<br />
-<br />
-<br />
-
 <div class="container container-g">
 
 <% flash.each do |key, value| %>
@@ -51,7 +16,7 @@
     </div><!-- /input-group -->
   </div><!-- /.col-lg-6 -->
 </form>
-<%= link_to '+ Create New Goal', new_goal_path, :class => "btn btn-primary" %>
+<%= link_to raw('<i class="glyphicon glyphicon-plus"></i> Create New Goal'), new_goal_path, :class => "btn btn-primary" %>
 
 <br />
 <br />
@@ -63,13 +28,13 @@
 
   <div class="col-sm-12 col-md-4">
   	<div class="thumbnail">
-  	  	<%= image_tag goal.picture.url, :width => "200px", :height => "200px" %>
+  	  	<%= image_tag goal.picture.url, :width => "300px", :height => "300px" %>
   	  	<div class="caption" >
-  	  		<em><h4>
-<%= link_to goal.title , goal%>
-<span class="badge"><%= goal.goal_instances.length%></span>
+  	  		<h4 class="text-center">
+          <%= link_to goal.title, goal%>
+          <span class="badge"><%= goal.goal_instances.length%> <i class="glyphicon glyphicon-fire" ></i></span>
 
-</h4></em>
+          </h4>
   	  	</div>
      </div>
   </div>
