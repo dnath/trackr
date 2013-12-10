@@ -8,25 +8,11 @@
 <% end %>
 
 <% whole = (@goal_instance.end_date-@goal_instance.start_date).to_f %>
-<% complete = params[:complete].to_f %>
-
- <% if whole == complete then %>
- <div class="alert alert-success" >
-	<button type="button" class="close" data-dismiss="alert">&times;</button>
-	<p id="notice">Congratulations! You completed this goal</p>
-</div>
-<%end%>
+<% complete = 0 %>
         	
 <div class="media">
 	<a class="pull-left" href="#">
-		<%= image_tag @goal_instance.goal.picture.url, :class => "media-object", :width => "300px", :height => "200px" %>
-		<% if !complete then %>
-		<img src="<%= Gchart.pie(:data => [0,whole])%>"/>
-		<% complete = 0 %>
-		<% else %>
-		<img src="<%= Gchart.pie(:data => [complete,whole - complete])%>"/>
-		<%end%>
-	</a>
+		<%= image_tag @goal_instance.goal.picture.url, :class => "media-object", :width => "300px", :height => "200px" %>	</a>
 	<div class="media-body">
 		<div class="page-header">
 			<h1>
@@ -64,41 +50,62 @@
 </div>
 <br />	
 
-<table class="table bordered-table">
-   <thead>
-      <tr>
-         <th></th>
-         <th>Description</th>
-         <th>Duration</th>
-      </tr>
-   </thead>
-   <tbody>
+<div class="container" class="pull-right">
       <% sum = 0 %>
       <% @milestones.each do |milestone| 
-      	sum = sum + milestone.duration.to_i 
-      	end%>
-  
+              sum = sum + milestone.duration.to_i 
+              end%>
+  	<div class="row">
+  	<div class="col-sm-7">
+  		<br \>
+  		<div class="row">
+  			<div class="col-sm-7">
+  			<% if User.find(session[:current_user]) == @goal_instance.user then %>
+  			Your Milestones
+  			<%else%> <%= @goal_instance.user.first_name %> 's Milestones
+  			<%end%></div>
+  		</div>
         <%  @milestones.each do |milestone| %>
-         <tr>
-         	<% if User.find(session[:current_user]) == @goal_instance.user then %>
-	         	<% if !milestone.is_complete then %>
-					<td> <%= button_to 'Incomplete', {:action => 'check', :milestone_id => milestone.id, :sum => sum, :complete => complete, :remote => true}, :class => 'btn btn-danger btn-xs', :method => :put%></td>
-	         	<% elsif milestone.is_complete then %> 
-	         		<td> <button type="button" class="btn btn-success btn-xs">Complete</button></td>
-	         	<%end%>
-	         <%else%>
-	         	<% if !milestone.is_complete then %>
-					<td> <button type="button" class="btn btn-danger btn-xs">Incomplete</button></td>
-	         	<% elsif milestone.is_complete then %> 
-	         		<td> <button type="button" class="btn btn-success btn-xs">Complete</button></td>
-	         	<%end%>
-	         	<td><%= milestone.description %></td>
-	         	<td><%= (@goal_instance.end_date - @goal_instance.start_date) * (milestone.duration.to_f/sum.to_f) %></td>
-	         <%end%>
-      	</tr>   
-        <% end %>
-      </tbody>
-</table>
+        <br \>
+        <div class="row">
+         <div class="col-sm-3">
+                 <% if User.find(session[:current_user]) == @goal_instance.user then %>
+                         <% if !milestone.is_complete then %>
+                                 <%= button_to 'Incomplete', {:action => 'check', :milestone_id => milestone.id, :remote => true}, :class => 'btn btn-danger btn-xs', :method => :put%>
+                         <% elsif milestone.is_complete then %> 
+                                  <button type="button" class="btn btn-success btn-xs">Complete</button>
+                                 <% complete = complete + (@goal_instance.end_date - @goal_instance.start_date) * (milestone.duration.to_f/sum.to_f) %>
+                         <%end%>
+                 <%else%>
+                         <% if !milestone.is_complete then %>
+                                 <button type="button" class="btn btn-danger btn-xs">Incomplete</button>
+                         <% elsif milestone.is_complete then %> 
+                                 <button type="button" class="btn btn-success btn-xs">Complete</button>
+                                 <% complete = complete + (@goal_instance.end_date - @goal_instance.start_date) * (milestone.duration.to_f/sum.to_f) %>
+                         <%end%>
+                 <%end%></div>
+        <div class="col-sm-2"><%= milestone.description %></b></div>
+        <div class="col-sm-1"><%= (@goal_instance.end_date - @goal_instance.start_date) * (milestone.duration.to_f/sum.to_f) %></b></div>
+    	</div>   
+    <% end %>
+</div>
+<div class="col-sm-2">
+		<% if complete == 0 then %>
+		<img src="<%= Gchart.pie(:data => [0,whole], :labels => ["","Incomplete"])%>"/>
+		<% elsif whole == complete then %>
+		<img src="<%= Gchart.pie(:data => [whole,0], :labels => ["Complete"])%>"/>
+		<% else %>
+		<img src="<%= Gchart.pie(:data => [complete,whole - complete], :labels =>["Complete","Incomplete"])%>"/>
+		<%end%>
+</div>
+</div>
+</div>
+<% if whole == complete then %>
+ <div class="alert alert-success" >
+	<button type="button" class="close" data-dismiss="alert">&times;</button>
+	<p id="notice">Congratulations! You completed this goal</p>
+</div>
+<%end%>
 
 <div class="pull-left">
 <div class="media">
