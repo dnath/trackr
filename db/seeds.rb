@@ -77,21 +77,6 @@ for i in 0..number_goal_instances-1
     Goal.find(goals[rand(goals.length)].id).goal_instances.push(goal_instance)
     User.find(users[rand(users.length)].id).goal_instances.push(goal_instance) #make this instance of a random user
   
-    milestone = Milestone.create(
-                  { description: 'This is description of milestone1', duration: '10 days' , is_complete: false }
-                )
-  
-    goal_instance.milestones.push(milestone)
-    milestone = Milestone.create(
-                { description: 'This is description of milestone2', duration: '10 days' , is_complete: false }
-              )
-  
-    goal_instance.milestones.push(milestone)
-    milestone = Milestone.create(
-            { description: 'This is description of milestone3', duration: '10 days' , is_complete: false}
-          )
-  
-    goal_instance.milestones.push(milestone)
   end
   rescue => e
        puts "goal id = "+ goal_id.to_s+" user id = "+ user_id.to_s

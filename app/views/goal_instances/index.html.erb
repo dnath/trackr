@@ -23,7 +23,7 @@
               <div class="progress-bar" role="progressbar" 
                   aria-valuenow="<% if (Date.today-goal_instance.start_date) > (goal_instance.end_date-goal_instance.start_date) then %>
                                       100%
-                                 <%else%> <%=(Date.today-goal_instance.start_date).to_i%>
+                                 <%else%> <%=((Date.today-goal_instance.start_date).to_f/(goal_instance.end_date-goal_instance.start_date).to_f)*100%>%
                                  <%end%>" 
                   aria-valuemin="0" 
                   aria-valuemax= "100%" 
@@ -34,7 +34,11 @@
               > 
                 <%if (Date.today-goal_instance.start_date) > (goal_instance.end_date-goal_instance.start_date) then %>
                 100% complete
-                <%else%> <%=(((Date.today-goal_instance.start_date).to_f/(goal_instance.end_date-goal_instance.start_date).to_f)*100).round%>% complete
+                <%else%> 
+                  <% if (((Date.today-goal_instance.start_date).to_f/(goal_instance.end_date-goal_instance.start_date).to_f)*100).round < 0 then %> 
+                    0% complete
+                  <% else %> <%=(((Date.today-goal_instance.start_date).to_f/(goal_instance.end_date-goal_instance.start_date).to_f)*100).round%>% complete
+                  <% end %>
                 <%end%>
               </div>
             </div>

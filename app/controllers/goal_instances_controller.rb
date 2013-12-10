@@ -19,13 +19,9 @@ class GoalInstancesController < ApplicationController
   def show
 
    @goal_instance = GoalInstance.find(params[:id])
-   
+   @milestones = @goal_instance.milestones
 
-  @milestones = Milestone.find_by_sql("select id,description, duration, is_complete from milestones where goal_instance_id = 55253");
-  
-    
-
-    respond_to do |format|
+respond_to do |format|
       format.html # show.html.erb
  format.json { render json: {:goal_instances => @goal_instances, :milestones => @milestones}}
    end
@@ -47,6 +43,7 @@ end
   # GET /goal_instances/new.json
   def new
     @goal_instance = GoalInstance.new
+    3.times{ @goal_instance.milestones.build }
     puts params[:goal_id]
     respond_to do |format|
       format.html # new.html.erb
@@ -65,10 +62,8 @@ end
   def create
     puts params.to_s()
     @goal_instance = GoalInstance.new(params[:goal_instance])
-    @milestones = Milestone.find_by_goal_instance_id(params[:id])
     current_user = User.find(session[:current_user])
     current_user.goal_instances.push(@goal_instance)
-    puts "Nazli"
     puts params[:goal_instance][:goal_id]
     current_goal = Goal.find(params[:goal_instance][:goal_id]) 
     current_goal.goal_instances.push(@goal_instance)
@@ -120,6 +115,21 @@ end
 
     respond_to do |format|
       format.html {redirect_to @goal_instance}
+    end
+  end
+
+  def check
+    puts 'cheeeeeeck milestone'
+    @goal_instance = GoalInstance.find(params[:id])
+    Milestone.update(params[:milestone_id],:is_complete => '1')
+    milestone = @goal_instance.milestones.find(params[:milestone_id])
+
+    if params[:complete] == (@goal_instance.end_date-@goal_instance.start_date).to_f
+      @goal_instance.is_complete = '1'
+      @goal_instance.update_attributes(params[:goal_instance])
+    end
+     respond_to do |format|
+      format.html {redirect_to goal_instance_path(:complete => params[:complete].to_f + ((@goal_instance.end_date - @goal_instance.start_date) * (milestone.duration.to_f/params[:sum].to_f)))}
     end
   end
 end

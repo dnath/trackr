@@ -3,12 +3,9 @@ Trackr::Application.routes.draw do
   get "friends/index"
 
   resources :goal_instances do
+    put :check, on: :member
     put :cheeron, on: :member
-    get :add_to_my_books, on: :member
   end
-
-  resources :milestones  
-  post "/myroute", :to=>"milestones#set_my_session_var" 
   
   #put "goal_instances/:id/cheeron"
 
