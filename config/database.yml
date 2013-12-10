@@ -39,6 +39,6 @@ production:
   pool: 30
   username: trackr
   password: trackr
-  host: ec2-54-232-159-118.sa-east-1.compute.amazonaws.com
+  host: ec2-54-227-156-71.compute-1.amazonaws.com
   port: 3306
   socket: /var/run/mysqld/mysqld.sock
