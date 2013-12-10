@@ -58,16 +58,7 @@ role :app, "ec2-54-227-7-255.compute-1.amazonaws.com"
 
 set :ssh_options, {
     user: %{ubuntu},                # The user we want to log in as
-<<<<<<< HEAD
-<<<<<<< HEAD
-    keys: %w{/Users/nazl/Downloads/Tracker.pem
-=======
-    keys: %w{/home/divya/.ssh/Tracker-Sao.pem
->>>>>>> 6175dba17812161a0600c5ce4c076d2d2628436d
-=======
-    keys: %w{/home/divya/.ssh/Tracker.pem
->>>>>>> e5cceb4efadbd77182cf2c0ef0c91c983c841085
-      }, # Your .pem file
+    keys: %w{/home/divya/.ssh/Tracker.pem}, # Your .pem file
     forward_agent: true,          # In order for our EC2 instance to be able to access Github via ssh we need to forward our local ssh agent (since we have set up Github to accept that)
     auth_methods: %w(publickey)   # We are using ssh with .pem files
 }
