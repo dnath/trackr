@@ -21,6 +21,6 @@ class GoalsSweeper < ActionController::Caching::Sweeper
     # expire_action :controller => :goals, :action => :index  
     r = Regexp.new("views/.+/goals.*")
     puts "r = " + r.to_s
-    expire_fragment(r) 
+    # expire_fragment(r) 
   end
 end 

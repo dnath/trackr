@@ -1,6 +1,6 @@
 <div class="container container-gi">
 
-<% if session['current_user'].to_s != params[:user_id].to_s %>
+<% if params[:user_id] != nil && session['current_user'].to_s != params[:user_id].to_s %>
   <h2><%= "Goals pursued by " + User.find(params[:user_id]).first_name + " " + User.find(params[:user_id]).last_name%></h2>
   <br />
 <%end%>

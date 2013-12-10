@@ -1,6 +1,7 @@
 <%= form_for(@goal_instance) do |f| %>
   <% if @goal_instance.errors.any? %>
-    <div id="error_explanation">
+    <div class="alert alert-danger" >
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
       <h2><%= pluralize(@goal_instance.errors.count, "error") %> prohibited this goal_instance from being saved:</h2>
 
       <ul>
@@ -11,34 +12,58 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :start_date %><br />
-    <%= f.date_select :start_date %>
+  <br />
+
+
+  <div class="form-group">
+    <h4>
+      <span class="label label-success"><%= f.label :start_date %></span>
+      <%= f.date_select :start_date %>
+    </h4>
   </div>
-  <div class="field">
-    <%= f.label :end_date %><br />
-    <%= f.date_select :end_date %>
+
+  <div class="form-group">
+    <h4>
+      <span class="label label-success"><%= f.label :end_date %></span>
+      <%= f.date_select :end_date %>
+    </h4>
   </div>
+
   <% i = 1 %>
+
+  <hr />
+
+  <h3><b> Milestone Information </b></h3>
+
+  <hr />
+  
   <%= f.fields_for :milestones do |m| %>
-   <div class="form-group">
+    <div class="container pull-left">
+      <div class="pull-left">
         <h4><span class="label label-primary">Milestone <%= i %> <%= m.label :description %> </span></h4>
         <%= m.text_area :description, rows:3, :class => "form-control" %>
-    </div>
-     <div class="form-group">
-        <h4><span class="label label-primary">Milestone <%= i %> Weight</span></h4>
-        <%= m.text_field :duration, columns:7, :class => "form-control" %>
-    </div>
-    <div class="actions">
-      <%= m.hidden_field :is_complete, :value => "false" %>
-    </div>
+      </div>
+
+      <div class="pull-left" style="margin-left:30px;">
+          <h4><span class="label label-primary">Milestone <%= i %> Weight</span></h4>
+          <%= m.text_field :duration, columns:1, :class => "form-control" %>
+      </div>
+
+      <div class="actions">
+        <%= m.hidden_field :is_complete, :value => "false" %>
+      </div>
+    </div>  
+
     <% i = i + 1 %>
   <%end%>
   
+  <hr />
   <div class="actions">
     <%= f.hidden_field :is_complete, :value => "false" %>
     <%= f.hidden_field :cheer_ons, :value => "0" %>
     <%= f.hidden_field :goal_id, :value => params[:goal_id] %>
-    <%= f.submit %>
+
+    <%= link_to raw('<i class="glyphicon glyphicon-chevron-left"></i> Back'), goal_instances_path, :class => "btn btn-primary" %>
+    <%= f.submit 'Create Goal Instance', :class => "btn btn-success navbar-btn" %>
   </div>
 <% end %>

@@ -5,33 +5,39 @@ class GoalInstancesController < ApplicationController
   # GET /goal_instances
   # GET /goal_instances.json
   def index
-    current_user = User.find(params[:user_id])
-    puts params[:user_id].inspect
+    puts 'params[:user_id] = ' + params[:user_id].inspect
+    if params[:user_id] == nil
+      current_user = User.find(session[:current_user])
+    else
+      current_user = User.find(params[:user_id])
+    end
+    
     @goal_instances = current_user.goal_instances
     @goal_instances = @goal_instances.paginate(:page => params[:page], :per_page => 5)
     @milestones = Milestone.find_by_goal_instance_id(params[:id])
-      respond_to do |format|
-      format.html # index.html.erb
     
-     format.json { render json: {:goal_instances => @goal_instances, :milestones => @milestones}}
-     end
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: {:goal_instances => @goal_instances, :milestones => @milestones}}
+    end
   end
 
   # GET /goal_instances/1
   # GET /goal_instances/1.json
   def show
 
-   @goal_instance = GoalInstance.find(params[:id])
-   @milestones = @goal_instance.milestones
+    @goal_instance = GoalInstance.find(params[:id])
+    @milestones = @goal_instance.milestones
 
-respond_to do |format|
+    respond_to do |format|
       format.html # show.html.erb
- format.json { render json: {:goal_instances => @goal_instances, :milestones => @milestones}}
+      format.json { render json: {:goal_instances => @goal_instances, :milestones => @milestones}}
    end
 end
- def update_preview
-    puts "-> hey!!!"
-  end
+
+def update_preview
+  puts "-> hey!!!"
+end
 
 #def completed
 # @goal_instan = GoalInstance.find(params[:goal_instance_id])

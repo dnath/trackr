@@ -35,7 +35,7 @@
 	    <div class="collapse navbar-collapse">
 	      <ul class="nav navbar-nav">
 	      	
-	      	<% if controller.controller_name == 'goal_instances' && controller.action_name == 'index' && params[:user_id].to_s == session[:current_user].to_s%>
+	      	<% if controller.controller_name == 'goal_instances' && controller.action_name == 'index' && (params[:user_id] == nil || params[:user_id].to_s == session[:current_user].to_s ) %>
 	      		<li class="active"><a href="#">My Goals</a></li>
 	      	<% else %>
 	        	<li><a href="/goal_instances?user_id=<%= session[:current_user]%>">My Goals</a></li>

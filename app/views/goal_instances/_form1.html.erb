@@ -1,6 +1,7 @@
 <%= form_for(@goal_instance) do |f| %>
   <% if @goal_instance.errors.any? %>
-    <div id="error_explanation">
+    <div class="alert alert-danger" >
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
       <h2><%= pluralize(@goal_instance.errors.count, "error") %> prohibited this goal_instance from being saved:</h2>
 
       <ul>
@@ -11,16 +12,25 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :start_date %><br />
-    <%= f.date_select :start_date %>
+  <div class="form-group">
+    <h4>
+      <span class="label label-primary"><%= f.label :start_date %></span>
+      <%= f.date_select :start_date %>
+    </h4>
   </div>
-  <div class="field">
-    <%= f.label :end_date %><br />
-    <%= f.date_select :end_date %>
+
+  <div class="form-group">
+    <h4>
+      <span class="label label-primary"><%= f.label :end_date %></span>
+      <%= f.date_select :end_date %>
+    </h4>
   </div>
+
   <div class="actions">
     <%= f.hidden_field :is_complete, :value => false %>
-    <%= f.submit %>
+
+    <hr />
+    <%= link_to raw('<i class="glyphicon glyphicon-chevron-left"></i> Back'), goal_instances_path, :class => "btn btn-primary" %>
+    <%= f.submit 'Update Goal Instance', :class => "btn btn-success navbar-btn" %>
   </div>
 <% end %>
