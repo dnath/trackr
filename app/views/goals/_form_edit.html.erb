@@ -19,9 +19,11 @@
 				<%= image_tag @goal.picture.url, :class => "img-thumbnail img-responsive", :width => "350px", :height => "350px" %>
 			</a>
 			<br />
-			<a data-toggle="modal" href="#modal_window" class="btn btn-default navbar-btn" style="margin-left:100px;">
+			<span class="btn btn-file"><%= f.label "Change Image" %><br />
+		  	<%= f.file_field :picture %><i class="glyphicon glyphicon-picture"></i></span>
+			<!-- <a data-toggle="modal" href="#modal_window" class="btn btn-default navbar-btn" style="margin-left:100px;">
 				Change Image <i class="glyphicon glyphicon-picture"></i>
-			</a>
+			</a> -->
 		</div>
 		
 		<div class="pull-right col-sm-7">
