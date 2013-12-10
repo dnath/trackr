@@ -27,6 +27,16 @@ class GoalInstancesController < ApplicationController
   def show
 
     @goal_instance = GoalInstance.find(params[:id])
+    @is_current_user_joined = false
+    goal_ins = GoalInstance.where('user_id = :uid and goal_id = :gid', 
+                  {uid: session[:current_user], gid: @goal_instance.goal.id})
+    puts 'goal_ins = ' + goal_ins.to_s
+    puts 'goal_ins.length = ' + goal_ins.length.to_s
+
+    if goal_ins.length > 0
+      @is_current_user_joined = true;
+    end
+
     @milestones = @goal_instance.milestones
 
     respond_to do |format|

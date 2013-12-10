@@ -19,6 +19,13 @@
 
 
 	<div class="container">
+		<div class="pull-right" style="margin-top:10px;">
+			<% if !@is_current_user_joined %>
+				<%= link_to raw('Join <i class="glyphicon glyphicon-share-alt"></i>'), new_goal_instance_path(:goal_id => @goal_instance.goal.id), :class => "btn btn-lg btn-success"%>
+			<%end%>
+		</div>
+
+
 		<h1><b><%= @goal_instance.goal.title %></b></h1>
 		<hr />
 		<h2><small><%= @goal_instance.goal.description %></small></h2>
